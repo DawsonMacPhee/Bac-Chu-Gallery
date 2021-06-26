@@ -1,7 +1,7 @@
 var xhr = new XMLHttpRequest();
 xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects", true);
 xhr.setRequestHeader("Content-Type", "application/json");
-xhr.send({
+xhr.send(JSON.stringify({
     "criteria": {
         "type_facet": [23]
     },
@@ -9,7 +9,7 @@ xhr.send({
         "ca_object_representations.media.original" : { "returnURL" : true },
         "ca_entities.related.preferred_labels.displayname" : true
     }
-});
+}));
 xhr.onload = function(e) {
     var response = JSON.parse(this.responseText);
     var table = "";
