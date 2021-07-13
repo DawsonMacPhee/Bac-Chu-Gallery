@@ -1,4 +1,12 @@
 var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/auth/login", true);
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.send(null);
+xhr.onload = function(e) {
+    console.log(this.responseText);
+}
+
+var xhr = new XMLHttpRequest();
 xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects", true);
 xhr.setRequestHeader("Content-Type", "application/json");
 xhr.send(JSON.stringify({
