@@ -11,6 +11,8 @@ xhr.send(JSON.stringify({
     }
 }));
 xhr.onload = function(e) {
+    console.log(this.responseText);
+
     var response = JSON.parse(this.responseText);
     var table = "";
     response["results"].forEach(function(obj) {
