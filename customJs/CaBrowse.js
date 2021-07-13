@@ -7,7 +7,7 @@ xhr.onload = function(e) {
 }
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "https://bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects?authToken=24df46fdc42916e3da3dbdba494c7958d0f3d8cbf24248d72d9ef74fe15fdb3d", true);
+xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects", true);
 xhr.setRequestHeader("Content-Type", "application/json");
 xhr.send(JSON.stringify({
     "criteria": {
