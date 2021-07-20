@@ -25,6 +25,9 @@
     <meta name="theme-color" content="#478ac9">
     <link rel="canonical" href="index.html">
     <meta property="og:url" content="index.html">
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="custom/CaBrowse.css" type="text/css"/>
   </head>
   <body data-home-page="index.html" data-home-page-title="Home" class="u-body"><header class="u-clearfix u-header u-header" id="sec-ac86"><div class="u-clearfix u-sheet u-sheet-1">
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
@@ -55,12 +58,57 @@
       </div></header> 
     
     <!--This is the beginning of custom code block-->
-    <div>
-        <table id="ca-browse-box">
-
-        </table>
+    <div id="ca-browse-app">
+        <div id="ca-browse-sidebar">
+            <br>
+            <input id="ca-browse-sidebar-searchbar" v-model="search" placeholder="Search">
+            <div class="ca-browse-label">
+                <input type="radio" id="creator" value=0 v-model="searchOption">
+                <label for="creator">Creator</label>
+            </div>
+            <div class="ca-browse-label">
+                <input type="radio" id="title" value=1 v-model="searchOption">
+                <label for="title">Title</label>
+            </div>
+            <div class="ca-browse-label">
+                <input type="radio" id="idNumber" value=2 v-model="searchOption">
+                <label for="idNumber">ID Number</label>
+            </div>
+            <div class="ca-browse-label">
+                <input type="radio" id="subjectTerm" value=3 v-model="searchOption">
+                <label for="subjectTerm">Subject Term</label>
+            </div>
+            <br>
+            <h5>Style</h5>
+            <select v-model="style">
+                <option disabled value="">Select Filter Option</option>
+                <option>Test 1</option>
+                <option>Test 2</option>
+                <option>Test 3</option>
+            </select>
+            <br>
+            <h5>Nationality/Culture</h5>
+            <select v-model="nationality">
+                <option disabled value="">Select Filter Option</option>
+                <option>Test 1</option>
+                <option>Test 2</option>
+                <option>Test 3</option>
+            </select>
+            <br>
+            <h5>Medium</h5>
+            <select v-model="medium">
+                <option disabled value="">Select Filter Option</option>
+                <option>Test 1</option>
+                <option>Test 2</option>
+                <option>Test 3</option>
+            </select>
+            <br>
+        </div>
+        <div id="ca-browse-objects">
+            <component v-for="(object, index) in objects" :key="index" :is="object.card" :objectname="object.name" :objectimage="object.image" :objectcreator="object.creator"/>
+        </div>
     </div>
-    <script src="./customJs/CaBrowse.js"></script>
+    <script src="./custom/CaBrowse.js"></script>
     <!--This is the end of custom code block-->
 
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0826"><div class="u-clearfix u-sheet u-sheet-1">
