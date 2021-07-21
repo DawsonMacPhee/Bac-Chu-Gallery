@@ -182,6 +182,7 @@
                 <option>Woodcut on handmade paper</option>
             </select>
             <br>
+            {{ filters }}
         </div>
         <div id="ca-browse-objects">
             <component v-for="(object, index) in displayedObjects" :key="index" :is="object.card" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator"/>

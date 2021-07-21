@@ -27384,7 +27384,7 @@ const app = Vue.createApp({
                         return true;
                     }
                 } else if (event == 'medium') {
-                    if (value.medium == medium) {
+                    if (value.medium.toUpperCase() == medium.toUpperCase()) {
                         return true;
                     }
                 }
@@ -27393,6 +27393,22 @@ const app = Vue.createApp({
             }
 
             this.filteredObjects = this.filteredObjects.filter(filterCompare);
+
+            var value;
+            if (event == 'style') {
+                value = style;
+                style = "";
+            } else if (event == 'nationality') {
+                value = nationality;
+                nationality = "";
+            } else if (event == 'medium') {
+                value = medium;
+                medium = "";
+            }
+            this.filters.push({
+                type: event,
+                value: value
+            });
 
             this.pageNum = 0;
             this.displayedObjects = [];
