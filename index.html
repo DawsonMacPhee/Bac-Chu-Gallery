@@ -82,30 +82,61 @@
             <h5>Style</h5>
             <select v-model="style">
                 <option disabled value="">Select Filter Option</option>
-                <option>Test 1</option>
-                <option>Test 2</option>
-                <option>Test 3</option>
+                <option>Abstract Expressionism</option>
+                <option>Abstractionism</option>
+                <option>Chromatic Abstraction</option>
+                <option>Conceptualism</option>
+                <option>Dadaism</option>
+                <option>Fauvism</option>
+                <option>Formalism</option>
+                <option>German Expressionism</option>
+                <option>Impressionism</option>
+                <option>Marxism</option>
+                <option>Pure Line Engraving</option>
+                <option>Realism</option>
+                <option>Surrealism</option>
             </select>
             <br>
             <h5>Nationality/Culture</h5>
             <select v-model="nationality">
                 <option disabled value="">Select Filter Option</option>
-                <option>Test 1</option>
-                <option>Test 2</option>
-                <option>Test 3</option>
+                <option>American</option>
+                <option>Belgian</option>
+                <option>British</option>
+                <option>Canadian</option>
+                <option>Canadian Inuit</option>
+                <option>Chinese</option>
+                <option>Crotian</option>
+                <option>Czech</option>
+                <option>Danish</option>
+                <option>Dutch</option>
+                <option>English</option>
+                <option>Estonian</option>
+                <option>Franch</option>
+                <option>German</option>
+                <option>Hungarian</option>
+                <option>Indian</option>
+                <option>Japanese</option>
+                <option>Lithuanian</option>
+                <option>Manx</option>
+                <option>Mexican</option>
+                <option>Russian</option>
+                <option>Scottish</option>
+                <option>Spanish</option>
+                <option>Swiss</option>
             </select>
             <br>
             <h5>Medium</h5>
             <select v-model="medium">
                 <option disabled value="">Select Filter Option</option>
-                <option>Test 1</option>
-                <option>Test 2</option>
-                <option>Test 3</option>
+                <option>Acrylic on paper</option>
+                <option>Air brushed</option>
+                <option>Aquatint</option>
             </select>
             <br>
         </div>
         <div id="ca-browse-objects">
-            <component v-for="(object, index) in objects" :key="index" :is="object.card" :objectname="object.name" :objectimage="object.image" :objectcreator="object.creator"/>
+            <component v-for="(object, index) in objects" :key="index" :is="object.card" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator"/>
         </div>
     </div>
     <script src="./custom/CaBrowse.js"></script>

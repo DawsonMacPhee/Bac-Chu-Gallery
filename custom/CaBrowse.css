@@ -28,7 +28,7 @@
 .objectCard-image {
     margin-top: 15px;
     max-width: 90%;
-    height: 170px;
+    max-height: 170px;
 }
 .objectCard {
     display: flex;
