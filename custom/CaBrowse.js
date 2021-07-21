@@ -765,7 +765,9 @@ var testResponse = {
             "ca_objects.displayMaterialsTech": "",
             "ca_object_representations.media.original": null,
             "ca_entities.related.preferred_labels.displayname": {},
-            "ca_entities.related.nationalityCreator": {}
+            "ca_entities.related.nationalityCreator": [
+
+            ]
         },
         {
             "object_id": "8522",
@@ -10629,7 +10631,9 @@ var testResponse = {
             "ca_entities.related.preferred_labels.displayname": [
                 "Nadeau"
             ],
-            "ca_entities.related.nationalityCreator": {}
+            "ca_entities.related.nationalityCreator": [
+
+            ]
         },
         {
             "object_id": "9172",
@@ -27355,7 +27359,46 @@ const app = Vue.createApp({
             style: "",
             nationality: "",
             medium: "",
-            objects: []
+            allObjects: [],
+            filteredObjects: [],
+            displayedObjects: [],
+            filters: [],
+            pageNum: 0
+        }
+    },
+
+
+    methods: {
+        applyFilter(event) {
+            var style = this.style;
+            var nationality = this.nationality;
+            var medium = this.medium;
+
+            function filterCompare(value) {
+                if (!Array.isArray(value.nationality)) {
+                    return false;
+                } else if (event == 'style') {
+                    //TODO
+                } else if (event == 'nationality') {
+                    if (value.nationality.includes(nationality)) {
+                        return true;
+                    }
+                } else if (event == 'medium') {
+                    if (value.medium == medium) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            this.filteredObjects = this.filteredObjects.filter(filterCompare);
+
+            this.pageNum = 0;
+            this.displayedObjects = [];
+            for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                this.displayedObjects.push(this.filteredObjects[i]);
+            }
         }
     },
 
@@ -27366,7 +27409,7 @@ const app = Vue.createApp({
             if (image == null) {
                 image = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png";
             }
-            this.objects.push({
+            this.allObjects.push({
                 "card": objectCard,
                 "id": testResponse.results[i]["idno"],
                 "title": testResponse.results[i]["display_label"], 
@@ -27377,6 +27420,12 @@ const app = Vue.createApp({
                 "nationality": testResponse.results[i]["ca_entities.related.nationalityCreator"]
             });
         }
+
+        for (var i = this.pageNum * 12; i < (this.pageNum * 12) + 12; i++) {
+            this.displayedObjects.push(this.allObjects[i]);
+        }
+
+        this.filteredObjects = this.allObjects;
     }
 });
 

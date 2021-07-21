@@ -80,7 +80,7 @@
             </div>
             <br>
             <h5>Style</h5>
-            <select v-model="style">
+            <select @change="applyFilter('style')" v-model="style">
                 <option disabled value="">Select Filter Option</option>
                 <option>Abstract Expressionism</option>
                 <option>Abstractionism</option>
@@ -98,7 +98,7 @@
             </select>
             <br>
             <h5>Nationality/Culture</h5>
-            <select v-model="nationality">
+            <select @change="applyFilter('nationality')" v-model="nationality">
                 <option disabled value="">Select Filter Option</option>
                 <option>American</option>
                 <option>Belgian</option>
@@ -127,16 +127,64 @@
             </select>
             <br>
             <h5>Medium</h5>
-            <select v-model="medium">
+            <select @change="applyFilter('medium')" v-model="medium">
                 <option disabled value="">Select Filter Option</option>
                 <option>Acrylic on paper</option>
                 <option>Air brushed</option>
                 <option>Aquatint</option>
+                <option>C-Print</option>
+                <option>Charcoal on paper</option>
+                <option>Collograph</option>
+                <option>Colour photograph</option>
+                <option>Digital photograph</option>
+                <option>Digital print</option>
+                <option>Drypoint</option>
+                <option>Dye resist</option>
+                <option>Embossed print</option>
+                <option>Engraving</option>
+                <option>Etching</option>
+                <option>Etching and steal</option>
+                <option>Glossy print</option>
+                <option>Gouache on paper</option>
+                <option>Graphite on paper</option>
+                <option>Hand-coloured engraving</option>
+                <option>Ink drawing</option>
+                <option>Ink on paper</option>
+                <option>Ink on rice paper</option>
+                <option>Intaglio</option>
+                <option>Letterpress text</option>
+                <option>Linocut</option>
+                <option>Lithograph</option>
+                <option>Lithograph on handmade paper</option>
+                <option>Lithograph with embossing</option>
+                <option>Lithograph with hand colouring</option>
+                <option>Mezzotint</option>
+                <option>Mixed media</option>
+                <option>Monoprint</option>
+                <option>Offset lithograph</option>
+                <option>Pastels</option>
+                <option>Pencil drawing</option>
+                <option>Pencil drawing and transfer crayon</option>
+                <option>Pencil on paper</option>
+                <option>Photogram</option>
+                <option>Photo-lithograph</option>
+                <option>Relief print</option>
+                <option>Screenprint</option>
+                <option>Screenprint on plastic</option>
+                <option>Serigraph</option>
+                <option>Serigraph with embossing</option>
+                <option>Silkscreen</option>
+                <option>Silkscreen with embossing</option>
+                <option>Watercolour</option>
+                <option>Watercolour and graphite</option>
+                <option>Wood engraving</option>
+                <option>Woodcut</option>
+                <option>Woodcut on handmade paper</option>
             </select>
             <br>
         </div>
         <div id="ca-browse-objects">
-            <component v-for="(object, index) in objects" :key="index" :is="object.card" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator"/>
+            <component v-for="(object, index) in displayedObjects" :key="index" :is="object.card" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator"/>
         </div>
     </div>
     <script src="./custom/CaBrowse.js"></script>
