@@ -27355,12 +27355,13 @@ const app = Vue.createApp({
     data() {
         return {
             search: "",
-            searchOption: 0,
+            searchOption: "creator",
             style: "",
             nationality: "",
             medium: "",
             allObjects: [],
             filteredObjects: [],
+            textFilteredObjects: [],
             displayedObjects: [],
             filters: [],
             pageNum: 0
@@ -27380,8 +27381,10 @@ const app = Vue.createApp({
                 } else if (event == 'style') {
                     //TODO
                 } else if (event == 'nationality') {
-                    if (value.nationality.includes(nationality)) {
-                        return true;
+                    for (var i = 0; i < value.nationality.length; i++) {
+                        if (value.nationality[i].toUpperCase() == nationality.toUpperCase()) {
+                            return true;
+                        }
                     }
                 } else if (event == 'medium') {
                     if (value.medium.toUpperCase() == medium.toUpperCase()) {
@@ -27395,15 +27398,16 @@ const app = Vue.createApp({
             this.filteredObjects = this.filteredObjects.filter(filterCompare);
 
             var value;
+            this.search = "";
             if (event == 'style') {
                 value = style;
-                style = "";
+                this.style = "";
             } else if (event == 'nationality') {
                 value = nationality;
-                nationality = "";
+                this.nationality = "";
             } else if (event == 'medium') {
                 value = medium;
-                medium = "";
+                this.medium = "";
             }
             this.filters.push({
                 type: event,
@@ -27415,6 +27419,57 @@ const app = Vue.createApp({
             for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
                 this.displayedObjects.push(this.filteredObjects[i]);
             }
+        },
+        applyTextFilter() {
+            var search = this.search;
+            var searchOption = this.searchOption;
+
+            if (search == "") {
+                for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                    this.displayedObjects.push(this.filteredObjects[i]);
+                }
+            }
+
+            function filterCompare(value) {
+                if (searchOption == "creator") {
+                    for (var i = 0; i < value.creator.length; i++) {
+                        if (value.creator[i].toUpperCase().includes(search.toUpperCase())) {
+                            return true;
+                        }
+                    }
+                } else if (searchOption == "title") {
+                    if (value.title.toUpperCase().includes(search.toUpperCase())) {
+                        return true;
+                    }
+                } else if (searchOption == "idNumber") {
+                    if (value.id.toUpperCase().includes(search.toUpperCase())) {
+                        return true;
+                    }
+                } else if (searchOption == "subjectTerm") {
+                    //TODO
+                }
+                return false;
+            }
+
+            this.textFilteredObjects = this.filteredObjects.filter(filterCompare);
+
+            this.pageNum = 0;
+            this.displayedObjects = [];
+            for (var i = this.pageNum * 12; (i < this.textFilteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                this.displayedObjects.push(this.textFilteredObjects[i]);
+            }
+        },
+        confirmTextFilter() {
+            if (this.search == "") {
+                return;
+            }
+
+            this.filteredObjects = this.textFilteredObjects;
+
+            this.filters.push({
+                type: this.searchOption,
+                value: this.search
+            });
         }
     },
 

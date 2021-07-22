@@ -61,21 +61,21 @@
     <div id="ca-browse-app">
         <div id="ca-browse-sidebar">
             <br>
-            <input id="ca-browse-sidebar-searchbar" v-model="search" placeholder="Search">
+            <input id="ca-browse-sidebar-searchbar"  v-on:keyup.enter="confirmTextFilter()" v-on:keyup="applyTextFilter()" v-model="search" placeholder="Search">
             <div class="ca-browse-label">
-                <input type="radio" id="creator" value=0 v-model="searchOption">
+                <input type="radio" id="creator" value="creator" v-model="searchOption">
                 <label for="creator">Creator</label>
             </div>
             <div class="ca-browse-label">
-                <input type="radio" id="title" value=1 v-model="searchOption">
+                <input type="radio" id="title" value="title" v-model="searchOption">
                 <label for="title">Title</label>
             </div>
             <div class="ca-browse-label">
-                <input type="radio" id="idNumber" value=2 v-model="searchOption">
+                <input type="radio" id="idNumber" value="idNumber" v-model="searchOption">
                 <label for="idNumber">ID Number</label>
             </div>
             <div class="ca-browse-label">
-                <input type="radio" id="subjectTerm" value=3 v-model="searchOption">
+                <input type="radio" id="subjectTerm" value="subjectTerm" v-model="searchOption">
                 <label for="subjectTerm">Subject Term</label>
             </div>
             <br>
