@@ -182,6 +182,14 @@
                 <option>Woodcut on handmade paper</option>
             </select>
             <br>
+            <div id="ca-browse-pages">
+                <input type="button" value="<" v-on:click="backPage">
+                <input type="button" :value="pageOptionOne" :style="{backgroundColor: pageOptionOneColor}" v-on:click="specificPage(pageOptionOne)">
+                <input type="button" :value="pageOptionTwo" :style="{backgroundColor: pageOptionTwoColor}" v-on:click="specificPage(pageOptionTwo)">
+                <input type="button" :value="pageOptionThree" :style="{backgroundColor: pageOptionThreeColor}" v-on:click="specificPage(pageOptionThree)">
+                <input type="button" value=">" v-on:click="forwardPage">
+            </div>
+            <br>
             {{ filters }}
         </div>
         <div id="ca-browse-objects">

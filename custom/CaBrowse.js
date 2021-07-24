@@ -27364,7 +27364,13 @@ const app = Vue.createApp({
             textFilteredObjects: [],
             displayedObjects: [],
             filters: [],
-            pageNum: 0
+            pageNum: 0,
+            pageOptionOne: 1,
+            pageOptionOneColor: "aqua",
+            pageOptionTwo: 2,
+            pageOptionTwoColor: "white",
+            pageOptionThree: 3,
+            pageOptionThreeColor: "white"
         }
     },
 
@@ -27415,6 +27421,12 @@ const app = Vue.createApp({
             });
 
             this.pageNum = 0;
+            this.pageOptionOne = 1;
+            this.pageOptionTwo = 2;
+            this.pageOptionThree = 3;
+            this.pageOptionOneColor = "aqua";
+            this.pageOptionTwoColor = "white";
+
             this.displayedObjects = [];
             for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
                 this.displayedObjects.push(this.filteredObjects[i]);
@@ -27454,6 +27466,12 @@ const app = Vue.createApp({
             this.textFilteredObjects = this.filteredObjects.filter(filterCompare);
 
             this.pageNum = 0;
+            this.pageOptionOne = 1;
+            this.pageOptionTwo = 2;
+            this.pageOptionThree = 3;
+            this.pageOptionOneColor = "aqua";
+            this.pageOptionTwoColor = "white";
+
             this.displayedObjects = [];
             for (var i = this.pageNum * 12; (i < this.textFilteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
                 this.displayedObjects.push(this.textFilteredObjects[i]);
@@ -27470,6 +27488,63 @@ const app = Vue.createApp({
                 type: this.searchOption,
                 value: this.search
             });
+        },
+        backPage() {
+            if (this.pageNum == 0) {
+                return;
+            } else if (this.pageNum == 1) {
+                this.pageOptionOneColor = "aqua";
+                this.pageOptionTwoColor = "white";
+            } else {
+                this.pageOptionOne -= 1;
+                this.pageOptionTwo -= 1;
+                this.pageOptionThree -= 1;
+            }
+
+            this.pageNum -= 1;
+            this.displayedObjects = [];
+            for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                this.displayedObjects.push(this.filteredObjects[i]);
+            }
+        }, 
+        forwardPage() {
+            if (((this.pageNum + 1) * 12) >= (this.filteredObjects.length)) {
+                return;
+            } else if (this.pageNum == 0) {
+                this.pageOptionOneColor = "white";
+                this.pageOptionTwoColor = "aqua";
+            } else {
+                this.pageOptionOne += 1;
+                this.pageOptionTwo += 1;
+                this.pageOptionThree += 1;
+            }
+
+            this.pageNum += 1;
+            this.displayedObjects = [];
+            for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                this.displayedObjects.push(this.filteredObjects[i]);
+            }
+        },
+        specificPage(newPageNum) {
+            if (((newPageNum - 1) * 12) >= (this.filteredObjects.length)) {
+                return;
+            } else if (newPageNum == 1) {
+                this.pageOptionOneColor = "aqua";
+                this.pageOptionTwoColor = "white";
+            } else {
+                this.pageOptionOneColor = "white";
+                this.pageOptionTwoColor = "aqua";
+
+                this.pageOptionOne = newPageNum - 1;
+                this.pageOptionTwo = newPageNum;
+                this.pageOptionThree = newPageNum + 1;
+            }
+
+            this.pageNum = newPageNum - 1;
+            this.displayedObjects = [];
+            for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                this.displayedObjects.push(this.filteredObjects[i]);
+            }
         }
     },
 
