@@ -61,7 +61,7 @@
     <div id="ca-browse-app">
         <div id="ca-browse-sidebar">
             <br>
-            <input id="ca-browse-sidebar-searchbar"  v-on:keyup.enter="confirmTextFilter()" v-on:keyup="applyTextFilter()" v-model="search" placeholder="Search">
+            <input id="ca-browse-sidebar-searchbar"  v-on:keyup.enter="confirmTextFilter(search, searchOption, true)" v-on:keyup="applyTextFilter(search, searchOption, true)" v-model="search" placeholder="Search">
             <div class="ca-browse-label">
                 <input type="radio" id="creator" value="creator" v-model="searchOption">
                 <label for="creator">Creator</label>
@@ -80,7 +80,7 @@
             </div>
             <br>
             <h5>Style</h5>
-            <select @change="applyFilter('style')" v-model="style">
+            <select @change="applyFilter('style', style, true)" v-model="style">
                 <option disabled value="">Select Filter Option</option>
                 <option>Abstract Expressionism</option>
                 <option>Abstractionism</option>
@@ -98,7 +98,7 @@
             </select>
             <br>
             <h5>Nationality/Culture</h5>
-            <select @change="applyFilter('nationality')" v-model="nationality">
+            <select @change="applyFilter('nationality', nationality, true)" v-model="nationality">
                 <option disabled value="">Select Filter Option</option>
                 <option>American</option>
                 <option>Belgian</option>
@@ -127,7 +127,7 @@
             </select>
             <br>
             <h5>Medium</h5>
-            <select @change="applyFilter('medium')" v-model="medium">
+            <select @change="applyFilter('medium', medium, true)" v-model="medium">
                 <option disabled value="">Select Filter Option</option>
                 <option>Acrylic on paper</option>
                 <option>Air brushed</option>
@@ -190,8 +190,12 @@
                 <input type="button" value=">" v-on:click="forwardPage">
             </div>
             <br>
-            {{ filters }}
-        </div>
+            <div id="filterCards">
+              <div class="filterCard" v-for="(filter, index) in filters" v-on:click="removeFilter(index)">
+                {{ filter.value }} X
+              </div>
+            </div>
+          </div>
         <div id="ca-browse-objects">
             <component v-for="(object, index) in displayedObjects" :key="index" :is="object.card" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator"/>
         </div>

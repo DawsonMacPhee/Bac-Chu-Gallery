@@ -27345,7 +27345,7 @@ const objectCard = {
             required: true
         },
         objectcreator: {
-            type: String,
+            type: Array,
             required: true
         },
     }
@@ -27376,66 +27376,50 @@ const app = Vue.createApp({
 
 
     methods: {
-        applyFilter(event) {
-            var style = this.style;
-            var nationality = this.nationality;
-            var medium = this.medium;
-
+        applyFilter(filterType, filterValue, update) {
             function filterCompare(value) {
-                if (!Array.isArray(value.nationality)) {
-                    return false;
-                } else if (event == 'style') {
+                if (filterType == 'style') {
                     //TODO
-                } else if (event == 'nationality') {
+                } else if (filterType == 'nationality' && Array.isArray(value.nationality)) {
                     for (var i = 0; i < value.nationality.length; i++) {
-                        if (value.nationality[i].toUpperCase() == nationality.toUpperCase()) {
+                        if (value.nationality[i].toUpperCase() == filterValue.toUpperCase()) {
                             return true;
                         }
                     }
-                } else if (event == 'medium') {
-                    if (value.medium.toUpperCase() == medium.toUpperCase()) {
+                } else if (filterType == 'medium') {
+                    if (value.medium.toUpperCase() == filterValue.toUpperCase()) {
                         return true;
                     }
                 }
-
                 return false;
             }
-
             this.filteredObjects = this.filteredObjects.filter(filterCompare);
 
-            var value;
-            this.search = "";
-            if (event == 'style') {
-                value = style;
+            if (update) {
+                this.search = "";
                 this.style = "";
-            } else if (event == 'nationality') {
-                value = nationality;
                 this.nationality = "";
-            } else if (event == 'medium') {
-                value = medium;
                 this.medium = "";
-            }
-            this.filters.push({
-                type: event,
-                value: value
-            });
 
-            this.pageNum = 0;
-            this.pageOptionOne = 1;
-            this.pageOptionTwo = 2;
-            this.pageOptionThree = 3;
-            this.pageOptionOneColor = "aqua";
-            this.pageOptionTwoColor = "white";
+                this.filters.push({
+                    type: filterType,
+                    value: filterValue
+                });
 
-            this.displayedObjects = [];
-            for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
-                this.displayedObjects.push(this.filteredObjects[i]);
+                this.pageNum = 0;
+                this.pageOptionOne = 1;
+                this.pageOptionTwo = 2;
+                this.pageOptionThree = 3;
+                this.pageOptionOneColor = "aqua";
+                this.pageOptionTwoColor = "white";
+
+                this.displayedObjects = [];
+                for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                    this.displayedObjects.push(this.filteredObjects[i]);
+                }
             }
         },
-        applyTextFilter() {
-            var search = this.search;
-            var searchOption = this.searchOption;
-
+        applyTextFilter(search, searchOption, update) {
             if (search == "") {
                 for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
                     this.displayedObjects.push(this.filteredObjects[i]);
@@ -27462,32 +27446,35 @@ const app = Vue.createApp({
                 }
                 return false;
             }
-
             this.textFilteredObjects = this.filteredObjects.filter(filterCompare);
 
-            this.pageNum = 0;
-            this.pageOptionOne = 1;
-            this.pageOptionTwo = 2;
-            this.pageOptionThree = 3;
-            this.pageOptionOneColor = "aqua";
-            this.pageOptionTwoColor = "white";
+            if (update) {
+                this.pageNum = 0;
+                this.pageOptionOne = 1;
+                this.pageOptionTwo = 2;
+                this.pageOptionThree = 3;
+                this.pageOptionOneColor = "aqua";
+                this.pageOptionTwoColor = "white";
 
-            this.displayedObjects = [];
-            for (var i = this.pageNum * 12; (i < this.textFilteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
-                this.displayedObjects.push(this.textFilteredObjects[i]);
+                this.displayedObjects = [];
+                for (var i = this.pageNum * 12; (i < this.textFilteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                    this.displayedObjects.push(this.textFilteredObjects[i]);
+                }
             }
         },
-        confirmTextFilter() {
-            if (this.search == "") {
+        confirmTextFilter(search, searchOption, update) {
+            if (search == "") {
                 return;
             }
-
             this.filteredObjects = this.textFilteredObjects;
 
-            this.filters.push({
-                type: this.searchOption,
-                value: this.search
-            });
+            if (update) {
+                this.filters.push({
+                    type: searchOption,
+                    value: search
+                });
+                this.search = "";
+            }
         },
         backPage() {
             if (this.pageNum == 0) {
@@ -27541,6 +27528,44 @@ const app = Vue.createApp({
             }
 
             this.pageNum = newPageNum - 1;
+            this.displayedObjects = [];
+            for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                this.displayedObjects.push(this.filteredObjects[i]);
+            }
+        },
+        removeFilter(index) {
+            this.filteredObjects = this.allObjects;
+
+            this.filters.splice(index, 1);
+            for(var i = 0; i < this.filters.length; i++) {
+                if (this.filters[i].type == "style") {
+                    this.applyFilter("style", this.filters[i].value, false);
+                } else if (this.filters[i].type == "nationality") {
+                    this.applyFilter("nationality", this.filters[i].value, false);
+                } else if (this.filters[i].type == "medium") {
+                    this.applyFilter("medium", this.filters[i].value, false);
+                } else if (this.filters[i].type == "creator") {
+                    this.applyTextFilter(this.filters[i].value, "creator", false);
+                    this.confirmTextFilter(this.filters[i].value, "creator", false);
+                } else if (this.filters[i].type == "title") {
+                    this.applyTextFilter(this.filters[i].value, "title", false);
+                    this.confirmTextFilter(this.filters[i].value, "title", false);
+                } else if (this.filters[i].type == "idNumber") {
+                    this.applyTextFilter(this.filters[i].value, "idNumber", false);
+                    this.confirmTextFilter(this.filters[i].value, "idNumber", false);
+                } else if (this.filters[i].type == "subjectTerm") {
+                    this.applyTextFilter(this.filters[i].value, "subjectTerm", false);
+                    this.confirmTextFilter(this.filters[i].value, "subjectTerm", false);
+                }
+            }
+
+            this.pageNum = 0;
+            this.pageOptionOne = 1;
+            this.pageOptionTwo = 2;
+            this.pageOptionThree = 3;
+            this.pageOptionOneColor = "aqua";
+            this.pageOptionTwoColor = "white";
+
             this.displayedObjects = [];
             for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
                 this.displayedObjects.push(this.filteredObjects[i]);

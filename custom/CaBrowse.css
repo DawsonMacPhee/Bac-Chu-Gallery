@@ -47,4 +47,24 @@
     width: 31%;
     text-align: center;
     color: white;
+    max-height: 400px;
+}
+.filterCard {
+    display: flex;
+    flex-direction: row;
+    flex-basis: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: cadetblue;
+    border: 3px solid blue;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 5px;
+}
+#filterCards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
