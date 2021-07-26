@@ -1,3 +1,31 @@
+input[type="radio"] {
+    display: none;
+}
+  
+input[type="radio"] + label:before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    padding: 3px;
+    margin-right: 5px;
+    background-clip: content-box;
+    border: 1px solid #bbbbbb;
+    background-color: #e7e6e7;
+    border-radius: 50%;
+}
+  
+input[type="radio"]:checked + label:before {
+    background-color: rgb(166, 93, 89);
+    border-color: rgb(166, 93, 89);
+}
+  
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 #ca-browse-app {
     display: flex;
     flex-direction: row;
@@ -10,7 +38,7 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    background-color: gray;
+    background-image: linear-gradient(to bottom, rgba(76, 111, 158,0.8), rgba(76, 111, 158,0));
     border-radius: 15px;
     margin: 5px;
     padding-left: 20px;
@@ -32,6 +60,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    
 }
 .objectCard-image {
     margin-top: 15px;
@@ -42,12 +71,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: gray;
+    background-color: rgb(166, 93, 89);
     border-radius: 15px;
     margin: 5px;
     width: 31%;
     text-align: center;
-    color: white;
+    color: black;
     max-height: 400px;
 }
 .filterCard {
