@@ -112,7 +112,7 @@
                 <option>Dutch</option>
                 <option>English</option>
                 <option>Estonian</option>
-                <option>Franch</option>
+                <option>French</option>
                 <option>German</option>
                 <option>Hungarian</option>
                 <option>Indian</option>
@@ -191,7 +191,7 @@
             </div>
             <br>
             <div id="filterCards">
-              <div class="filterCard" v-for="(filter, index) in filters" v-on:click="removeFilter(index)">
+              <div class="filterCard" v-for="(filter, index) in filters" v-on:click="removeFilter(index)" :style="{backgroundColor: filter.bgColor, borderColor: filter.bdColor}">
                 {{ filter.value }} X
               </div>
             </div>

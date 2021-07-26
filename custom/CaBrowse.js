@@ -27378,15 +27378,15 @@ const app = Vue.createApp({
     methods: {
         applyFilter(filterType, filterValue, update) {
             function filterCompare(value) {
-                if (filterType == 'style') {
+                if (filterType == "style") {
                     //TODO
-                } else if (filterType == 'nationality' && Array.isArray(value.nationality)) {
+                } else if (filterType == "nationality" && Array.isArray(value.nationality)) {
                     for (var i = 0; i < value.nationality.length; i++) {
                         if (value.nationality[i].toUpperCase() == filterValue.toUpperCase()) {
                             return true;
                         }
                     }
-                } else if (filterType == 'medium') {
+                } else if (filterType == "medium") {
                     if (value.medium.toUpperCase() == filterValue.toUpperCase()) {
                         return true;
                     }
@@ -27396,6 +27396,19 @@ const app = Vue.createApp({
             this.filteredObjects = this.filteredObjects.filter(filterCompare);
 
             if (update) {
+                var bgColor;
+                var bdColor;
+                if (filterType == "style") {
+                    bgColor = "rgb(255, 138, 138)";
+                    bdColor = "rgb(176, 65, 65)";
+                } else if (filterType == "nationality") {
+                    bgColor = "rgb(112, 215, 255)";
+                    bdColor = "rgb(40, 123, 156)";
+                } else if (filterType == "medium") {
+                    bgColor = "rgb(205, 135, 255)";
+                    bdColor = "rgb(104, 31, 156)";
+                }
+
                 this.search = "";
                 this.style = "";
                 this.nationality = "";
@@ -27403,7 +27416,9 @@ const app = Vue.createApp({
 
                 this.filters.push({
                     type: filterType,
-                    value: filterValue
+                    value: filterValue,
+                    bgColor: bgColor,
+                    bdColor: bdColor
                 });
 
                 this.pageNum = 0;
@@ -27469,9 +27484,27 @@ const app = Vue.createApp({
             this.filteredObjects = this.textFilteredObjects;
 
             if (update) {
+                var bgColor;
+                var bdColor;
+                if (searchOption == "creator") {
+                    bgColor = "rgb(102, 217, 138)";
+                    bdColor = "rgb(28, 128, 59)";
+                } else if (searchOption == "title") {
+                    bgColor = "rgb(69, 131, 255)";
+                    bdColor = "rgb(0, 51, 153)";
+                } else if (searchOption == "idNumber") {
+                    bgColor = "rgb(255, 174, 69)";
+                    bdColor = "rgb(166, 95, 3)";
+                } else if (searchOption == "subjectTerm") {
+                    bgColor = "rgb(245, 223, 83)";
+                    bdColor = "rgb(171, 148, 3)";
+                }
+
                 this.filters.push({
                     type: searchOption,
-                    value: search
+                    value: search,
+                    bgColor: bgColor,
+                    bdColor: bdColor
                 });
                 this.search = "";
             }
