@@ -27435,12 +27435,6 @@ const app = Vue.createApp({
             }
         },
         applyTextFilter(search, searchOption, update) {
-            if (search == "") {
-                for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
-                    this.displayedObjects.push(this.filteredObjects[i]);
-                }
-            }
-
             function filterCompare(value) {
                 if (searchOption == "creator") {
                     for (var i = 0; i < value.creator.length; i++) {
@@ -27452,7 +27446,7 @@ const app = Vue.createApp({
                     if (value.title.toUpperCase().includes(search.toUpperCase())) {
                         return true;
                     }
-                } else if (searchOption == "idNumber") {
+                } else if (searchOption == "idNumber" && typeof value.id !== 'undefined') {
                     if (value.id.toUpperCase().includes(search.toUpperCase())) {
                         return true;
                     }
@@ -27464,6 +27458,10 @@ const app = Vue.createApp({
             this.textFilteredObjects = this.filteredObjects.filter(filterCompare);
 
             if (update) {
+                if (search == "") {
+                    this.textFilteredObjects = this.filteredObjects;
+                }
+
                 this.pageNum = 0;
                 this.pageOptionOne = 1;
                 this.pageOptionTwo = 2;
