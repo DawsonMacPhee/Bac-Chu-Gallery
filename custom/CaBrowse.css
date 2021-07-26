@@ -2,8 +2,9 @@
     display: flex;
     flex-direction: row;
     margin-left: 10%;
-    margin-right: 10%;
+    margin-right: 9%;
     margin-bottom: 1%;
+    margin-top: 1%;
 }
 #ca-browse-sidebar {
     display: flex;
