@@ -27329,8 +27329,9 @@ const objectCard = {
     `
     <div class="objectCard">
         <img class="objectCard-image" :src="objectimage">
-        <h5> {{ objectname }} </h5>
-        <h6> {{ objectcreator[0] }} </h6>
+        <h5 class="objectCard-title"> {{ objectname }} </h5>
+        <h6 class="objectCard-creator"> {{ objectcreator[0] }} </h6>
+        <span class="objectCard-extraInfo">{{ extraInfo }}</span>
     </div>
     `,
 
@@ -27348,6 +27349,44 @@ const objectCard = {
             type: Array,
             required: true
         },
+        creatornationality: {
+            type: Array,
+            required: true
+        },
+        objectdate: {
+            type: String,
+            required: true
+        }
+    },
+
+
+    computed: {
+        extraInfo() {
+            var out = "(";
+            var first = true;
+
+            if (typeof this.creatornationality !== 'undefined' && Array.isArray(this.creatornationality)) {
+                for (var i = 0; i < this.creatornationality.length; i++) {
+                    if (first && this.creatornationality[i] != "") {
+                        out += this.creatornationality[i];
+                        first = false;
+                    } else if (this.creatornationality[i] != "") {
+                        out += ", " + this.creatornationality[i];
+                    }
+                }
+            }
+
+            if (typeof this.objectdate !== 'undefined' && this.objectdate != "") {
+                if (first) {
+                    out += this.objectdate;
+                    first = false;
+                } else {
+                    out += ", " + this.objectdate;
+                }
+            }
+
+            return out + ")";
+        }
     }
 }
 
@@ -27366,11 +27405,11 @@ const app = Vue.createApp({
             filters: [],
             pageNum: 0,
             pageOptionOne: 1,
-            pageOptionOneColor: "aqua",
+            pageOptionOneColor: "rgba(76, 111, 158, 0.8)",
             pageOptionTwo: 2,
-            pageOptionTwoColor: "white",
+            pageOptionTwoColor: "rgb(166, 93, 89)",
             pageOptionThree: 3,
-            pageOptionThreeColor: "white"
+            pageOptionThreeColor: "rgb(166, 93, 89)"
         }
     },
 
@@ -27425,8 +27464,8 @@ const app = Vue.createApp({
                 this.pageOptionOne = 1;
                 this.pageOptionTwo = 2;
                 this.pageOptionThree = 3;
-                this.pageOptionOneColor = "aqua";
-                this.pageOptionTwoColor = "white";
+                this.pageOptionOneColor = "rgba(76, 111, 158, 0.8)";
+                this.pageOptionTwoColor = "rgb(166, 93, 89)";
 
                 this.displayedObjects = [];
                 for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
@@ -27466,8 +27505,8 @@ const app = Vue.createApp({
                 this.pageOptionOne = 1;
                 this.pageOptionTwo = 2;
                 this.pageOptionThree = 3;
-                this.pageOptionOneColor = "aqua";
-                this.pageOptionTwoColor = "white";
+                this.pageOptionOneColor = "rgba(76, 111, 158, 0.8)";
+                this.pageOptionTwoColor = "rgb(166, 93, 89)";
 
                 this.displayedObjects = [];
                 for (var i = this.pageNum * 12; (i < this.textFilteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
@@ -27511,8 +27550,8 @@ const app = Vue.createApp({
             if (this.pageNum == 0) {
                 return;
             } else if (this.pageNum == 1) {
-                this.pageOptionOneColor = "aqua";
-                this.pageOptionTwoColor = "white";
+                this.pageOptionOneColor = "rgba(76, 111, 158, 0.8)";
+                this.pageOptionTwoColor = "rgb(166, 93, 89)";
             } else {
                 this.pageOptionOne -= 1;
                 this.pageOptionTwo -= 1;
@@ -27529,8 +27568,8 @@ const app = Vue.createApp({
             if (((this.pageNum + 1) * 12) >= (this.filteredObjects.length)) {
                 return;
             } else if (this.pageNum == 0) {
-                this.pageOptionOneColor = "white";
-                this.pageOptionTwoColor = "aqua";
+                this.pageOptionOneColor = "rgb(166, 93, 89)";
+                this.pageOptionTwoColor = "rgba(76, 111, 158, 0.8)";
             } else {
                 this.pageOptionOne += 1;
                 this.pageOptionTwo += 1;
@@ -27547,11 +27586,11 @@ const app = Vue.createApp({
             if (((newPageNum - 1) * 12) >= (this.filteredObjects.length)) {
                 return;
             } else if (newPageNum == 1) {
-                this.pageOptionOneColor = "aqua";
-                this.pageOptionTwoColor = "white";
+                this.pageOptionOneColor = "rgba(76, 111, 158, 0.8)";
+                this.pageOptionTwoColor = "rgb(166, 93, 89)";
             } else {
-                this.pageOptionOneColor = "white";
-                this.pageOptionTwoColor = "aqua";
+                this.pageOptionOneColor = "rgb(166, 93, 89)";
+                this.pageOptionTwoColor = "rgba(76, 111, 158, 0.8)";
 
                 this.pageOptionOne = newPageNum - 1;
                 this.pageOptionTwo = newPageNum;
@@ -27594,8 +27633,8 @@ const app = Vue.createApp({
             this.pageOptionOne = 1;
             this.pageOptionTwo = 2;
             this.pageOptionThree = 3;
-            this.pageOptionOneColor = "aqua";
-            this.pageOptionTwoColor = "white";
+            this.pageOptionOneColor = "rgba(76, 111, 158, 0.8)";
+            this.pageOptionTwoColor = "rgb(166, 93, 89)";
 
             this.displayedObjects = [];
             for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {

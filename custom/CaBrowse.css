@@ -45,6 +45,9 @@ input[type="radio"]:checked + label:before {
     padding-right: 20px;
     max-width: 25%;
 }
+#ca-browse-sidebar-searchbar {
+    margin-bottom: 5px;
+}
 #ca-browse-objects {
     display: flex;
     flex-grow: 10;
@@ -67,6 +70,16 @@ input[type="radio"]:checked + label:before {
     max-width: 90%;
     max-height: 170px;
 }
+.objectCard-title {
+    max-width: 90%;
+    margin-bottom: 3px;
+}
+.objectCard-creator {
+    margin-bottom: 3px;
+}
+.objectCard-extraInfo {
+    margin-bottom: 8px;
+}
 .objectCard {
     display: flex;
     flex-direction: column;
@@ -78,6 +91,11 @@ input[type="radio"]:checked + label:before {
     text-align: center;
     color: black;
     max-height: 400px;
+}
+.filterCard-close {
+    cursor: pointer;
+    margin-left: 5px;
+    color: red;
 }
 .filterCard {
     display: flex;
@@ -97,4 +115,9 @@ input[type="radio"]:checked + label:before {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+.pageButton {
+    background-color: rgb(166, 93, 89);
+    border-radius: 10px;
+    margin: 2px;
 }

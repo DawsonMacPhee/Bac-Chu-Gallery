@@ -225,23 +225,25 @@
               <option>Woodcut</option>
               <option>Woodcut on handmade paper</option>
           </select>
+          <br>
           <hr>
           <div id="ca-browse-pages">
-              <input type="button" value="<" v-on:click="backPage">
-              <input type="button" :value="pageOptionOne" :style="{backgroundColor: pageOptionOneColor}" v-on:click="specificPage(pageOptionOne)">
-              <input type="button" :value="pageOptionTwo" :style="{backgroundColor: pageOptionTwoColor}" v-on:click="specificPage(pageOptionTwo)">
-              <input type="button" :value="pageOptionThree" :style="{backgroundColor: pageOptionThreeColor}" v-on:click="specificPage(pageOptionThree)">
-              <input type="button" value=">" v-on:click="forwardPage">
+              <input type="button" class="pageButton" value="<" v-on:click="backPage">
+              <input type="button" class="pageButton" :value="pageOptionOne" :style="{backgroundColor: pageOptionOneColor}" v-on:click="specificPage(pageOptionOne)">
+              <input type="button" class="pageButton" :value="pageOptionTwo" :style="{backgroundColor: pageOptionTwoColor}" v-on:click="specificPage(pageOptionTwo)">
+              <input type="button" class="pageButton" :value="pageOptionThree" :style="{backgroundColor: pageOptionThreeColor}" v-on:click="specificPage(pageOptionThree)">
+              <input type="button" class="pageButton" value=">" v-on:click="forwardPage">
           </div>
           <hr>
+          <br>
           <div id="filterCards">
-            <div class="filterCard" v-for="(filter, index) in filters" v-on:click="removeFilter(index)" :style="{backgroundColor: filter.bgColor, borderColor: filter.bdColor}">
-              {{ filter.value }} X
+            <div class="filterCard" v-for="(filter, index) in filters" :style="{backgroundColor: filter.bgColor, borderColor: filter.bdColor}">
+              {{ filter.value }} <span class="filterCard-close" v-on:click="removeFilter(index)">X</span>
             </div>
           </div>
         </div>
       <div id="ca-browse-objects">
-          <component v-for="(object, index) in displayedObjects" :key="index" :is="object.card" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator"/>
+          <component v-for="(object, index) in displayedObjects" :key="index" :is="object.card" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator" :creatornationality="object.nationality" :objectdate="object.date"/>
       </div>
   </div>
   <script src="./custom/CaBrowse.js"></script>
