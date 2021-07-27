@@ -29,8 +29,8 @@ input[type="radio"]:checked + label:before {
 #ca-browse-app {
     display: flex;
     flex-direction: row;
-    margin-left: 10%;
-    margin-right: 9%;
+    margin-left: 11.5%;
+    margin-right: 8.5%;
     margin-bottom: 1%;
     margin-top: 1%;
 }
@@ -73,12 +73,15 @@ input[type="radio"]:checked + label:before {
 .objectCard-title {
     max-width: 90%;
     margin-bottom: 3px;
+    text-overflow: ellipsis;
 }
 .objectCard-creator {
     margin-bottom: 3px;
+    text-overflow: ellipsis;
 }
 .objectCard-extraInfo {
     margin-bottom: 8px;
+    text-overflow: ellipsis;
 }
 .objectCard {
     display: flex;
