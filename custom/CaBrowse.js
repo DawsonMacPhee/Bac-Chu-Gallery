@@ -322,7 +322,8 @@ const app = Vue.createApp({
     mounted: async function() {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects", true);
-        xhr.send(
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send(JSON.stringify(
             {
                 "criteria": {
                     "type_facet": [23]
@@ -335,7 +336,7 @@ const app = Vue.createApp({
                     "ca_entities.related.nationalityCreator": {"returnAsArray" : true }
                 }
             }
-        );
+        ));
 
         xhr.onload = function(e) {
             console.log(this.responseText);
