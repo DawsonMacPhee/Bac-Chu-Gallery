@@ -340,6 +340,10 @@ const app = Vue.createApp({
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(null);
 
+        var allObjects = this.allObjects;
+        var displayedObjects = this.displayedObjects;
+        var filteredObjects = this.filteredObjects;
+        var pageNum = this.pageNum;
         xhr.onload = function(e) {
             var response = JSON.parse(this.responseText);
             for(var i = 0; i < response.results.length; i++) {
@@ -347,7 +351,7 @@ const app = Vue.createApp({
                 if (image == null) {
                     image = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png";
                 }
-                this.allObjects.push({
+                allObjects.push({
                     "card": objectCard,
                     "id": response.results[i]["idno"],
                     "title": response.results[i]["display_label"], 
@@ -359,11 +363,11 @@ const app = Vue.createApp({
                 });
             }
 
-            for (var i = this.pageNum * 12; i < (this.pageNum * 12) + 12; i++) {
-                this.displayedObjects.push(this.allObjects[i]);
+            for (var i = pageNum * 12; i < (pageNum * 12) + 12; i++) {
+                displayedObjects.push(allObjects[i]);
             }
 
-            this.filteredObjects = this.allObjects;
+            filteredObjects = allObjects;
         }
     }
 });
