@@ -323,18 +323,20 @@ const app = Vue.createApp({
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects", true);
         xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify({
-            "criteria": {
-                "type_facet": [23]
-            },
-            "bundles": {
-                "ca_objects.displayCreationDate": true,
-                "ca_objects.displayMaterialsTech": true,
-                "ca_object_representations.media.original": { "returnURL" : true },
-                "ca_entities.related.preferred_labels.displayname": {"returnAsArray" : true },
-                "ca_entities.related.nationalityCreator": {"returnAsArray" : true }
+        xhr.send(
+            {
+                "criteria": {
+                    "type_facet": [23]
+                },
+                "bundles": {
+                    "ca_objects.displayCreationDate": true,
+                    "ca_objects.displayMaterialsTech": true,
+                    "ca_object_representations.media.original": { "returnURL" : true },
+                    "ca_entities.related.preferred_labels.displayname": {"returnAsArray" : true },
+                    "ca_entities.related.nationalityCreator": {"returnAsArray" : true }
+                }
             }
-        }));
+        );
 
         xhr.onload = function(e) {
             console.log(this.responseText);
