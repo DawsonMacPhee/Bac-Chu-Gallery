@@ -337,7 +337,9 @@ const app = Vue.createApp({
         }));
 
         xhr.onload = function(e) {
+            console.log(this.responseText);
             var response = JSON.parse(this.responseText);
+            console.log(response);
             for(var i = 0; i < response.results.length; i++) {
                 var image = response.results[i]["ca_object_representations.media.original"];
                 if (image == null) {
