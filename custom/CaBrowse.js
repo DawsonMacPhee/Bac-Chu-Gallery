@@ -336,39 +336,33 @@ const app = Vue.createApp({
         );
 
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects?q=*&source=" + data);
+        xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects?q=*&source=" + data, false);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(null);
 
-        var allObjects = this.allObjects;
-        var displayedObjects = this.displayedObjects;
-        var filteredObjects = this.filteredObjects;
-        var pageNum = this.pageNum;
-        xhr.onload = function(e) {
-            var response = JSON.parse(this.responseText);
-            for(var i = 0; i < response.results.length; i++) {
-                var image = response.results[i]["ca_object_representations.media.original"];
-                if (image == null) {
-                    image = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png";
-                }
-                allObjects.push({
-                    "card": objectCard,
-                    "id": response.results[i]["idno"],
-                    "title": response.results[i]["display_label"], 
-                    "image": image, 
-                    "creator": response.results[i]["ca_entities.related.preferred_labels.displayname"],
-                    "date": response.results[i]["ca_objects.displayCreationDate"],
-                    "medium": response.results[i]["ca_objects.displayMaterialsTech"],
-                    "nationality": response.results[i]["ca_entities.related.nationalityCreator"]
-                });
+        var response = JSON.parse(xhr.responseText);
+        for(var i = 0; i < response.results.length; i++) {
+            var image = response.results[i]["ca_object_representations.media.original"];
+            if (image == null) {
+                image = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png";
             }
-
-            for (var i = pageNum * 12; i < (pageNum * 12) + 12; i++) {
-                displayedObjects.push(allObjects[i]);
-            }
-
-            filteredObjects = allObjects;
+            this.allObjects.push({
+                "card": objectCard,
+                "id": response.results[i]["idno"],
+                "title": response.results[i]["display_label"], 
+                "image": image, 
+                "creator": response.results[i]["ca_entities.related.preferred_labels.displayname"],
+                "date": response.results[i]["ca_objects.displayCreationDate"],
+                "medium": response.results[i]["ca_objects.displayMaterialsTech"],
+                "nationality": response.results[i]["ca_entities.related.nationalityCreator"]
+            });
         }
+
+        for (var i = this.pageNum * 12; i < (this.pageNum * 12) + 12; i++) {
+            this.displayedObjects.push(this.allObjects[i]);
+        }
+
+        this.filteredObjects = this.allObjects;
     }
 });
 
