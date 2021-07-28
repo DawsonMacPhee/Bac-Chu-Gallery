@@ -334,9 +334,10 @@ const app = Vue.createApp({
                 }
             }
         );
+        console.log(data);
 
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects", true);
+        xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects");
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(data);
 
