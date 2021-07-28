@@ -1,12 +1,191 @@
+var response = {
+    "ok": true,
+    "results": [
+        {
+            "object_id": "3",
+            "id": "3",
+            "idno": "UG1974.034",
+            "display_label": "Schlachtfeld (Battlefield) No. 6 in the Peasant's War Series",
+            "ca_objects.displayCreationDate": "1907",
+            "ca_objects.displayMaterialsTech": "Etching",
+            "ca_object_representations.media.original": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/2321_ca_object_representations_media_32_original.jpg",
+            "ca_entities.related.preferred_labels.displayname": [
+                "Käthe Kollwitz"
+            ],
+            "ca_entities.related.nationalityCreator": [
+                "German"
+            ]
+        },
+        {
+            "object_id": "4",
+            "id": "4",
+            "idno": "UG1974.041",
+            "display_label": "Pflugzieher und Weib",
+            "ca_objects.displayCreationDate": "1902",
+            "ca_objects.displayMaterialsTech": "Lithograph",
+            "ca_object_representations.media.original": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/45973_ca_object_representations_media_11_original.jpg",
+            "ca_entities.related.preferred_labels.displayname": [
+                "Käthe Kollwitz"
+            ],
+            "ca_entities.related.nationalityCreator": [
+                "German"
+            ]
+        },
+        {
+            "object_id": "5",
+            "id": "5",
+            "idno": "UG1987.028",
+            "display_label": "Self-Portrait",
+            "ca_objects.displayCreationDate": "1912",
+            "ca_objects.displayMaterialsTech": "etching",
+            "ca_object_representations.media.original": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/2382_ca_object_representations_media_13_original.jpg",
+            "ca_entities.related.preferred_labels.displayname": [
+                "Käthe Kollwitz"
+            ],
+            "ca_entities.related.nationalityCreator": [
+                "German"
+            ]
+        },
+        {
+            "object_id": "6",
+            "id": "6",
+            "idno": "UG1971.004",
+            "display_label": "Mucius Scaevola",
+            "ca_objects.displayCreationDate": "1535",
+            "ca_objects.displayMaterialsTech": "Engraving",
+            "ca_object_representations.media.original": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/45328_ca_object_representations_media_14_original.jpg",
+            "ca_entities.related.preferred_labels.displayname": [
+                "Georg Pencz"
+            ],
+            "ca_entities.related.nationalityCreator": [
+                "German"
+            ]
+        },
+        {
+            "object_id": "6711",
+            "id": "6711",
+            "idno": "TEMP.445",
+            "display_label": "Solar Anatomy",
+            "ca_objects.displayCreationDate": "",
+            "ca_objects.displayMaterialsTech": "Digital Print",
+            "ca_object_representations.media.original": null,
+            "ca_entities.related.preferred_labels.displayname": [
+                "Jean Maddison"
+            ],
+            "ca_entities.related.nationalityCreator": [
+                "English",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "6712",
+            "id": "6712",
+            "idno": "TEMP.444",
+            "display_label": "The Blind Watchmaker",
+            "ca_objects.displayCreationDate": "",
+            "ca_objects.displayMaterialsTech": "Digital Print",
+            "ca_object_representations.media.original": null,
+            "ca_entities.related.preferred_labels.displayname": [
+                "Jean Maddison"
+            ],
+            "ca_entities.related.nationalityCreator": [
+                "English",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "6713",
+            "id": "6713",
+            "display_label": "The most surprising CATARACT of NIAGARA in Canada",
+            "ca_objects.displayCreationDate": "1779",
+            "ca_objects.displayMaterialsTech": "Hand-coloured engraving",
+            "ca_object_representations.media.original": null,
+            "ca_entities.related.preferred_labels.displayname": [
+                "After Robert Hancock"
+            ],
+            "ca_entities.related.nationalityCreator": [
+                "British"
+            ]
+        },
+        {
+            "object_id": "6714",
+            "id": "6714",
+            "idno": "BC2017.172",
+            "display_label": "Untitled ",
+            "ca_objects.displayCreationDate": "Undated",
+            "ca_objects.displayMaterialsTech": "Glossy print",
+            "ca_object_representations.media.original": null,
+            "ca_entities.related.preferred_labels.displayname": [
+                "Stephen Patterson"
+            ],
+            "ca_entities.related.nationalityCreator": [
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "6715",
+            "id": "6715",
+            "idno": "BC2017.430",
+            "display_label": "Trees #1",
+            "ca_objects.displayCreationDate": "2003",
+            "ca_objects.displayMaterialsTech": "Serigraph",
+            "ca_object_representations.media.original": null,
+            "ca_entities.related.preferred_labels.displayname": [
+                "Lorne Wagman"
+            ],
+            "ca_entities.related.nationalityCreator": [
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "6716",
+            "id": "6716",
+            "idno": "BC2017.100",
+            "display_label": "Dragon Boats",
+            "ca_objects.displayCreationDate": "2003",
+            "ca_objects.displayMaterialsTech": "Digital photograph (glicee) ",
+            "ca_object_representations.media.original": null,
+            "ca_entities.related.preferred_labels.displayname": [
+                "Stephen Patterson"
+            ],
+            "ca_entities.related.nationalityCreator": [
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "6717",
+            "id": "6717",
+            "idno": "UG1989.019.003",
+            "display_label": "Cape Warrender; Lancaster Sound / Arctic Suite",
+            "ca_objects.displayCreationDate": "1989",
+            "ca_objects.displayMaterialsTech": "Serigraph",
+            "ca_object_representations.media.original": null,
+            "ca_entities.related.preferred_labels.displayname": [
+                "Toni Onley"
+            ],
+            "ca_entities.related.nationalityCreator": [
+                "Manx",
+                "Canadian"
+            ]
+        }
+    ]
+};
+
 const objectCard = {
     template:
     /*html*/
     `
     <div class="objectCard">
-        <img class="objectCard-image" :src="objectimage">
-        <h5 class="objectCard-title"> {{ objectname }} </h5>
-        <h6 class="objectCard-creator"> {{ objectcreator[0] }} </h6>
-        <span class="objectCard-extraInfo">{{ extraInfo }}</span>
+        <div class="objectImage">
+            <img class="objectCard-image" :src="objectimage">
+        </div>
+        <div class="objectInfo">
+            <span class="objectCard-creator"> {{ objectcreator[0] }} </span>
+            <span class="objectCard-title"><em> {{ objectname }} <em></span>
+            <span class="objectCard-extraInfo">{{ objectdate }}</span>
+            <span class="objectCard-extraInfo">{{ objectmedium }}</span>
+            <span class="objectCard-extraInfo">{{ objectid }}</span>
+        </div>
     </div>
     `,
 
@@ -31,36 +210,14 @@ const objectCard = {
         objectdate: {
             type: String,
             required: true
-        }
-    },
-
-
-    computed: {
-        extraInfo() {
-            var out = "(";
-            var first = true;
-
-            if (typeof this.creatornationality !== 'undefined' && Array.isArray(this.creatornationality)) {
-                for (var i = 0; i < this.creatornationality.length; i++) {
-                    if (first && this.creatornationality[i] != "") {
-                        out += this.creatornationality[i];
-                        first = false;
-                    } else if (this.creatornationality[i] != "") {
-                        out += ", " + this.creatornationality[i];
-                    }
-                }
-            }
-
-            if (typeof this.objectdate !== 'undefined' && this.objectdate != "") {
-                if (first) {
-                    out += this.objectdate;
-                    first = false;
-                } else {
-                    out += ", " + this.objectdate;
-                }
-            }
-
-            return out + ")";
+        },
+        objectmedium: {
+            type: String,
+            required: true
+        },
+        objectid: {
+            type: String,
+            required: true
         }
     }
 }
@@ -80,11 +237,11 @@ const app = Vue.createApp({
             filters: [],
             pageNum: 0,
             pageOptionOne: 1,
-            pageOptionOneColor: "rgba(76, 111, 158, 0.8)",
+            pageOptionOneColor: "rgb(184, 194, 207)",
             pageOptionTwo: 2,
-            pageOptionTwoColor: "rgb(166, 93, 89)",
+            pageOptionTwoColor: "rgb(108, 136, 174)",
             pageOptionThree: 3,
-            pageOptionThreeColor: "rgb(166, 93, 89)"
+            pageOptionThreeColor: "rgb(108, 136, 174)"
         }
     },
 
@@ -139,8 +296,8 @@ const app = Vue.createApp({
                 this.pageOptionOne = 1;
                 this.pageOptionTwo = 2;
                 this.pageOptionThree = 3;
-                this.pageOptionOneColor = "rgba(76, 111, 158, 0.8)";
-                this.pageOptionTwoColor = "rgb(166, 93, 89)";
+                this.pageOptionOneColor = "rgb(184, 194, 207)";
+                this.pageOptionTwoColor = "rgb(108, 136, 174)";
 
                 this.displayedObjects = [];
                 for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
@@ -180,8 +337,8 @@ const app = Vue.createApp({
                 this.pageOptionOne = 1;
                 this.pageOptionTwo = 2;
                 this.pageOptionThree = 3;
-                this.pageOptionOneColor = "rgba(76, 111, 158, 0.8)";
-                this.pageOptionTwoColor = "rgb(166, 93, 89)";
+                this.pageOptionOneColor = "rgb(184, 194, 207)";
+                this.pageOptionTwoColor = "rgb(108, 136, 174)";
 
                 this.displayedObjects = [];
                 for (var i = this.pageNum * 12; (i < this.textFilteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
@@ -225,8 +382,8 @@ const app = Vue.createApp({
             if (this.pageNum == 0) {
                 return;
             } else if (this.pageNum == 1) {
-                this.pageOptionOneColor = "rgba(76, 111, 158, 0.8)";
-                this.pageOptionTwoColor = "rgb(166, 93, 89)";
+                this.pageOptionOneColor = "rgb(184, 194, 207)";
+                this.pageOptionTwoColor = "rgb(108, 136, 174)";
             } else {
                 this.pageOptionOne -= 1;
                 this.pageOptionTwo -= 1;
@@ -243,8 +400,8 @@ const app = Vue.createApp({
             if (((this.pageNum + 1) * 12) >= (this.filteredObjects.length)) {
                 return;
             } else if (this.pageNum == 0) {
-                this.pageOptionOneColor = "rgb(166, 93, 89)";
-                this.pageOptionTwoColor = "rgba(76, 111, 158, 0.8)";
+                this.pageOptionOneColor = "rgb(108, 136, 174)";
+                this.pageOptionTwoColor = "rgb(184, 194, 207)";
             } else {
                 this.pageOptionOne += 1;
                 this.pageOptionTwo += 1;
@@ -261,11 +418,11 @@ const app = Vue.createApp({
             if (((newPageNum - 1) * 12) >= (this.filteredObjects.length)) {
                 return;
             } else if (newPageNum == 1) {
-                this.pageOptionOneColor = "rgba(76, 111, 158, 0.8)";
-                this.pageOptionTwoColor = "rgb(166, 93, 89)";
+                this.pageOptionOneColor = "rgb(184, 194, 207)";
+                this.pageOptionTwoColor = "rgb(108, 136, 174)";
             } else {
-                this.pageOptionOneColor = "rgb(166, 93, 89)";
-                this.pageOptionTwoColor = "rgba(76, 111, 158, 0.8)";
+                this.pageOptionOneColor = "rgb(108, 136, 174)";
+                this.pageOptionTwoColor = "rgb(184, 194, 207)";
 
                 this.pageOptionOne = newPageNum - 1;
                 this.pageOptionTwo = newPageNum;
@@ -308,8 +465,8 @@ const app = Vue.createApp({
             this.pageOptionOne = 1;
             this.pageOptionTwo = 2;
             this.pageOptionThree = 3;
-            this.pageOptionOneColor = "rgba(76, 111, 158, 0.8)";
-            this.pageOptionTwoColor = "rgb(166, 93, 89)";
+            this.pageOptionOneColor = "rgb(184, 194, 207)";
+            this.pageOptionTwoColor = "rgb(108, 136, 174)";
 
             this.displayedObjects = [];
             for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
@@ -320,7 +477,7 @@ const app = Vue.createApp({
 
 
     mounted: async function() {
-        var data = JSON.stringify(
+        /*var data = JSON.stringify(
             {
                 "criteria": {
                     "type_facet": [23]
@@ -340,7 +497,7 @@ const app = Vue.createApp({
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(null);
 
-        var response = JSON.parse(xhr.responseText);
+        var response = JSON.parse(xhr.responseText);*/
         for(var i = 0; i < response.results.length; i++) {
             var image = response.results[i]["ca_object_representations.media.original"];
             if (image == null) {
@@ -358,7 +515,7 @@ const app = Vue.createApp({
             });
         }
 
-        for (var i = this.pageNum * 12; i < (this.pageNum * 12) + 12; i++) {
+        for (var i = this.pageNum * 12; (i < this.allObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
             this.displayedObjects.push(this.allObjects[i]);
         }
 

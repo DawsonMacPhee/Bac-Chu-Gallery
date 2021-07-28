@@ -243,7 +243,7 @@
           </div>
         </div>
       <div id="ca-browse-objects">
-          <component v-for="(object, index) in displayedObjects" :key="index" :is="object.card" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator" :creatornationality="object.nationality" :objectdate="object.date"/>
+          <component v-for="(object, index) in displayedObjects" :key="index" :is="object.card" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator" :creatornationality="object.nationality" :objectdate="object.date" :objectmedium="object.medium" :objectid="object.id"/>
       </div>
   </div>
   <script src="./custom/CaBrowse.js"></script>

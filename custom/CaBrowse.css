@@ -38,8 +38,8 @@ input[type="radio"]:checked + label:before {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    background-image: linear-gradient(to bottom, rgba(76, 111, 158,0.8), rgba(76, 111, 158,0));
-    border-radius: 15px;
+    background-image: linear-gradient(to bottom, rgba(184, 194, 207, 1), rgba(184, 194, 207, 0));
+    border-radius: 5px;
     margin: 5px;
     padding-left: 20px;
     padding-right: 20px;
@@ -66,32 +66,50 @@ input[type="radio"]:checked + label:before {
     
 }
 .objectCard-image {
+    border: 6px solid white;
+    border-radius: 5px;
     margin-top: 15px;
     max-width: 90%;
     max-height: 170px;
 }
 .objectCard-title {
+    line-height: 1.2;
+    font-size: 18px;
+    font-weight: 700;
     max-width: 90%;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
     text-overflow: ellipsis;
 }
 .objectCard-creator {
-    margin-bottom: 3px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    margin-top: 5px;
     text-overflow: ellipsis;
 }
 .objectCard-extraInfo {
-    margin-bottom: 8px;
+    font-size: 14px;
     text-overflow: ellipsis;
 }
-.objectCard {
+.objectImage {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(166, 93, 89);
-    border-radius: 15px;
+}
+.objectInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 8px;
+}
+.objectCard {
+    border-radius: 5px;
+    background-color: rgb(184, 194, 207);
     margin: 5px;
-    width: 31%;
-    text-align: center;
+    width: 23%;
     color: black;
     max-height: 450px;
 }
@@ -120,7 +138,8 @@ input[type="radio"]:checked + label:before {
     flex-wrap: wrap;
 }
 .pageButton {
-    background-color: rgb(166, 93, 89);
+    background-color: rgb(108, 136, 174);
+    border: none;
     border-radius: 10px;
     margin: 2px;
 }
