@@ -107,19 +107,19 @@
           <br>
           <input id="ca-browse-sidebar-searchbar"  v-on:keyup.enter="confirmTextFilter(search, searchOption, true)" v-on:keyup="applyTextFilter(search, searchOption, true)" v-model="search" placeholder="Search (then press enter)">
           <div class="ca-browse-label">
-              <input type="radio" id="creator" value="creator" v-model="searchOption">
+              <input type="radio" id="creator" value="creator" v-on:click="applyTextFilter(search, searchOption, true)" v-model="searchOption">
               <label for="creator">Creator</label>
           </div>
           <div class="ca-browse-label">
-              <input type="radio" id="title" value="title" v-model="searchOption">
+              <input type="radio" id="title" value="title" v-on:click="applyTextFilter(search, searchOption, true)" v-model="searchOption">
               <label for="title">Title</label>
           </div>
           <div class="ca-browse-label">
-              <input type="radio" id="idNumber" value="idNumber" v-model="searchOption">
+              <input type="radio" id="idNumber" value="idNumber" v-on:click="applyTextFilter(search, searchOption, true)" v-model="searchOption">
               <label for="idNumber">ID Number</label>
           </div>
           <div class="ca-browse-label">
-              <input type="radio" id="subjectTerm" value="subjectTerm" v-model="searchOption">
+              <input type="radio" id="subjectTerm" value="subjectTerm" v-on:click="applyTextFilter(search, searchOption, true)" v-model="searchOption">
               <label for="subjectTerm">Subject Term</label>
           </div>
           <br>
