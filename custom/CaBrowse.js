@@ -1,176 +1,3 @@
-var response = {
-    "ok": true,
-    "results": [
-        {
-            "object_id": "3",
-            "id": "3",
-            "idno": "UG1974.034",
-            "display_label": "Schlachtfeld (Battlefield) No. 6 in the Peasant's War Series",
-            "ca_objects.displayCreationDate": "1907",
-            "ca_objects.displayMaterialsTech": "Etching",
-            "ca_object_representations.media.original": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/2321_ca_object_representations_media_32_original.jpg",
-            "ca_entities.related.preferred_labels.displayname": [
-                "Käthe Kollwitz"
-            ],
-            "ca_entities.related.nationalityCreator": [
-                "German"
-            ]
-        },
-        {
-            "object_id": "4",
-            "id": "4",
-            "idno": "UG1974.041",
-            "display_label": "Pflugzieher und Weib",
-            "ca_objects.displayCreationDate": "1902",
-            "ca_objects.displayMaterialsTech": "Lithograph",
-            "ca_object_representations.media.original": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/45973_ca_object_representations_media_11_original.jpg",
-            "ca_entities.related.preferred_labels.displayname": [
-                "Käthe Kollwitz"
-            ],
-            "ca_entities.related.nationalityCreator": [
-                "German"
-            ]
-        },
-        {
-            "object_id": "5",
-            "id": "5",
-            "idno": "UG1987.028",
-            "display_label": "Self-Portrait",
-            "ca_objects.displayCreationDate": "1912",
-            "ca_objects.displayMaterialsTech": "etching",
-            "ca_object_representations.media.original": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/2382_ca_object_representations_media_13_original.jpg",
-            "ca_entities.related.preferred_labels.displayname": [
-                "Käthe Kollwitz"
-            ],
-            "ca_entities.related.nationalityCreator": [
-                "German"
-            ]
-        },
-        {
-            "object_id": "6",
-            "id": "6",
-            "idno": "UG1971.004",
-            "display_label": "Mucius Scaevola",
-            "ca_objects.displayCreationDate": "1535",
-            "ca_objects.displayMaterialsTech": "Engraving",
-            "ca_object_representations.media.original": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/45328_ca_object_representations_media_14_original.jpg",
-            "ca_entities.related.preferred_labels.displayname": [
-                "Georg Pencz"
-            ],
-            "ca_entities.related.nationalityCreator": [
-                "German"
-            ]
-        },
-        {
-            "object_id": "6711",
-            "id": "6711",
-            "idno": "TEMP.445",
-            "display_label": "Solar Anatomy",
-            "ca_objects.displayCreationDate": "",
-            "ca_objects.displayMaterialsTech": "Digital Print",
-            "ca_object_representations.media.original": null,
-            "ca_entities.related.preferred_labels.displayname": [
-                "Jean Maddison"
-            ],
-            "ca_entities.related.nationalityCreator": [
-                "English",
-                "Canadian"
-            ]
-        },
-        {
-            "object_id": "6712",
-            "id": "6712",
-            "idno": "TEMP.444",
-            "display_label": "The Blind Watchmaker",
-            "ca_objects.displayCreationDate": "",
-            "ca_objects.displayMaterialsTech": "Digital Print",
-            "ca_object_representations.media.original": null,
-            "ca_entities.related.preferred_labels.displayname": [
-                "Jean Maddison"
-            ],
-            "ca_entities.related.nationalityCreator": [
-                "English",
-                "Canadian"
-            ]
-        },
-        {
-            "object_id": "6713",
-            "id": "6713",
-            "display_label": "The most surprising CATARACT of NIAGARA in Canada",
-            "ca_objects.displayCreationDate": "1779",
-            "ca_objects.displayMaterialsTech": "Hand-coloured engraving",
-            "ca_object_representations.media.original": null,
-            "ca_entities.related.preferred_labels.displayname": [
-                "After Robert Hancock"
-            ],
-            "ca_entities.related.nationalityCreator": [
-                "British"
-            ]
-        },
-        {
-            "object_id": "6714",
-            "id": "6714",
-            "idno": "BC2017.172",
-            "display_label": "Untitled ",
-            "ca_objects.displayCreationDate": "Undated",
-            "ca_objects.displayMaterialsTech": "Glossy print",
-            "ca_object_representations.media.original": null,
-            "ca_entities.related.preferred_labels.displayname": [
-                "Stephen Patterson"
-            ],
-            "ca_entities.related.nationalityCreator": [
-                "Canadian"
-            ]
-        },
-        {
-            "object_id": "6715",
-            "id": "6715",
-            "idno": "BC2017.430",
-            "display_label": "Trees #1",
-            "ca_objects.displayCreationDate": "2003",
-            "ca_objects.displayMaterialsTech": "Serigraph",
-            "ca_object_representations.media.original": null,
-            "ca_entities.related.preferred_labels.displayname": [
-                "Lorne Wagman"
-            ],
-            "ca_entities.related.nationalityCreator": [
-                "Canadian"
-            ]
-        },
-        {
-            "object_id": "6716",
-            "id": "6716",
-            "idno": "BC2017.100",
-            "display_label": "Dragon Boats",
-            "ca_objects.displayCreationDate": "2003",
-            "ca_objects.displayMaterialsTech": "Digital photograph (glicee) ",
-            "ca_object_representations.media.original": null,
-            "ca_entities.related.preferred_labels.displayname": [
-                "Stephen Patterson"
-            ],
-            "ca_entities.related.nationalityCreator": [
-                "Canadian"
-            ]
-        },
-        {
-            "object_id": "6717",
-            "id": "6717",
-            "idno": "UG1989.019.003",
-            "display_label": "Cape Warrender; Lancaster Sound / Arctic Suite",
-            "ca_objects.displayCreationDate": "1989",
-            "ca_objects.displayMaterialsTech": "Serigraph",
-            "ca_object_representations.media.original": null,
-            "ca_entities.related.preferred_labels.displayname": [
-                "Toni Onley"
-            ],
-            "ca_entities.related.nationalityCreator": [
-                "Manx",
-                "Canadian"
-            ]
-        }
-    ]
-};
-
 const objectCard = {
     template:
     /*html*/
@@ -477,7 +304,7 @@ const app = Vue.createApp({
 
 
     mounted: async function() {
-        /*var data = JSON.stringify(
+        var data = JSON.stringify(
             {
                 "criteria": {
                     "type_facet": [23]
@@ -497,7 +324,7 @@ const app = Vue.createApp({
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(null);
 
-        var response = JSON.parse(xhr.responseText);*/
+        var response = JSON.parse(xhr.responseText);
         for(var i = 0; i < response.results.length; i++) {
             var image = response.results[i]["ca_object_representations.media.original"];
             if (image == null) {
