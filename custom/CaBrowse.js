@@ -322,7 +322,6 @@ const app = Vue.createApp({
     mounted: async function() {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects", true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(
             {
                 "criteria": {
