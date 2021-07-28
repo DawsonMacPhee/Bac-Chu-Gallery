@@ -107,7 +107,7 @@ input[type="radio"]:checked + label:before {
 }
 .objectCard {
     border-radius: 5px;
-    background-color: rgb(184, 194, 207);
+    background-color: rgb(196, 205, 215);
     margin: 5px;
     width: 23%;
     color: black;
