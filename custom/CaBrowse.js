@@ -334,17 +334,14 @@ const app = Vue.createApp({
                 }
             }
         );
-        console.log(data);
 
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects");
+        xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects?q=*&source=" + data);
         xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.send(data);
+        xhr.send(null);
 
         xhr.onload = function(e) {
-            console.log(this.responseText);
             var response = JSON.parse(this.responseText);
-            console.log(response);
             for(var i = 0; i < response.results.length; i++) {
                 var image = response.results[i]["ca_object_representations.media.original"];
                 if (image == null) {
