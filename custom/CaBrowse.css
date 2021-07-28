@@ -93,7 +93,7 @@ input[type="radio"]:checked + label:before {
     width: 31%;
     text-align: center;
     color: black;
-    max-height: 480px;
+    max-height: 450px;
 }
 .filterCard-close {
     cursor: pointer;
