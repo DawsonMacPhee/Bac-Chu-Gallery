@@ -41,15 +41,23 @@ input[type="radio"]:checked + label:before {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    background-image: linear-gradient(to bottom, rgba(184, 194, 207, 1), rgba(184, 194, 207, 0));
+    background-image: linear-gradient(to bottom, rgba(192, 192, 192, 1), rgba(192, 192, 192, 0));
     border-radius: 5px;
     margin: 5px;
     padding-left: 20px;
     padding-right: 20px;
     width: 25%;
 }
+#ca-browse-dates {
+    display: flex;
+    flex-direction: row;
+}
 #ca-browse-sidebar-searchbar {
     margin-bottom: 5px;
+}
+#ca-browse-sidebar-datebar {
+    margin-left: 5px;
+    width: 100%;
 }
 #ca-browse-objects {
     display: flex;
@@ -111,7 +119,7 @@ input[type="radio"]:checked + label:before {
 }
 .objectCard {
     border-radius: 5px;
-    background-color: rgb(196, 205, 215);
+    background-color: rgb(229, 229, 229);
     margin: 5px;
     width: 23%;
     color: black;

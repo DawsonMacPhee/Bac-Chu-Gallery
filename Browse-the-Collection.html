@@ -106,7 +106,7 @@
     <div id="ca-browse-app">
       <div id="ca-browse-sidebar">
           <br>
-          <input id="ca-browse-sidebar-searchbar"  v-on:keyup.enter="confirmTextFilter(search, searchOption, true)" v-on:keyup="applyTextFilter(search, searchOption, true)" v-model="search" placeholder="Search (then press enter)">
+          <input id="ca-browse-sidebar-searchbar" v-on:keyup.enter="confirmTextFilter(search, searchOption, true)" v-on:keyup="applyTextFilter(search, searchOption, true)" v-model="search" placeholder="Search (press enter)">
           <div class="ca-browse-label">
               <input type="radio" id="creator" value="creator" v-on:click="applyTextFilter(search, 'creator', true)" v-model="searchOption">
               <label for="creator">Creator</label>
@@ -122,6 +122,16 @@
           <div class="ca-browse-label">
               <input type="radio" id="subjectTerm" value="subjectTerm" v-on:click="applyTextFilter(search, 'subjectTerm', true)" v-model="searchOption">
               <label for="subjectTerm">Subject Term</label>
+          </div>
+          <br>
+          <h5>Date</h5>
+          <div id="ca-browse-dates">
+            <select v-model="dateSearch">
+                <option>On</option>
+                <option>Before</option>
+                <option>After</option>
+            </select>
+            <input type="number" id="ca-browse-sidebar-datebar" v-on:keyup.enter="confirmDateFilter(date, dateSearch, true)" v-on:keyup="applyDateFilter(date, dateSearch, true)" v-model="date" placeholder="Enter Date (press enter)">
           </div>
           <br>
           <h5>Style</h5>
@@ -236,7 +246,7 @@
               <input type="button" class="pageButton" value=">" v-on:click="forwardPage">
           </div>
           <hr>
-          <br>
+          <h5>{{ filterTitle }}</h5>
           <div id="filter-cards">
             <div class="filterCard" v-for="(filter, index) in filters" :style="{backgroundColor: filter.bgColor, borderColor: filter.bdColor}">
               {{ filter.value }} <span class="filterCard-close" v-on:click="removeFilter(index)">X</span>
