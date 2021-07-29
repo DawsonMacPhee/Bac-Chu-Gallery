@@ -333,7 +333,7 @@ const app = Vue.createApp({
                 "bundles": {
                     "ca_objects.displayCreationDate": true,
                     "ca_objects.displayMaterialsTech": true,
-                    "ca_object_representations.media.original": { "returnURL" : true },
+                    "ca_object_representations.media.preview": { "returnURL" : true },
                     "ca_entities.related.preferred_labels.displayname": {"returnAsArray" : true },
                     "ca_entities.related.nationalityCreator": {"returnAsArray" : true }
                 }
