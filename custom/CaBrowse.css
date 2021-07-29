@@ -74,8 +74,8 @@ input[type="radio"]:checked + label:before {
     border-radius: 5px;
     margin-top: 4%;
     max-width: 90%;
-    height: auto;
     max-height: 170px;
+    object-fit: contain;
 }
 .objectCard-title {
     line-height: 1.2;
