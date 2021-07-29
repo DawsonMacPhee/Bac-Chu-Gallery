@@ -73,8 +73,6 @@ input[type="radio"]:checked + label:before {
     border: 6px solid white;
     border-radius: 5px;
     margin-top: 4%;
-    height: auto; 
-    width: auto; 
     max-width: 90%;
     max-height: 170px;
 }
