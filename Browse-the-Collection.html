@@ -102,6 +102,7 @@
       </div></header> 
     
     <!--This is the beginning of custom code block-->
+    <div id="ca-browse-container">
     <div id="ca-browse-app">
       <div id="ca-browse-sidebar">
           <br>
@@ -236,7 +237,7 @@
           </div>
           <hr>
           <br>
-          <div id="filterCards">
+          <div id="filter-cards">
             <div class="filterCard" v-for="(filter, index) in filters" :style="{backgroundColor: filter.bgColor, borderColor: filter.bdColor}">
               {{ filter.value }} <span class="filterCard-close" v-on:click="removeFilter(index)">X</span>
             </div>
@@ -245,8 +246,9 @@
       <div id="ca-browse-objects">
           <component v-for="(object, index) in displayedObjects" :key="index" :is="object.card" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator" :creatornationality="object.nationality" :objectdate="object.date" :objectmedium="object.medium" :objectid="object.id"/>
       </div>
-  </div>
-  <script src="./custom/CaBrowse.js"></script>
+    </div>
+    </div>
+    <script src="./custom/CaBrowse.js"></script>
   <!--This is the end of custom code block-->
     
     <footer class="u-clearfix u-footer u-grey-80" id="sec-4b22"><div class="u-clearfix u-sheet u-sheet-1">

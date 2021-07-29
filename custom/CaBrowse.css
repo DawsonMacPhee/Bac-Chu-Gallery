@@ -16,8 +16,8 @@ input[type="radio"] + label:before {
 }
   
 input[type="radio"]:checked + label:before {
-    background-color: rgb(166, 93, 89);
-    border-color: rgb(166, 93, 89);
+    background-color: rgb(108, 136, 174);
+    border-color: rgb(108, 136, 174);
 }
   
 *,
@@ -26,13 +26,16 @@ input[type="radio"]:checked + label:before {
     box-sizing: border-box;
 }
 
+#ca-browse-container {
+    margin: auto;
+    width: 90%;
+}
 #ca-browse-app {
     display: flex;
     flex-direction: row;
-    margin-left: 11.5%;
-    margin-right: 8.5%;
     margin-bottom: 1%;
     margin-top: 1%;
+    margin-left: 4.5%;
 }
 #ca-browse-sidebar {
     display: flex;
@@ -43,7 +46,7 @@ input[type="radio"]:checked + label:before {
     margin: 5px;
     padding-left: 20px;
     padding-right: 20px;
-    max-width: 25%;
+    width: 25%;
 }
 #ca-browse-sidebar-searchbar {
     margin-bottom: 5px;
@@ -52,6 +55,7 @@ input[type="radio"]:checked + label:before {
     display: flex;
     flex-grow: 10;
     flex-wrap: wrap;
+    width: 75%;
 }
 #ca-browse-pages {
     display: flex;
@@ -68,7 +72,7 @@ input[type="radio"]:checked + label:before {
 .objectCard-image {
     border: 6px solid white;
     border-radius: 5px;
-    margin-top: 15px;
+    margin-top: 4%;
     max-width: 90%;
     max-height: 170px;
 }
@@ -111,7 +115,7 @@ input[type="radio"]:checked + label:before {
     margin: 5px;
     width: 23%;
     color: black;
-    max-height: 450px;
+    max-height: 470px;
 }
 .filterCard-close {
     cursor: pointer;
@@ -132,7 +136,7 @@ input[type="radio"]:checked + label:before {
     margin: 5px;
     border-radius: 10px;
 }
-#filterCards {
+#filter-cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
