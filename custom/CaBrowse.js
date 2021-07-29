@@ -8,7 +8,7 @@ const objectCard = {
         </div>
         <div class="objectInfo">
             <span class="objectCard-creator"> {{ objectcreator[0] }} </span>
-            <span class="objectCard-title"><em> {{ objectname }} <em></span>
+            <span class="objectCard-title"><em> {{ objectname }} </em></span>
             <span class="objectCard-extraInfo">{{ objectdate }}</span>
             <span class="objectCard-extraInfo">{{ objectmedium }}</span>
             <span class="objectCard-extraInfo">{{ objectid }}</span>
@@ -347,7 +347,7 @@ const app = Vue.createApp({
 
         var response = JSON.parse(xhr.responseText);
         for(var i = 0; i < response.results.length; i++) {
-            var image = response.results[i]["ca_object_representations.media.original"];
+            var image = response.results[i]["ca_object_representations.media.preview"];
             if (image == null) {
                 image = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png";
             }
