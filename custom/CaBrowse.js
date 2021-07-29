@@ -348,7 +348,7 @@ const app = Vue.createApp({
         var response = JSON.parse(xhr.responseText);
         for(var i = 0; i < response.results.length; i++) {
             var image = response.results[i]["ca_object_representations.media.medium"];
-            if (image == null) {
+            if (image == null || image == "") {
                 image = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png";
             }
             this.allObjects.push({
