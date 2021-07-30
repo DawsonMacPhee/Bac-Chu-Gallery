@@ -1,7 +1,6 @@
 input[type="radio"] {
     display: none;
 }
-  
 input[type="radio"] + label:before {
     content: "";
     display: inline-block;
@@ -14,16 +13,22 @@ input[type="radio"] + label:before {
     background-color: #e7e6e7;
     border-radius: 50%;
 }
-  
 input[type="radio"]:checked + label:before {
     background-color: rgb(108, 136, 174);
     border-color: rgb(108, 136, 174);
 }
-  
 *,
 *:before,
 *:after {
     box-sizing: border-box;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 #ca-browse-container {

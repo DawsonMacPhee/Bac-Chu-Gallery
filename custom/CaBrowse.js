@@ -214,15 +214,22 @@ const app = Vue.createApp({
         },
         applyDateFilter(date, dateSearch, update) {
             this.search = "";
+            var dateNumber = parseInt(date);
             function filterCompare(value) {
                 if (dateSearch == "On") {
                     if (value.date.toUpperCase().includes(date.toUpperCase())) {
                         return true;
                     }
                 } else if (dateSearch == "Before") {
-                    
+                    var number = value.date.match(/(\d+)/);
+                    if (number != null && dateNumber > number[0]) {
+                        return true;
+                    }
                 } else if (dateSearch == "After") {
-                    
+                    var number = value.date.match(/(\d+)/);
+                    if (number != null && dateNumber < number[0]) {
+                        return true;
+                    }
                 }
                 return false;
             }
@@ -256,8 +263,8 @@ const app = Vue.createApp({
                 this.filters.push({
                     type: dateSearch,
                     value: date,
-                    bgColor: "rgb(102, 217, 138)",
-                    bdColor: "rgb(28, 128, 59)"
+                    bgColor: "rgb(255, 110, 194)",
+                    bdColor: "rgb(171, 38, 115)"
                 });
                 this.filterTitle = "Filters";
                 this.date = "";
@@ -269,6 +276,12 @@ const app = Vue.createApp({
                 objects = this.filteredObjects;
             } else {
                 objects = this.textFilteredObjects;
+            }
+
+            if (this.date == "") {
+                objects = this.filteredObjects;
+            } else {
+                objects = this.dateFilteredObjects;
             }
 
             if (this.pageNum == 0) {
@@ -296,6 +309,12 @@ const app = Vue.createApp({
                 objects = this.textFilteredObjects;
             }
 
+            if (this.date == "") {
+                objects = this.filteredObjects;
+            } else {
+                objects = this.dateFilteredObjects;
+            }
+
             if (((this.pageNum + 1) * 12) >= (objects.length)) {
                 return;
             } else if (this.pageNum == 0) {
@@ -319,6 +338,12 @@ const app = Vue.createApp({
                 objects = this.filteredObjects;
             } else {
                 objects = this.textFilteredObjects;
+            }
+
+            if (this.date == "") {
+                objects = this.filteredObjects;
+            } else {
+                objects = this.dateFilteredObjects;
             }
 
             if (((newPageNum - 1) * 12) >= (objects.length)) {
