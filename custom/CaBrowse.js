@@ -217,7 +217,8 @@ const app = Vue.createApp({
             var dateNumber = parseInt(date);
             function filterCompare(value) {
                 if (dateSearch == "On") {
-                    if (value.date.toUpperCase().includes(date.toUpperCase())) {
+                    var number = value.date.match(/(\d+)/);
+                    if (number != null && dateNumber == number[0]) {
                         return true;
                     }
                 } else if (dateSearch == "Before") {
