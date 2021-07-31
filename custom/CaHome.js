@@ -27,7 +27,7 @@ const app = Vue.createApp({
 
 
     mounted: async function() {
-        var xhr = new XMLHttpRequest();
+        /*var xhr = new XMLHttpRequest();
         xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/item/ca_collections/id/2", false);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(null);
@@ -36,7 +36,7 @@ const app = Vue.createApp({
 
         for (var i = 0; i < 6; i++) {
             
-        }
+        }*/
     }
 });
 
