@@ -126,7 +126,7 @@
           <br>
           <h5>Date</h5>
           <div id="ca-browse-dates">
-            <select v-model="dateSearch">
+            <select @change="applyDateFilter(date, dateSearch, true)" v-model="dateSearch">
                 <option>On</option>
                 <option>Before</option>
                 <option>After</option>

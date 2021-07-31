@@ -81,7 +81,9 @@ const app = Vue.createApp({
         applyFilter(filterType, filterValue, update) {
             function filterCompare(value) {
                 if (filterType == "style") {
-                    //TODO
+                    if (value.style.toUpperCase().includes(filterValue.toUpperCase())) {
+                        return true;
+                    }
                 } else if (filterType == "nationality" && Array.isArray(value.nationality)) {
                     for (var i = 0; i < value.nationality.length; i++) {
                         if (value.nationality[i].toUpperCase() == filterValue.toUpperCase()) {
@@ -112,6 +114,7 @@ const app = Vue.createApp({
                 }
 
                 this.search = "";
+                this.date = "";
                 this.style = "";
                 this.nationality = "";
                 this.medium = "";
@@ -155,7 +158,9 @@ const app = Vue.createApp({
                         return true;
                     }
                 } else if (searchOption == "subjectTerm") {
-                    //TODO
+                    if (value.subjectTerm.toUpperCase().includes(search.toUpperCase())) {
+                        return true;
+                    }
                 }
                 return false;
             }
@@ -430,9 +435,11 @@ const app = Vue.createApp({
                 "bundles": {
                     "ca_objects.displayCreationDate": true,
                     "ca_objects.displayMaterialsTech": true,
+                    "ca_objects.style" : true,
+                    "ca_objects.subjectTerm" : true,
                     "ca_object_representations.media.medium": { "returnURL" : true },
-                    "ca_entities.related.preferred_labels.displayname": {"returnAsArray" : true },
-                    "ca_entities.related.nationalityCreator": {"returnAsArray" : true }
+                    "ca_entities.preferred_labels.displayname": {"returnAsArray" : true },
+                    "ca_entities.nationalityCreator": {"returnAsArray" : true }
                 }
             }
         );
@@ -453,10 +460,12 @@ const app = Vue.createApp({
                 "id": response.results[i]["idno"],
                 "title": response.results[i]["display_label"], 
                 "image": image, 
-                "creator": response.results[i]["ca_entities.related.preferred_labels.displayname"],
+                "creator": response.results[i]["ca_entities.preferred_labels.displayname"],
                 "date": response.results[i]["ca_objects.displayCreationDate"],
                 "medium": response.results[i]["ca_objects.displayMaterialsTech"],
-                "nationality": response.results[i]["ca_entities.related.nationalityCreator"]
+                "nationality": response.results[i]["ca_entities.nationalityCreator"],
+                "style": response.results[i]["ca_objects.style"],
+                "subjectTerm": response.results[i]["ca_objects.subjectTerm"]
             });
         }
 
