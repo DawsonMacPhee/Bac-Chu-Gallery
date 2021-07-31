@@ -80,7 +80,7 @@ const app = Vue.createApp({
     methods: {
         applyFilter(filterType, filterValue, update) {
             function filterCompare(value) {
-                if (filterType == "style") {
+                if (filterType == "style" && typeof value.style !== 'undefined' && value.style != null) {
                     if (value.style.toUpperCase().includes(filterValue.toUpperCase())) {
                         return true;
                     }
@@ -90,7 +90,7 @@ const app = Vue.createApp({
                             return true;
                         }
                     }
-                } else if (filterType == "medium") {
+                } else if (filterType == "medium" && typeof value.medium !== 'undefined' && value.medium != null) {
                     if (value.medium.toUpperCase().includes(filterValue.toUpperCase())) {
                         return true;
                     }
@@ -143,21 +143,21 @@ const app = Vue.createApp({
         applyTextFilter(search, searchOption, update) {
             this.date = "";
             function filterCompare(value) {
-                if (searchOption == "creator") {
+                if (searchOption == "creator" && Array.isArray(value.creator)) {
                     for (var i = 0; i < value.creator.length; i++) {
                         if (value.creator[i].toUpperCase().includes(search.toUpperCase())) {
                             return true;
                         }
                     }
-                } else if (searchOption == "title") {
+                } else if (searchOption == "title" && typeof value.title !== 'undefined' && value.title != null) {
                     if (value.title.toUpperCase().includes(search.toUpperCase())) {
                         return true;
                     }
-                } else if (searchOption == "idNumber" && typeof value.id !== 'undefined') {
+                } else if (searchOption == "idNumber" && typeof value.id !== 'undefined' && value.id != null) {
                     if (value.id.toUpperCase().includes(search.toUpperCase())) {
                         return true;
                     }
-                } else if (searchOption == "subjectTerm") {
+                } else if (searchOption == "subjectTerm" && typeof value.subjectTerm !== 'undefined' && value.subjectTerm != null) {
                     if (value.subjectTerm.toUpperCase().includes(search.toUpperCase())) {
                         return true;
                     }
