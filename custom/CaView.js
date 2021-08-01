@@ -1,3 +1,26 @@
+var response = {
+    "ok": true,
+    "total": 1,
+    "results": [
+        {
+            "object_id": "3",
+            "id": "3",
+            "idno": "UG1974.034",
+            "display_label": "Schlachtfeld (Battlefield) No. 6 in the Peasant's War Series",
+            "ca_object_representations.media.original": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/14440_ca_object_representations_media_32_original.jpg",
+            "ca_objects.displayEdition": "Not Editioned",
+            "ca_entities.preferred_labels.displayname": [
+                "Käthe Kollwitz"
+            ],
+            "ca_objects.displayCreationDate": "1907",
+            "ca_objects.displayMaterialsTech": "Etching",
+            "ca_objects.dimensionsPrint": "n/a; 15.75 x 20.75 in",
+            "ca_objects.provenance": "Ferdinand Roten Galleries, Baltimore; Gift of the Fine Art Printmaking Students in 1974 (Nasby 1980, 204).",
+            "ca_objects.rightsWork": "Out of Copyright"
+        }
+    ]
+}
+
 const app = Vue.createApp({
     data() {
         return {
@@ -21,9 +44,9 @@ const app = Vue.createApp({
             var output = "";
             for (var i=0; i < this.artistList.length; i++) {
                 if (i == 0) {
-                    output += this.artistList[i].displayname;
+                    output += this.artistList[i];
                 } else {
-                    output += ", " + this.artistList[i].displayname;
+                    output += ", " + this.artistList[i];
                 }
             }
             return output;
@@ -35,10 +58,10 @@ const app = Vue.createApp({
     mounted: async function() {
         var ref = window.location.search.substring(window.location.search.indexOf('ref=') + 4);
 
-        var data = JSON.stringify(
+        /*var data = JSON.stringify(
             {
                 "bundles": {
-                    "ca_object_representations.media.large":{"returnURL":true},
+                    "ca_object_representations.media.original":{"returnURL":true},
                     "ca_objects.displayEdition":true,
                     "ca_entities.preferred_labels.displayname":{"returnAsArray":true},
                     "ca_objects.displayCreationDate": true,
@@ -55,10 +78,10 @@ const app = Vue.createApp({
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(null);
 
-        var response = JSON.parse(xhr.responseText);
+        var response = JSON.parse(xhr.responseText);*/
 
         this.title = response.results[0]["display_label"];
-        this.image = response.results[0]["ca_object_representations.media.large"];
+        this.image = response.results[0]["ca_object_representations.media.original"];
         this.idno = response.results[0]["idno"];
         this.edition = response.results[0]["ca_objects.displayEdition"];
         this.artistList = response.results[0]["ca_entities.preferred_labels.displayname"];
