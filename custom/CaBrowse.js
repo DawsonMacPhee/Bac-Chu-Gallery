@@ -56,7 +56,7 @@ const objectCard = {
     
     methods: {
         expand() {
-            window.location.href = 'View-Object.html?ref=' + this.ref;
+            window.location.href = 'View-Object.html?ref=' + this.refid;
         }
     }
 }
