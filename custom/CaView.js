@@ -38,7 +38,7 @@ const app = Vue.createApp({
         var data = JSON.stringify(
             {
                 "bundles": {
-                    "ca_object_representations.media.original":{"returnURL":true},
+                    "ca_object_representations.media.large":{"returnURL":true},
                     "ca_objects.displayEdition":true,
                     "ca_entities.preferred_labels.displayname":{"returnAsArray":true},
                     "ca_objects.displayCreationDate": true,
@@ -58,7 +58,7 @@ const app = Vue.createApp({
         var response = JSON.parse(xhr.responseText);
 
         this.title = response.results[0]["display_label"];
-        this.image = response.results[0]["ca_object_representations.media.original"];
+        this.image = response.results[0]["ca_object_representations.media.large"];
         this.idno = response.results[0]["idno"];
         this.edition = response.results[0]["ca_objects.displayEdition"];
         this.artistList = response.results[0]["ca_entities.preferred_labels.displayname"];
