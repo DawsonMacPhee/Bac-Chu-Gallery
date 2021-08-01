@@ -2,7 +2,7 @@ const objectCard = {
     template:
     /*html*/
     `
-    <div class="objectCard" v-on:click="window.location.href = 'View-Object.html?ref=' + this.ref;">
+    <div class="objectCard" v-on:click="expand()">
         <div class="objectImage">
             <img class="objectCard-image" :src="objectimage">
         </div>
@@ -49,6 +49,14 @@ const objectCard = {
         ref: {
             type: String,
             required: true
+        }
+    },
+
+
+    
+    methods: {
+        expand() {
+            window.location.href = 'View-Object.html?ref=' + this.ref;
         }
     }
 }
