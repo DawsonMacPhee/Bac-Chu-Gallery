@@ -254,7 +254,7 @@
           </div>
         </div>
       <div id="ca-browse-objects">
-          <component v-for="(object, index) in displayedObjects" :key="index" :is="object.card" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator" :creatornationality="object.nationality" :objectdate="object.date" :objectmedium="object.medium" :objectid="object.id" v-on:click="window.location.href = 'View-Object.html?ref=' + object.objectId;"/>
+          <component v-for="(object, index) in displayedObjects" :key="index" :is="object.card" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator" :creatornationality="object.nationality" :objectdate="object.date" :objectmedium="object.medium" :objectid="object.id" :ref="object.objectId"/>
       </div>
     </div>
     </div>
