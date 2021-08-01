@@ -1,0 +1,42 @@
+#ca-view-container {
+    margin: auto;
+    width: 90%;
+}
+#ca-view-app {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    background-color: rgb(229, 229, 229);
+    border-radius: 5px;
+}
+#ca-title {
+    margin-bottom: 0px;
+    margin-left: 15px;
+    font-weight: 700;
+}
+#ca-view {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#ca-view-image-container {
+    width: 50%;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    padding-bottom: 0;
+    border: 6px solid white;
+}
+#ca-view-image {
+    width: 100%;
+}
+#ca-view-info {
+    width: 50%;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+.ca-subtitle {
+    margin-bottom: 3px;
+    margin-top: 8px;
+}
