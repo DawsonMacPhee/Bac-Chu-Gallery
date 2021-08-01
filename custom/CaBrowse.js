@@ -46,7 +46,7 @@ const objectCard = {
             type: String,
             required: true
         },
-        ref: {
+        refid: {
             type: String,
             required: true
         }
@@ -478,11 +478,9 @@ const app = Vue.createApp({
                 "nationality": response.results[i]["ca_entities.nationalityCreator"],
                 "style": response.results[i]["ca_objects.style"],
                 "subjectTerm": response.results[i]["ca_objects.subjectTerm"],
-                "objectid": response.results[i].id
+                "refid": response.results[i].id
             });
         }
-
-        console.log(this.allObjects);
 
         for (var i = this.pageNum * 12; (i < this.allObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
             this.displayedObjects.push(this.allObjects[i]);
