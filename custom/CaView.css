@@ -22,6 +22,7 @@
 }
 #ca-view-image-container {
     width: 50%;
+    height: auto;
     margin-left: 15px;
     margin-bottom: 5px;
     padding-bottom: 0;
@@ -29,6 +30,7 @@
 }
 #ca-view-image {
     width: 100%;
+    height: auto;
 }
 #ca-view-info {
     width: 50%;

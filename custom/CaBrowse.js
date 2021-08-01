@@ -465,7 +465,8 @@ const app = Vue.createApp({
                 "medium": response.results[i]["ca_objects.displayMaterialsTech"],
                 "nationality": response.results[i]["ca_entities.nationalityCreator"],
                 "style": response.results[i]["ca_objects.style"],
-                "subjectTerm": response.results[i]["ca_objects.subjectTerm"]
+                "subjectTerm": response.results[i]["ca_objects.subjectTerm"],
+                "objectId": response.results[i].id
             });
         }
 
