@@ -38,9 +38,9 @@ const app = Vue.createApp({
         var data = JSON.stringify(
             {
                 "bundles": {
-                    "ca_objects.preferred_labels":true,
+                    "ca_object_representations.media.original":{"returnURL":true},
                     "ca_objects.displayEdition":true,
-                    "ca_entities.preferred_labels":{"returnAsArray":true},
+                    "ca_entities.preferred_labels.displayname":{"returnAsArray":true},
                     "ca_objects.displayCreationDate": true,
                     "ca_objects.displayMaterialsTech": true,
                     "ca_objects.dimensionsPrint":true,
@@ -51,20 +51,22 @@ const app = Vue.createApp({
         );
 
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/item/ca_objects/id/" + ref + "?q=*&source=" + data, false);
+        xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/find/ca_objects?q=ca_objects.object_id:" + ref + "&source=" + data, false);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(null);
 
         var response = JSON.parse(xhr.responseText);
 
-        this.title = response["ca_objects.preferred_labels.name"][0].name;
-        this.edition = response["ca_objects.displayEdition"][0].displayEdition;
-        this.artistList = response["ca_entities.preferred_labels.displayname"];
-        this.date = response["ca_objects.displayCreationDate"][0].displayCreationDate;
-        this.medium = response["ca_objects.displayMaterialsTech"][0].displayMaterialsTech;
-        this.dimensions = response["ca_objects.dimensionsPrint"][0].dimensionsPrint;
-        this.creditLine = response["ca_objects.provenance"][0].provenance;
-        this.rights = response["ca_objects.rightsWork"][0].rightsWork;
+        this.title = response.results[0]["display_label"];
+        this.image = response.results[0]["ca_object_representations.media.original"];
+        this.idno = response.results[0]["idno"];
+        this.edition = response.results[0]["ca_objects.displayEdition"];
+        this.artistList = response.results[0]["ca_entities.preferred_labels.displayname"];
+        this.date = response.results[0]["ca_objects.displayCreationDate"];
+        this.medium = rresponse.results[0]["ca_objects.displayMaterialsTech"];
+        this.dimensions = response.results[0]["ca_objects.dimensionsPrint"];
+        this.creditLine = response.results[0]["ca_objects.provenance"];
+        this.rights = response.results[0]["ca_objects.rightsWork"];
     }
 });
 

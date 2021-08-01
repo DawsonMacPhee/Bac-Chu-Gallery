@@ -445,13 +445,13 @@ const app = Vue.createApp({
                     "type_facet": [23]
                 },
                 "bundles": {
-                    "ca_objects.displayCreationDate": true,
-                    "ca_objects.displayMaterialsTech": true,
-                    "ca_objects.style" : true,
-                    "ca_objects.subjectTerm" : true,
-                    "ca_object_representations.media.medium": { "returnURL" : true },
-                    "ca_entities.preferred_labels.displayname": {"returnAsArray" : true },
-                    "ca_entities.nationalityCreator": {"returnAsArray" : true }
+                    "ca_objects.displayCreationDate":true,
+                    "ca_objects.displayMaterialsTech":true,
+                    "ca_objects.style":true,
+                    "ca_objects.subjectTerm":true,
+                    "ca_object_representations.media.medium":{"returnURL":true},
+                    "ca_entities.preferred_labels.displayname":{"returnAsArray":true},
+                    "ca_entities.nationalityCreator":{"returnAsArray":true}
                 }
             }
         );
