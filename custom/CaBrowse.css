@@ -123,6 +123,7 @@ input[type=number] {
     margin-bottom: 8px;
 }
 .objectCard {
+    cursor: pointer;
     border-radius: 5px;
     background-color: rgb(229, 229, 229);
     margin: 5px;
