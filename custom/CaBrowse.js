@@ -491,7 +491,9 @@ const app = Vue.createApp({
         xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects?q=*&source=" + data, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(null);
-        xhr.onload = this.loadBrowse(xhr.responseText);
+        xhr.onload = function() {
+            app.loadBrowse(this.responseText);
+        }
     }
 });
 
