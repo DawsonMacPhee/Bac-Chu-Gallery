@@ -131,6 +131,9 @@ input[type=number] {
     color: black;
     max-height: 470px;
 }
+.objectCard:hover {
+    color: rgb(108, 136, 174);
+}
 .filterCard-close {
     cursor: pointer;
     margin-left: 5px;

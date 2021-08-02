@@ -2,7 +2,7 @@ const objectCard = {
     template:
     /*html*/
     `
-    <div class="objectCard" v-on:click="expand()">
+    <a class="objectCard" :href="'View-Object.html?ref=' + refid">
         <div class="objectImage">
             <img class="objectCard-image" :src="objectimage">
         </div>
@@ -13,7 +13,7 @@ const objectCard = {
             <span class="objectCard-extraInfo">{{ objectmedium }}</span>
             <span class="objectCard-extraInfo">{{ objectid }}</span>
         </div>
-    </div>
+    </a>
     `,
 
     
@@ -49,14 +49,6 @@ const objectCard = {
         refid: {
             type: String,
             required: true
-        }
-    },
-
-
-    
-    methods: {
-        expand() {
-            window.location.href = 'View-Object.html?ref=' + this.refid;
         }
     }
 }
@@ -436,6 +428,7 @@ const app = Vue.createApp({
             }
         }
     },
+
 
 
     mounted: async function() {
