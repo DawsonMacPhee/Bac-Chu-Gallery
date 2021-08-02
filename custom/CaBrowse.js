@@ -470,6 +470,7 @@ const app = Vue.createApp({
 
 
     mounted: async function() {
+        var _this = this;
         var data = JSON.stringify(
             {
                 "criteria": {
@@ -492,7 +493,7 @@ const app = Vue.createApp({
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(null);
         xhr.onload = function() {
-            app.loadBrowse(this.responseText);
+            _this.loadBrowse(this.responseText);
         }
     }
 });
