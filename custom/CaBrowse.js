@@ -2,7 +2,7 @@ const objectCard = {
     template:
     /*html*/
     `
-    <a class="objectCard" :href="'View-Object.html?ref=' + refid">
+    <a class="objectCard" :href="cardLink">
         <div class="objectImage">
             <img class="objectCard-image" :src="objectimage">
         </div>
@@ -30,10 +30,6 @@ const objectCard = {
             type: Array,
             required: true
         },
-        creatornationality: {
-            type: Array,
-            required: true
-        },
         objectdate: {
             type: String,
             required: true
@@ -49,6 +45,18 @@ const objectCard = {
         refid: {
             type: String,
             required: true
+        }
+    },
+
+
+
+    computed: {
+        cardLink() {
+            if (this.refid == "LOAD") {
+                return "";
+            } else {
+                return 'View-Object.html?ref=' + refid;
+            }
         }
     }
 }
@@ -67,7 +75,7 @@ const app = Vue.createApp({
             filteredObjects: [],
             textFilteredObjects: [],
             dateFilteredObjects: [],
-            displayedObjects: [],
+            displayedObjects: [{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."}],
             filters: [],
             pageNum: 0,
             pageOptionOne: 1,
@@ -426,6 +434,34 @@ const app = Vue.createApp({
             if (this.filters.length == 0) {
                 this.filterTitle = "";
             }
+        },
+        loadBrowse(response) {
+            for(var i = 0; i < response.results.length; i++) {
+                var image = response.results[i]["ca_object_representations.media.medium"];
+                if (image == null || image == "") {
+                    image = "/custom/no_image.png";
+                }
+                this.allObjects.push({
+                    "card": objectCard,
+                    "id": response.results[i]["idno"],
+                    "title": response.results[i]["display_label"], 
+                    "image": image, 
+                    "creator": response.results[i]["ca_entities.preferred_labels.displayname"],
+                    "date": response.results[i]["ca_objects.displayCreationDate"],
+                    "medium": response.results[i]["ca_objects.displayMaterialsTech"],
+                    "nationality": response.results[i]["ca_entities.nationalityCreator"],
+                    "style": response.results[i]["ca_objects.style"],
+                    "subjectTerm": response.results[i]["ca_objects.subjectTerm"],
+                    "refid": response.results[i].id
+                });
+            }
+
+            this.displayedObjects = [];
+            for (var i = this.pageNum * 12; (i < this.allObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                this.displayedObjects.push(this.allObjects[i]);
+            }
+
+            this.filteredObjects = this.allObjects;
         }
     },
 
@@ -450,36 +486,10 @@ const app = Vue.createApp({
         );
 
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects?q=*&source=" + data, false);
+        xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects?q=*&source=" + data, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(null);
-
-        var response = JSON.parse(xhr.responseText);
-        for(var i = 0; i < response.results.length; i++) {
-            var image = response.results[i]["ca_object_representations.media.medium"];
-            if (image == null || image == "") {
-                image = "/custom/no_image.png";
-            }
-            this.allObjects.push({
-                "card": objectCard,
-                "id": response.results[i]["idno"],
-                "title": response.results[i]["display_label"], 
-                "image": image, 
-                "creator": response.results[i]["ca_entities.preferred_labels.displayname"],
-                "date": response.results[i]["ca_objects.displayCreationDate"],
-                "medium": response.results[i]["ca_objects.displayMaterialsTech"],
-                "nationality": response.results[i]["ca_entities.nationalityCreator"],
-                "style": response.results[i]["ca_objects.style"],
-                "subjectTerm": response.results[i]["ca_objects.subjectTerm"],
-                "refid": response.results[i].id
-            });
-        }
-
-        for (var i = this.pageNum * 12; (i < this.allObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
-            this.displayedObjects.push(this.allObjects[i]);
-        }
-
-        this.filteredObjects = this.allObjects;
+        xhr.onload = this.loadBrowse(JSON.parse(xhr.responseText));
     }
 });
 
