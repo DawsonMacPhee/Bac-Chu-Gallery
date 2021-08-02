@@ -435,7 +435,8 @@ const app = Vue.createApp({
                 this.filterTitle = "";
             }
         },
-        loadBrowse(response) {
+        loadBrowse(xhr) {
+            var response = JSON.parse(xhr.responseText);
             for(var i = 0; i < response.results.length; i++) {
                 var image = response.results[i]["ca_object_representations.media.medium"];
                 if (image == null || image == "") {
@@ -489,7 +490,7 @@ const app = Vue.createApp({
         xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_objects?q=*&source=" + data, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(null);
-        xhr.onload = this.loadBrowse(JSON.parse(xhr.responseText));
+        xhr.onload = this.loadBrowse(xhr);
     }
 });
 
