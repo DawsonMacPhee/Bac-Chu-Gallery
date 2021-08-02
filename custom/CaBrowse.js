@@ -55,7 +55,7 @@ const objectCard = {
             if (this.refid == "LOAD") {
                 return "";
             } else {
-                return 'View-Object.html?ref=' + refid;
+                return 'View-Object.html?ref=' + this.refid;
             }
         }
     }
