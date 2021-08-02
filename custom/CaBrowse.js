@@ -436,7 +436,7 @@ const app = Vue.createApp({
             }
         },
         loadBrowse(responseText) {
-            console.log(xhr.responseText);
+            console.log(responseText);
             var response = JSON.parse(responseText);
             for(var i = 0; i < response.results.length; i++) {
                 var image = response.results[i]["ca_object_representations.media.medium"];
