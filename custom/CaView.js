@@ -10,7 +10,8 @@ const app = Vue.createApp({
             medium: "Loading...",
             dimensions: "Loading...",
             creditLine: "Loading...",
-            rights: "Loading..."
+            rights: "Loading...",
+            display: false
         }
     },
 
@@ -39,6 +40,12 @@ const app = Vue.createApp({
     methods: {
         loadView(responseText) {
             var response = JSON.parse(responseText);
+
+            if (response.results.length == 0 || response.results[0]["idno"].includes("data")) {
+                this.display = false;
+                this.title = "Object Not Found!"
+                this.image = "/custom/not_found.gif";
+            }
 
             this.title = response.results[0]["display_label"];
             this.image = response.results[0]["ca_object_representations.media.original"];

@@ -123,6 +123,13 @@
               <input type="radio" id="subjectTerm" value="subjectTerm" v-on:click="applyTextFilter(search, 'subjectTerm', true)" v-model="searchOption">
               <label for="subjectTerm">Subject Term</label>
           </div>
+          <br v-if="filterTitle">
+          <h5 v-if="filterTitle">Filters</h5>
+          <div id="filter-cards" v-if="filterTitle">
+            <div class="filterCard" v-for="(filter, index) in filters" :style="{backgroundColor: filter.bgColor, borderColor: filter.bdColor}">
+              {{ filter.value }} <span class="filterCard-close" v-on:click="removeFilter(index)">X</span>
+            </div>
+          </div>
           <br>
           <h5>Date</h5>
           <div id="ca-browse-dates">
@@ -246,12 +253,7 @@
               <input type="button" class="pageButton" value=">" v-on:click="forwardPage">
           </div>
           <hr>
-          <h5>{{ filterTitle }}</h5>
-          <div id="filter-cards">
-            <div class="filterCard" v-for="(filter, index) in filters" :style="{backgroundColor: filter.bgColor, borderColor: filter.bdColor}">
-              {{ filter.value }} <span class="filterCard-close" v-on:click="removeFilter(index)">X</span>
-            </div>
-          </div>
+          <br>
         </div>
       <div id="ca-browse-objects">
           <component v-for="(object, index) in displayedObjects" :key="index" :is="object.card" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator" :objectdate="object.date" :objectmedium="object.medium" :objectid="object.id" :refid="object.refid"/>

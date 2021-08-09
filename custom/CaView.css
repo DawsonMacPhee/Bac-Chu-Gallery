@@ -42,3 +42,10 @@
     margin-bottom: 3px;
     margin-top: 8px;
 }
+#ca-view-image-fail {
+    border: 6px solid white;
+    border-radius: 5px;
+    width: 50%;
+    height: 50%;
+    margin: 15px;
+}

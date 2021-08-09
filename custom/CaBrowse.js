@@ -84,7 +84,7 @@ const app = Vue.createApp({
             pageOptionTwoColor: "rgb(108, 136, 174)",
             pageOptionThree: 3,
             pageOptionThreeColor: "rgb(108, 136, 174)",
-            filterTitle: "",
+            filterTitle: false,
         }
     },
 
@@ -137,7 +137,7 @@ const app = Vue.createApp({
                     bgColor: bgColor,
                     bdColor: bdColor
                 });
-                this.filterTitle = "Filters";
+                this.filterTitle = true;
 
                 this.pageNum = 0;
                 this.pageOptionOne = 1;
@@ -225,7 +225,7 @@ const app = Vue.createApp({
                     bgColor: bgColor,
                     bdColor: bdColor
                 });
-                this.filterTitle = "Filters";
+                this.filterTitle = true;
                 this.search = "";
             }
         },
@@ -284,7 +284,7 @@ const app = Vue.createApp({
                     bgColor: "rgb(255, 110, 194)",
                     bdColor: "rgb(171, 38, 115)"
                 });
-                this.filterTitle = "Filters";
+                this.filterTitle = true;
                 this.date = "";
             }
         },
@@ -432,30 +432,31 @@ const app = Vue.createApp({
             }
 
             if (this.filters.length == 0) {
-                this.filterTitle = "";
+                this.filterTitle = false;
             }
         },
         loadBrowse(responseText) {
-            console.log(responseText);
             var response = JSON.parse(responseText);
             for(var i = 0; i < response.results.length; i++) {
-                var image = response.results[i]["ca_object_representations.media.medium"];
-                if (image == null || image == "") {
-                    image = "/custom/no_image.png";
+                if (!response.results[i]["idno"].includes("data")) {
+                    var image = response.results[i]["ca_object_representations.media.medium"];
+                    if (image == null || image == "") {
+                        image = "/custom/no_image.png";
+                    }
+                    this.allObjects.push({
+                        "card": objectCard,
+                        "id": response.results[i]["idno"],
+                        "title": response.results[i]["display_label"], 
+                        "image": image, 
+                        "creator": response.results[i]["ca_entities.preferred_labels.displayname"],
+                        "date": response.results[i]["ca_objects.displayCreationDate"],
+                        "medium": response.results[i]["ca_objects.displayMaterialsTech"],
+                        "nationality": response.results[i]["ca_entities.nationalityCreator"],
+                        "style": response.results[i]["ca_objects.style"],
+                        "subjectTerm": response.results[i]["ca_objects.subjectTerm"],
+                        "refid": response.results[i].id
+                    });
                 }
-                this.allObjects.push({
-                    "card": objectCard,
-                    "id": response.results[i]["idno"],
-                    "title": response.results[i]["display_label"], 
-                    "image": image, 
-                    "creator": response.results[i]["ca_entities.preferred_labels.displayname"],
-                    "date": response.results[i]["ca_objects.displayCreationDate"],
-                    "medium": response.results[i]["ca_objects.displayMaterialsTech"],
-                    "nationality": response.results[i]["ca_entities.nationalityCreator"],
-                    "style": response.results[i]["ca_objects.style"],
-                    "subjectTerm": response.results[i]["ca_objects.subjectTerm"],
-                    "refid": response.results[i].id
-                });
             }
 
             this.displayedObjects = [];

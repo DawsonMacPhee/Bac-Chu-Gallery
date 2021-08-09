@@ -105,7 +105,7 @@
     <div id="ca-view-container">
     <div id="ca-view-app">
         <h3 id="ca-title">{{ title }}</h3>
-        <div id="ca-view">
+        <div id="ca-view" v-if="display">
             <div id="ca-view-image-container">
                 <img :src="image" id="ca-view-image">
             </div>
@@ -129,6 +129,9 @@
                 <h5 class="ca-subtitle">Rights</h5>
                 <span>{{ rights }}</span>
             </div>
+        </div>
+        <div id="ca-view" v-if="!display">
+            <img :src="image" id="ca-view-image-fail">
         </div>
     </div>
     </div>

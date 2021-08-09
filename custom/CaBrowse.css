@@ -46,7 +46,7 @@ input[type=number] {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    background-image: linear-gradient(to bottom, rgba(192, 192, 192, 1), rgba(192, 192, 192, 0));
+    background-color: rgb(192, 192, 192);
     border-radius: 5px;
     margin: 5px;
     padding-left: 20px;
