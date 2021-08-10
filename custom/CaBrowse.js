@@ -438,7 +438,7 @@ const app = Vue.createApp({
         loadBrowse(responseText) {
             var response = JSON.parse(responseText);
             for(var i = 0; i < response.results.length; i++) {
-                if (!response.results[i]["idno"].includes("data")) {
+                if (response.results[i]["idno"] == null || !response.results[i]["idno"].includes("data")) {
                     var image = response.results[i]["ca_object_representations.media.medium"];
                     if (image == null || image == "") {
                         image = "/custom/no_image.png";
