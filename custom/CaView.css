@@ -41,6 +41,7 @@
 .ca-subtitle {
     margin-bottom: 3px;
     margin-top: 8px;
+    font-weight: 700;
 }
 #ca-view-image-fail {
     border: 6px solid white;
