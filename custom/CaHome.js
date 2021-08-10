@@ -3,8 +3,8 @@ const app = Vue.createApp({
         return {
             links: [],
             images: ["/custom/loading.gif", "/custom/loading.gif", "/custom/loading.gif", "/custom/loading.gif", "/custom/loading.gif", "/custom/loading.gif"],
-            widths: [],
-            heights: [],
+            widths: ["800", "800", "800", "800", "800", "800"],
+            heights: ["600", "600", "600", "600", "600", "600"],
             titles: [],
             creators: [],
             years: [],
@@ -35,13 +35,13 @@ const app = Vue.createApp({
             for (var i = 0; i < 6; i++) {
                 if (response.results[i]["ca_object_representations.media.large"] != null) {
                     var imageInfo = response.results[i]["ca_object_representations.media.large"].split("'");
-                    this.images.push(imageInfo[1]);
-                    this.widths.push(imageInfo[3]);
-                    this.heights.push(imageInfo[5]);
+                    this.images[i] = imageInfo[1];
+                    this.widths[i] = imageInfo[3];
+                    this.heights[i] = imageInfo[5];
                 } else {
-                    this.images.push("/custom/no_image.png");
-                    this.widths.push("1150");
-                    this.heights.push("647");
+                    this.images[i] = "/custom/no_image.png";
+                    this.widths[i] = "1150";
+                    this.heights[i] = "647";
                 }
                 this.titles.push(response.results[i]["display_label"]);
                 this.years.push(response.results[i]["ca_objects.displayCreationDate"]);
