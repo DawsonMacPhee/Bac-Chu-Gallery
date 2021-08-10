@@ -292,14 +292,11 @@ const app = Vue.createApp({
             var objects;
             if (this.search == "") {
                 objects = this.filteredObjects;
+                if (this.date != "") {
+                    objects = this.dateFilteredObjects;
+                }
             } else {
                 objects = this.textFilteredObjects;
-            }
-
-            if (this.date == "") {
-                objects = this.filteredObjects;
-            } else {
-                objects = this.dateFilteredObjects;
             }
 
             if (this.pageNum == 0) {
@@ -323,14 +320,11 @@ const app = Vue.createApp({
             var objects;
             if (this.search == "") {
                 objects = this.filteredObjects;
+                if (this.date != "") {
+                    objects = this.dateFilteredObjects;
+                }
             } else {
                 objects = this.textFilteredObjects;
-            }
-
-            if (this.date == "") {
-                objects = this.filteredObjects;
-            } else {
-                objects = this.dateFilteredObjects;
             }
 
             if (((this.pageNum + 1) * 12) >= (objects.length)) {
@@ -354,14 +348,11 @@ const app = Vue.createApp({
             var objects;
             if (this.search == "") {
                 objects = this.filteredObjects;
+                if (this.date != "") {
+                    objects = this.dateFilteredObjects;
+                }
             } else {
                 objects = this.textFilteredObjects;
-            }
-
-            if (this.date == "") {
-                objects = this.filteredObjects;
-            } else {
-                objects = this.dateFilteredObjects;
             }
 
             if (((newPageNum - 1) * 12) >= (objects.length)) {
