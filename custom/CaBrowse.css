@@ -40,7 +40,7 @@ input[type=number] {
     flex-direction: row;
     margin-bottom: 1%;
     margin-top: 1%;
-    margin-left: 4.5%;
+    margin-left: 3%;
 }
 #ca-browse-sidebar {
     display: flex;
@@ -56,6 +56,7 @@ input[type=number] {
 #ca-browse-dates {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 #ca-browse-sidebar-searchbar {
     margin-bottom: 5px;
@@ -163,4 +164,65 @@ input[type=number] {
     border: none;
     border-radius: 10px;
     margin: 2px;
+}
+
+@media (max-width:575px){
+    #ca-browse-app {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #ca-browse-sidebar {
+        width: 100%;
+    }
+
+    .objectCard {
+        width: 100%;
+    }
+
+    #ca-browse-objects {
+        width: 100%;
+    }
+}
+
+@media (max-width:700px) and (min-width:576px){
+    #ca-browse-sidebar {
+        width: 50%;
+    }
+
+    .objectCard {
+        width: 100%;
+    }
+
+    #ca-browse-objects {
+        width: 50%;
+    }
+}
+
+@media (max-width:875px) and (min-width:701px){
+    #ca-browse-sidebar {
+        width: 40%;
+    }
+
+    .objectCard {
+        width: 45%;
+    }
+
+    #ca-browse-objects {
+        width: 60%;
+    }
+}
+
+@media (max-width:1050px) and (min-width:876px){
+    #ca-browse-sidebar {
+        width: 30%;
+    }
+
+    .objectCard {
+        width: 30%;
+    }
+
+    #ca-browse-objects {
+        width: 70%;
+    }
 }

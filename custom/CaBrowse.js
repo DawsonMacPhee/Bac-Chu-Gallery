@@ -1,3 +1,620 @@
+var response = {
+    "ok": true,
+    "results": [
+        {
+            "object_id": "3",
+            "id": "3",
+            "idno": "UG1974.034",
+            "display_label": "Schlachtfeld (Battlefield) No. 6 in the Peasant's War Series",
+            "ca_objects.displayCreationDate": "1907",
+            "ca_objects.displayMaterialsTech": "Etching",
+            "ca_objects.style": "German Expressionism;;",
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/6911_ca_object_representations_media_32_medium.jpg",
+            "ca_entities.preferred_labels.displayname": [
+                "Käthe Kollwitz"
+            ],
+            "ca_entities.nationalityCreator": [
+                "German"
+            ]
+        },
+        {
+            "object_id": "4",
+            "id": "4",
+            "idno": "UG1974.041",
+            "display_label": "Pflugzieher und Weib",
+            "ca_objects.displayCreationDate": "1902",
+            "ca_objects.displayMaterialsTech": "Lithograph",
+            "ca_objects.style": "German Expressionism;;",
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/86096_ca_object_representations_media_34_medium.jpg",
+            "ca_entities.preferred_labels.displayname": [
+                "Käthe Kollwitz"
+            ],
+            "ca_entities.nationalityCreator": [
+                "German"
+            ]
+        },
+        {
+            "object_id": "5",
+            "id": "5",
+            "idno": "UG1987.028",
+            "display_label": "Self-Portrait",
+            "ca_objects.displayCreationDate": "1912",
+            "ca_objects.displayMaterialsTech": "etching",
+            "ca_objects.style": "German Expressionism;;",
+            "ca_objects.subjectTerm": "German Expressionism;Expressionism;German;Germany;Expressionist",
+            "ca_object_representations.media.medium": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/62285_ca_object_representations_media_71_medium.jpg",
+            "ca_entities.preferred_labels.displayname": [
+                "Käthe Kollwitz"
+            ],
+            "ca_entities.nationalityCreator": [
+                "German"
+            ]
+        },
+        {
+            "object_id": "6",
+            "id": "6",
+            "idno": "UG1971.004",
+            "display_label": "Mucius Scaevola",
+            "ca_objects.displayCreationDate": "1535",
+            "ca_objects.displayMaterialsTech": "Engraving",
+            "ca_objects.style": ";;",
+            "ca_objects.subjectTerm": null,
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Georg Pencz"
+            ],
+            "ca_entities.nationalityCreator": [
+                "German"
+            ]
+        },
+        {
+            "object_id": "6711",
+            "id": "6711",
+            "idno": "TEMP.445",
+            "display_label": "Solar Anatomy",
+            "ca_objects.displayCreationDate": "",
+            "ca_objects.displayMaterialsTech": "Digital Print",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Jean Maddison"
+            ],
+            "ca_entities.nationalityCreator": [
+                "English",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "6712",
+            "id": "6712",
+            "idno": "TEMP.444",
+            "display_label": "The Blind Watchmaker",
+            "ca_objects.displayCreationDate": "",
+            "ca_objects.displayMaterialsTech": "Digital Print",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Jean Maddison"
+            ],
+            "ca_entities.nationalityCreator": [
+                "English",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "6713",
+            "id": "6713",
+            "display_label": "The most surprising CATARACT of NIAGARA in Canada",
+            "ca_objects.displayCreationDate": "1779",
+            "ca_objects.displayMaterialsTech": "Hand-coloured engraving",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/1552_ca_object_representations_media_74_medium.jpg",
+            "ca_entities.preferred_labels.displayname": [
+                "After Robert Hancock"
+            ],
+            "ca_entities.nationalityCreator": [
+                "British"
+            ]
+        },
+        {
+            "object_id": "6714",
+            "id": "6714",
+            "idno": "BC2017.172",
+            "display_label": "Untitled ",
+            "ca_objects.displayCreationDate": "Undated",
+            "ca_objects.displayMaterialsTech": "Glossy print",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Stephen Patterson"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "6715",
+            "id": "6715",
+            "idno": "BC2017.430",
+            "display_label": "Trees #1",
+            "ca_objects.displayCreationDate": "2003",
+            "ca_objects.displayMaterialsTech": "Serigraph",
+            "ca_objects.style": ";;",
+            "ca_objects.subjectTerm": "Realism;Realist;Abstraction;Abstract;Impressionism;Impressionist;Expressionism;Expressionist;",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Lorne Wagman"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "6716",
+            "id": "6716",
+            "idno": "BC2017.100",
+            "display_label": "Dragon Boats",
+            "ca_objects.displayCreationDate": "2003",
+            "ca_objects.displayMaterialsTech": "Digital photograph (glicee) ",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Stephen Patterson"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "6717",
+            "id": "6717",
+            "idno": "UG1989.019.003",
+            "display_label": "Cape Warrender; Lancaster Sound / Arctic Suite",
+            "ca_objects.displayCreationDate": "1989",
+            "ca_objects.displayMaterialsTech": "Serigraph",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "Impressionism;Impressionist",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Toni Onley"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Manx",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "6718",
+            "id": "6718",
+            "idno": "UG1989.015.001",
+            "display_label": "Iceberg; Lancaster Sound; Arctic Suite",
+            "ca_objects.displayCreationDate": "1989",
+            "ca_objects.displayMaterialsTech": "Pencil Drawing",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Toni Onley"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Manx",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "6719",
+            "id": "6719",
+            "idno": "UG1989.016.006",
+            "display_label": "Northwest Passage / Arctic Suite",
+            "ca_objects.displayCreationDate": "Undated",
+            "ca_objects.displayMaterialsTech": "Serigraph",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Toni Onley"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Manx",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "6720",
+            "id": "6720",
+            "idno": "TEMP.379",
+            "display_label": "No Title",
+            "ca_objects.displayCreationDate": "1984",
+            "ca_objects.displayMaterialsTech": "Book; woodcuts",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Soon; Lee"
+            ],
+            "ca_entities.nationalityCreator": [
+                ""
+            ]
+        },
+        {
+            "object_id": "6721",
+            "id": "6721",
+            "idno": "TEMP.378",
+            "display_label": "The Fly Song",
+            "ca_objects.displayCreationDate": "Undated",
+            "ca_objects.displayMaterialsTech": "Book; woodcuts",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Greg Watson"
+            ],
+            "ca_entities.nationalityCreator": [
+                ""
+            ]
+        },
+        {
+            "object_id": "6722",
+            "id": "6722",
+            "idno": "TEMP.377",
+            "display_label": "Waiting for godot",
+            "ca_objects.displayCreationDate": "1984",
+            "ca_objects.displayMaterialsTech": "Book; woodcuts",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Suzanne Collodello"
+            ],
+            "ca_entities.nationalityCreator": [
+                ""
+            ]
+        },
+        {
+            "object_id": "6723",
+            "id": "6723",
+            "idno": "TEMP.376",
+            "display_label": "Handbook",
+            "ca_objects.displayCreationDate": "1984",
+            "ca_objects.displayMaterialsTech": "Book; woodcuts",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "J. Muller"
+            ],
+            "ca_entities.nationalityCreator": [
+                ""
+            ]
+        },
+        {
+            "object_id": "6724",
+            "id": "6724",
+            "idno": "TEMP.375",
+            "display_label": "No Title",
+            "ca_objects.displayCreationDate": "Undated",
+            "ca_objects.displayMaterialsTech": "Book; woodcuts",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Unknown artist"
+            ],
+            "ca_entities.nationalityCreator": [
+                ""
+            ]
+        },
+        {
+            "object_id": "6725",
+            "id": "6725",
+            "idno": "TEMP.374",
+            "display_label": "The Earth is Born",
+            "ca_objects.displayCreationDate": "Undated",
+            "ca_objects.displayMaterialsTech": "Book; woodcuts",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/52492_ca_object_representations_media_76_medium.jpg",
+            "ca_entities.preferred_labels.displayname": [
+                "A. Clarke"
+            ],
+            "ca_entities.nationalityCreator": [
+                ""
+            ]
+        },
+        {
+            "object_id": "8491",
+            "id": "8491",
+            "idno": "TEMP.373",
+            "display_label": "No Title",
+            "ca_objects.displayCreationDate": "Undated",
+            "ca_objects.displayMaterialsTech": "Book; woodblock prints",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Sue Perry"
+            ],
+            "ca_entities.nationalityCreator": [
+                ""
+            ]
+        },
+        {
+            "object_id": "8492",
+            "id": "8492",
+            "idno": "TEMP.372",
+            "display_label": "No Title",
+            "ca_objects.displayCreationDate": "1984",
+            "ca_objects.displayMaterialsTech": "Book; woodblock prints",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Chek Wai Chee"
+            ],
+            "ca_entities.nationalityCreator": [
+                ""
+            ]
+        },
+        {
+            "object_id": "8493",
+            "id": "8493",
+            "idno": "TEMP.371",
+            "display_label": "Derrière le miroir: Riopelle",
+            "ca_objects.displayCreationDate": "Copyright 1968 by Maeght  Editeur; avril 196",
+            "ca_objects.displayMaterialsTech": "Book; printed in France",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": "https://bachinski-chu.uoguelph.ca/admin/media/collectiveaccess/images/0/84198_ca_object_representations_media_79_medium.jpg",
+            "ca_entities.preferred_labels.displayname": [
+                "Aimé Maeght; directeur-gérant"
+            ],
+            "ca_entities.nationalityCreator": [
+                "French"
+            ]
+        },
+        {
+            "object_id": "8494",
+            "id": "8494",
+            "idno": "TEMP.370",
+            "display_label": "Verso: \"looking in the window and cried out…\"",
+            "ca_objects.displayCreationDate": "c. 1985",
+            "ca_objects.displayMaterialsTech": "Letter press text",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "G. Brender à Brandis"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Dutch",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "8495",
+            "id": "8495",
+            "idno": "TEMP.369",
+            "display_label": "Recto: Untitled (Barn)",
+            "ca_objects.displayCreationDate": "c. 1985",
+            "ca_objects.displayMaterialsTech": "Wood engraving",
+            "ca_objects.style": ";;",
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "G. Brender à Brandis"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Dutch",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "8496",
+            "id": "8496",
+            "idno": "TEMP.368",
+            "display_label": "Verso: \"On crunch of white…\"",
+            "ca_objects.displayCreationDate": "c. 1985",
+            "ca_objects.displayMaterialsTech": "Letter press text",
+            "ca_objects.style": ";;",
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "G. Brender à Brandis"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Dutch",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "8497",
+            "id": "8497",
+            "idno": "TEMP.367",
+            "display_label": "Recto: \"Yard at Cross Hill\"",
+            "ca_objects.displayCreationDate": "c. 1985",
+            "ca_objects.displayMaterialsTech": "Wood engraving with letter press text",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "G. Brender à Brandis"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Dutch",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "8498",
+            "id": "8498",
+            "idno": "TEMP.366",
+            "display_label": "Verso: \"Untitled (Watering Basin for Cattle)",
+            "ca_objects.displayCreationDate": "c. 1985",
+            "ca_objects.displayMaterialsTech": "Wood engraving with letter press text",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "G. Brender à Brandis"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Dutch",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "8499",
+            "id": "8499",
+            "idno": "TEMP.365",
+            "display_label": "Recto: Image B \"Untitled (Stone Barn)",
+            "ca_objects.displayCreationDate": "c. 1985",
+            "ca_objects.displayMaterialsTech": "Wood engraving",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "G. Brender à Brandis"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Dutch",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "8500",
+            "id": "8500",
+            "idno": "TEMP.364",
+            "display_label": "Recto: Image A \"Untitled (Row of trees beside a Road)",
+            "ca_objects.displayCreationDate": "c. 1985",
+            "ca_objects.displayMaterialsTech": "Wood engraving",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "G. Brender à Brandis"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Dutch",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "8501",
+            "id": "8501",
+            "idno": "TEMP.363",
+            "display_label": "Identity: a poem by Beatrice Cooke",
+            "ca_objects.displayCreationDate": "c. 1985",
+            "ca_objects.displayMaterialsTech": "Wood engraving with letter press text",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "G. Brender à Brandis"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Dutch",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "8502",
+            "id": "8502",
+            "idno": "TEMP.362",
+            "display_label": "…draw while…",
+            "ca_objects.displayCreationDate": "2006",
+            "ca_objects.displayMaterialsTech": "Book",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "Ryan Price"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "8503",
+            "id": "8503",
+            "idno": "TEMP.361",
+            "display_label": "To those who went before",
+            "ca_objects.displayCreationDate": "c. 1985",
+            "ca_objects.displayMaterialsTech": "Wood engraving with letter press text",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "G. Brender à Brandis"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Dutch",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "8504",
+            "id": "8504",
+            "idno": "TEMP.360",
+            "display_label": "With Cheerful Heart",
+            "ca_objects.displayCreationDate": "1985",
+            "ca_objects.displayMaterialsTech": "Wood engraving with letter press text",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "G. Brender à Brandis"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Dutch",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "8505",
+            "id": "8505",
+            "idno": "TEMP.359",
+            "display_label": "Heirlooms; a poem by Geoffrey Austain",
+            "ca_objects.displayCreationDate": "1986",
+            "ca_objects.displayMaterialsTech": "Handmade letterpress booklet with 4 wood engravings",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "G. Brender à Brandis"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Dutch",
+                "Canadian"
+            ]
+        },
+        {
+            "object_id": "8506",
+            "id": "8506",
+            "idno": "TEMP.358",
+            "display_label": "The Journey's End",
+            "ca_objects.displayCreationDate": "c. 1985",
+            "ca_objects.displayMaterialsTech": "4 wood engravings; engraving; typesetting",
+            "ca_objects.style": null,
+            "ca_objects.subjectTerm": "",
+            "ca_object_representations.media.medium": null,
+            "ca_entities.preferred_labels.displayname": [
+                "G. Brender à Brandis"
+            ],
+            "ca_entities.nationalityCreator": [
+                "Dutch",
+                "Canadian"
+            ]
+        }
+    ]
+}
+
 const objectCard = {
     template:
     /*html*/
@@ -427,7 +1044,7 @@ const app = Vue.createApp({
             }
         },
         loadBrowse(responseText) {
-            var response = JSON.parse(responseText);
+            //var response = JSON.parse(responseText);
             for(var i = 0; i < response.results.length; i++) {
                 if (response.results[i]["idno"] == null || !response.results[i]["idno"].includes("data")) {
                     var image = response.results[i]["ca_object_representations.media.medium"];
@@ -462,7 +1079,7 @@ const app = Vue.createApp({
 
 
     mounted: async function() {
-        var _this = this;
+        /*var _this = this;
         var data = JSON.stringify(
             {
                 "criteria": {
@@ -486,7 +1103,9 @@ const app = Vue.createApp({
         xhr.send(null);
         xhr.onload = function() {
             _this.loadBrowse(this.responseText);
-        }
+        }*/
+
+        this.loadBrowse("TEST");
     }
 });
 
