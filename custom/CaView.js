@@ -11,7 +11,7 @@ const app = Vue.createApp({
             dimensions: "Loading...",
             creditLine: "Loading...",
             rights: "Loading...",
-            display: false
+            display: true
         }
     },
 
