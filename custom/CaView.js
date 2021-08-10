@@ -41,7 +41,7 @@ const app = Vue.createApp({
         loadView(responseText) {
             var response = JSON.parse(responseText);
 
-            if (response.results.length == 0 || response.results[0]["idno"].includes("data")) {
+            if (response.results == null || response.results.length == 0 || response.results[0]["idno"].includes("data")) {
                 this.display = false;
                 this.title = "Object Not Found!"
                 this.image = "/custom/not_found.gif";
