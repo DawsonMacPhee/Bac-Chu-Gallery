@@ -60,10 +60,14 @@ input[type=number] {
 }
 #ca-browse-sidebar-searchbar {
     margin-bottom: 5px;
+    font-size: 18px;
+    height: 34px;
 }
 #ca-browse-sidebar-datebar {
     margin-left: 5px;
     width: 100%;
+    font-size: 18px;
+    height: 34px;
 }
 #ca-browse-objects {
     display: flex;
@@ -164,6 +168,10 @@ input[type=number] {
     border: none;
     border-radius: 10px;
     margin: 2px;
+}
+.dropdown {
+    font-size: 18px;
+    height: 34px;
 }
 
 @media (max-width:575px){

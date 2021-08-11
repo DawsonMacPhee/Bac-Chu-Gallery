@@ -107,7 +107,7 @@
               <br>
               <h5>Date</h5>
               <div id="ca-browse-dates">
-                <select @change="applyDateFilter(date, dateSearch, true)" v-model="dateSearch">
+                <select class="dropdown" @change="applyDateFilter(date, dateSearch, true)" v-model="dateSearch">
                     <option>On</option>
                     <option>Before</option>
                     <option>After</option>
@@ -116,7 +116,7 @@
               </div>
               <br>
               <h5>Style</h5>
-              <select @change="applyFilter('style', style, true)" v-model="style">
+              <select class="dropdown" @change="applyFilter('style', style, true)" v-model="style">
                   <option disabled value="">Select Filter Option</option>
                   <option>Abstract Expressionism</option>
                   <option>Abstractionism</option>
@@ -134,7 +134,7 @@
               </select>
               <br>
               <h5>Nationality/Culture</h5>
-              <select @change="applyFilter('nationality', nationality, true)" v-model="nationality">
+              <select class="dropdown" @change="applyFilter('nationality', nationality, true)" v-model="nationality">
                   <option disabled value="">Select Filter Option</option>
                   <option>American</option>
                   <option>Belgian</option>
@@ -163,7 +163,7 @@
               </select>
               <br>
               <h5>Medium</h5>
-              <select @change="applyFilter('medium', medium, true)" v-model="medium">
+              <select class="dropdown" @change="applyFilter('medium', medium, true)" v-model="medium">
                   <option disabled value="">Select Filter Option</option>
                   <option>Acrylic on paper</option>
                   <option>Air brushed</option>
