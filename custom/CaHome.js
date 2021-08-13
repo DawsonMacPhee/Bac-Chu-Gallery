@@ -46,8 +46,8 @@ const app = Vue.createApp({
                 this.titles.push(response.results[i]["display_label"]);
                 this.years.push(response.results[i]["ca_objects.displayCreationDate"]);
                 this.mediums.push(response.results[i]["ca_objects.displayMaterialsTech"]);
-                this.ids.push(response.results[i]["idno"]);
-                this.links.push("https://bachinski-chu.uoguelph.ca/View-Object.html?ref=" + response.results[i]["id"]);
+                this.ids.push(response.results[i]["ca_objects.subjectTerm"]);
+                this.links.push("https://bachinski-chu.uoguelph.ca/View-Object.html?ref=" + response.results[i]["ca_objects.inscriptions"]);
 
                 var creatorStr = "";
                 for (var y = 0; y < response.results[i]["ca_entities.preferred_labels.displayname"].length; y++) {
@@ -71,6 +71,8 @@ const app = Vue.createApp({
                 "bundles": {
                     "ca_objects.displayCreationDate": true,
                     "ca_objects.displayMaterialsTech": true,
+                    "ca_objects.subjectTerm":true,
+                    "ca_objects.inscriptions":true,
                     "ca_entities.preferred_labels.displayname":{"returnAsArray":true},
                     "ca_object_representations.media.large":true
                 }
