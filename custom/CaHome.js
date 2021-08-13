@@ -39,7 +39,7 @@ const app = Vue.createApp({
                     this.widths[i] = imageInfo[3];
                     this.heights[i] = imageInfo[5];
                 } else {
-                    this.images[i] = "/custom/no_image.png";
+                    this.images[i] = "/custom/no_image_square.png";
                     this.widths[i] = "1150";
                     this.heights[i] = "647";
                 }
