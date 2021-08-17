@@ -1,0 +1,56 @@
+#ca-exhibit-browse-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+#ca-exhibit-browse-app {
+    margin-top: 20px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+}
+.ca-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.ca-card {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    align-items: center;
+}
+.ca-img-container {
+    width: 50%;
+}
+.ca-img {
+    width: 100%;
+}
+.ca-info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+    margin-left: 25px;
+}
+.ca-card-title {
+    line-height: 1.2;
+    font-size: 38px;
+    font-weight: 700;
+    max-width: 90%;
+    margin-bottom: 4px;
+}
+.ca-card-date {
+    line-height: 1.2;
+    font-size: 24px;
+    font-weight: 700;
+    max-width: 90%;
+    margin-bottom: 4px;
+}
