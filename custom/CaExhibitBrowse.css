@@ -25,12 +25,20 @@
     flex-direction: row;
     margin: 10px;
     align-items: center;
+    background-color: rgb(229, 229, 229);
+    border-radius: 5px;
 }
 .ca-img-container {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
 }
 .ca-img {
     width: 100%;
+    border: 6px solid white;
+    border-radius: 5px;
 }
 .ca-info {
     width: 50%;
@@ -38,11 +46,12 @@
     flex-direction: column;
     align-items: left;
     text-align: left;
-    margin-left: 25px;
+    margin: 10px;
+    margin-left: 15px;
 }
 .ca-card-title {
     line-height: 1.2;
-    font-size: 38px;
+    font-size: 34px;
     font-weight: 700;
     max-width: 90%;
     margin-bottom: 4px;
