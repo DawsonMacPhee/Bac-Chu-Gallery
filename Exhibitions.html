@@ -76,90 +76,21 @@
     
     <!--This is the beginning of custom code block-->
     <div id="ca-exhibit-browse-container">
-        <h1>Exhibitions</h1>
+        <h1 style="font-weight: 700;">Exhibitions</h1>
         <p>Browse our exhibitions: developed by faculty, research assistants, and students.</p>
 
         <section style="width: 100%;" class="u-clearfix u-image u-section-2" id="sec-514f" data-image-width="1600" data-image-height="1066">
             <div class="u-clearfix u-sheet u-sheet-1"></div>
         </section>
         <div id="ca-exhibit-browse-app">
-            <h2>Current Exhibitions</h2>
-
-            <div class="ca-card-container">
-                <div class="ca-card">
-                    <div class="ca-img-container">
-                        <img class="ca-img" src="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"/>
-                    </div>
-                    <div class="ca-info">
-                        <span class="ca-card-title"><em>Exhibition Title</em></span>
-                        <span class="ca-card-date">Exhibition Date</span>
-                        <span>Exhibition Curator</span>
-                        <br>
-                        <span>Exhibition introductory write-up</span>
-                    </div>
-                </div>
+            <div>
+                <h2 style="font-weight: 700;">Current Exhibitions</h2>
+                <component v-for="(curr, index) in currentEx" :key="index" :is="curr.card" :extitle="curr.title" :exdate="curr.date" :excurator="curr.curator" :exintro="curr.desc" :refid="curr.refid"/>
             </div>
 
-            <div class="ca-card-container">
-                <div class="ca-card">
-                    <div class="ca-img-container">
-                        <img class="ca-img" src="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"/>
-                    </div>
-                    <div class="ca-info">
-                        <span class="ca-card-title"><em>Exhibition Title</em></span>
-                        <span class="ca-card-date">Exhibition Date</span>
-                        <span>Exhibition Curator</span>
-                        <br>
-                        <span>Exhibition introductory write-up</span>
-                    </div>
-                </div>
-            </div>
-
-            <h2>Past Exhibitions</h2>
-
-            <div class="ca-card-container">
-                <div class="ca-card">
-                    <div class="ca-img-container">
-                        <img class="ca-img" src="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"/>
-                    </div>
-                    <div class="ca-info">
-                        <span class="ca-card-title"><em>Exhibition Title</em></span>
-                        <span class="ca-card-date">Exhibition Date</span>
-                        <span>Exhibition Curator</span>
-                        <br>
-                        <span>Exhibition introductory write-up</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ca-card-container">
-                <div class="ca-card">
-                    <div class="ca-img-container">
-                        <img class="ca-img" src="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"/>
-                    </div>
-                    <div class="ca-info">
-                        <span class="ca-card-title"><em>Exhibition Title</em></span>
-                        <span class="ca-card-date">Exhibition Date</span>
-                        <span>Exhibition Curator</span>
-                        <br>
-                        <span>Exhibition introductory write-up</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ca-card-container">
-                <div class="ca-card">
-                    <div class="ca-img-container">
-                        <img class="ca-img" src="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"/>
-                    </div>
-                    <div class="ca-info">
-                        <span class="ca-card-title"><em>Exhibition Title</em></span>
-                        <span class="ca-card-date">Exhibition Date</span>
-                        <span>Exhibition Curator</span>
-                        <br>
-                        <span>Exhibition introductory write-up</span>
-                    </div>
-                </div>
+            <div>
+                <h2 style="font-weight: 700;">Past Exhibitions</h2>
+                <component v-for="(past, index) in pastEx" :key="index" :is="past.card" :extitle="past.title" :exdate="past.date" :excurator="past.curator" :exintro="past.desc" :refid="past.refid"/>
             </div>
         </div>
     </div>
