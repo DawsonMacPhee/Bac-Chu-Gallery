@@ -79,9 +79,6 @@ const app = Vue.createApp({
                     }
                 }
             }
-
-            console.log(this.currentEx);
-            console.log(this.pastEx);
         }
     },
 

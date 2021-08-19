@@ -1,0 +1,66 @@
+#ca-exhibit-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.exhibit-info {
+    width: 80%;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.exhibit-info h1 {
+    font-weight: 700;
+}
+.exhibit-info h2 {
+    font-weight: 700;
+    font-family: Montserrat,sans-serif !important;
+}
+.exhibit-info h5 {
+    font-weight: 700;
+    font-family: Montserrat,sans-serif !important;
+}
+#float-image {
+    width: 225px;
+    margin-left: auto;
+    margin-right: 30px;
+}
+#title-img {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.carousel {
+    width: 100%;
+}
+.carousel-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+.leftArrow {
+    position: absolute;
+    left: 30px;
+    z-index: 10000;
+    width: 70px;
+    cursor: pointer;
+    fill: white;
+}
+.rightArrow {
+    position: absolute;
+    right: 30px;
+    z-index: 10000;
+    width: 70px;
+    cursor: pointer;
+    fill: white;
+}
+.exhibit-works {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+.exhibit-works h2 {
+    font-weight: 700;
+}
+.exhibit-works .carousel {
+    height: 633px;
+}
