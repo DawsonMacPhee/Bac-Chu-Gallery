@@ -37,7 +37,7 @@ const app = Vue.createApp({
 
     computed: {
         carousel_1() {
-            return this.carosel_1_images[this.carosel_1_page];
+            return this.carosel_1_images[this.carosel_1_page] + "#" + new Date().getTime();
         }
     },
 
