@@ -85,12 +85,12 @@
         <div id="ca-exhibit-browse-app">
             <div>
                 <h2 style="font-weight: 700;">Current Exhibitions</h2>
-                <component v-for="(curr, index) in currentEx" :key="index" :is="curr.card" :extitle="curr.title" :exdate="curr.date" :excurator="curr.curator" :exintro="curr.desc" :refid="curr.refid"/>
+                <component v-for="(curr, index) in currentEx" :key="index" :is="curr.card" :extitle="curr.title" :exdate="curr.date" :eximg="curr.img" :excurator="curr.curator" :exintro="curr.desc" :refid="curr.refid"/>
             </div>
 
             <div>
                 <h2 style="font-weight: 700;">Past Exhibitions</h2>
-                <component v-for="(past, index) in pastEx" :key="index" :is="past.card" :extitle="past.title" :exdate="past.date" :excurator="past.curator" :exintro="past.desc" :refid="past.refid"/>
+                <component v-for="(past, index) in pastEx" :key="index" :is="past.card" :extitle="past.title" :exdate="past.date" :eximg="past.img" :excurator="past.curator" :exintro="past.desc" :refid="past.refid"/>
             </div>
         </div>
     </div>

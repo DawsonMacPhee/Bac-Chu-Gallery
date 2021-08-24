@@ -5,7 +5,7 @@ const exCard = {
     <div class="ca-card-container">
         <div class="ca-card">
             <div class="ca-img-container">
-                <img class="ca-img" src="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"/>
+                <img class="ca-img" :src="eximg"/>
             </div>
             <div class="ca-info">
                 <span class="ca-card-title"><em>{{ extitle }}</em></span>
@@ -25,6 +25,10 @@ const exCard = {
             required: true
         },
         exdate: {
+            type: String,
+            required: true
+        },
+        eximg: {
             type: String,
             required: true
         },
@@ -65,6 +69,8 @@ const app = Vue.createApp({
                             "desc": response.results[i]["ca_collections.description"].substring(0, response.results[i]["ca_collections.description"].length - 1),
                             "curator": response.results[i]["ca_collections.nonpreferred_labels"][1],
                             "date": response.results[i]["ca_collections.nonpreferred_labels"][0],
+                            "img": "/custom/loading.gif",
+                            "idno": response.results[i].idno,
                             "refid": response.results[i].id
                         });
                     } else if (response.results[i]["ca_collections.status"] == "4") {
@@ -74,9 +80,39 @@ const app = Vue.createApp({
                             "desc": response.results[i]["ca_collections.description"].substring(0, response.results[i]["ca_collections.description"].length - 1),
                             "curator": response.results[i]["ca_collections.nonpreferred_labels"][1],
                             "date": response.results[i]["ca_collections.nonpreferred_labels"][0],
+                            "img": "/custom/loading.gif",
+                            "idno": response.results[i].idno,
                             "refid": response.results[i].id
                         });
                     }
+                }
+            }
+
+            var _this = this;
+            var data = JSON.stringify(
+                {
+                    "bundles": {
+                        "ca_object_representations.media.original":{"returnURL":true}
+                    }
+                }
+            );
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/find/ca_objects?q=ca_objects.idno:data%2Eexhibition&source=" + data);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(null);
+            xhr.onload = function() {
+                _this.loadThumbnails(this.responseText);
+            }
+        },
+        loadThumbnails(responseText) {
+            var response = JSON.parse(responseText);
+            for(var i = 0; i < response.results.length; i++) {
+                var past = this.pastEx.find(x => x.idno === response.results[i].idno);
+                var current = this.currentEx.find(x => x.idno === response.results[i].idno);
+                if (past != null) {
+                   past.img = response.results[i]["ca_object_representations.media.original"];
+                } else if (current != null) {
+                    current.img = response.results[i]["ca_object_representations.media.original"];
                 }
             }
         }
@@ -86,6 +122,7 @@ const app = Vue.createApp({
 
     mounted: async function() {
         var _this = this;
+
         var data = JSON.stringify(
             {
                 "criteria": {
@@ -98,7 +135,6 @@ const app = Vue.createApp({
                 }
             }
         );
-
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "https://public:public@bachinski-chu.uoguelph.ca/admin/service.php/browse/ca_collections?q=*&source=" + data, true);
         xhr.setRequestHeader("Content-Type", "application/json");
