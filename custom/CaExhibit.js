@@ -30,7 +30,12 @@ const app = Vue.createApp({
             carosel_1_page: 0,
             carosel_1_images: ["images/ModernPandemicDisplay1.jpeg", "images/ReynoldsBuilding2.jpeg", "images/ReynoldsBuilding1.jpeg"],
             carosel_2_page: 0,
-            carosel_2_images: ["images/ModernPandemicDisplay1.jpeg", "images/ReynoldsBuilding2.jpeg", "images/ReynoldsBuilding1.jpeg"]
+            carosel_2_images: ["images/ModernPandemicDisplay1.jpeg", "images/ReynoldsBuilding2.jpeg", "images/ReynoldsBuilding1.jpeg"],
+            title: "",
+            date: "",
+            introduction: "",
+            subtitle: "",
+            writeUp: ""
         }
     },
 
@@ -60,7 +65,7 @@ const app = Vue.createApp({
             } else {
                 this.carosel_2_page += 1;
             }
-        }, 8000)
+        }, 8000);
     }
 });
 
