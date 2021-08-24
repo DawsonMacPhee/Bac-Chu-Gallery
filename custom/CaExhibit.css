@@ -72,7 +72,13 @@
 .exhibit-works h2 {
     font-weight: 700;
 }
-#transition-container {
+#transition-container_1 {
+    width: 100%; 
+    height: 500px; 
+    display: block; 
+    position: relative;
+}
+#transition-container_2 {
     position: relative;
     width: 100%; 
     height: 650px; 
