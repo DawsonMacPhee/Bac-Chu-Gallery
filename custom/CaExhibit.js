@@ -22,7 +22,6 @@ const app = Vue.createApp({
             return this.carousel_1_images[this.carousel_1_page] + "#" + new Date().getTime();
         },
         carousel_2() {
-            this.carousel_2_info[this.carousel_2_page].img = this.carousel_2_info[this.carousel_2_page].img + "#" + new Date().getTime();
             return this.carousel_2_info[this.carousel_2_page];
         }
     },
