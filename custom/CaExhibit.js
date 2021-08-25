@@ -4,9 +4,9 @@ const app = Vue.createApp({
             refid: 10,
             exhibit_idno: "",
             carosel_1_page: 0,
-            carosel_1_images: ["images/ModernPandemicDisplay1.jpeg", "images/ReynoldsBuilding2.jpeg", "images/ReynoldsBuilding1.jpeg"],
+            carosel_1_images: ["/custom/loading.gif"],
             carosel_2_page: 0,
-            carosel_2_images: ["images/ModernPandemicDisplay1.jpeg", "images/ReynoldsBuilding2.jpeg", "images/ReynoldsBuilding1.jpeg"],
+            carosel_2_images: ["/custom/loading.gif"],
             title: "",
             date: "",
             introduction: "",
@@ -59,10 +59,13 @@ const app = Vue.createApp({
         },
         loadWorks(responseText) {
             var response = JSON.parse(responseText);
+            this.carosel_2_images = [];
             for(var i = 0; i < response.results.length; i++) {
                 if (response.results[i].idno == "data." + this.exhibit_idno) {
                     this.subtitle = response.results[i].display_label;
                     this.writeUp = response.results[i]["ca_objects.inscriptions"];
+                } else {
+                    this.carosel_2_images.push(response.results[i]["ca_object_representations.media.large"]);
                 }
             }
         }
