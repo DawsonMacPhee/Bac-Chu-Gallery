@@ -3,10 +3,10 @@ const app = Vue.createApp({
         return {
             refid: 10,
             exhibit_idno: "",
-            carosel_1_page: 0,
-            carosel_1_images: ["/custom/loading.gif"],
-            carosel_2_page: 0,
-            carosel_2_info: [{"img":"/custom/loading.gif", "title": "Loading...", "creator": "Loading...", "date": "Loading...", "medium": "Loading...", "idno": "Loading...", "dimensions": "Loading..."}],
+            carousel_1_page: 0,
+            carousel_1_images: ["/custom/loading.gif"],
+            carousel_2_page: 0,
+            carousel_2_info: [{"img":"/custom/loading.gif", "title": "Loading...", "creator": "Loading...", "date": "Loading...", "medium": "Loading...", "idno": "Loading...", "dimensions": "Loading..."}],
             title: "",
             date: "",
             introduction: "",
@@ -19,11 +19,12 @@ const app = Vue.createApp({
 
     computed: {
         carousel_1() {
-            return this.carosel_1_images[this.carosel_1_page] + "#" + new Date().getTime();
+            return this.carousel_1_images[this.carousel_1_page] + "#" + new Date().getTime();
         },
         carousel_2() {
-            this.carosel_2_info[this.carosel_2_page].img = this.carosel_2_info[this.carosel_2_page].img + "#" + new Date().getTime();
-            return this.carosel_2_info[this.carosel_2_page];
+            this.carousel_2_info[this.carousel_2_page].img = this.carousel_2_info[this.carousel_2_page].img + "#" + new Date().getTime();
+            console.log(this.carousel_2_info[this.carousel_2_page].img);
+            return this.carousel_2_info[this.carousel_2_page];
         }
     },
 
@@ -60,7 +61,7 @@ const app = Vue.createApp({
         },
         loadWorks(responseText) {
             var response = JSON.parse(responseText);
-            this.carosel_2_info = [];
+            this.carousel_2_info = [];
             for(var i = 0; i < response.results.length; i++) {
                 if (response.results[i].idno == "data." + this.exhibit_idno) {
                     this.subtitle = response.results[i].display_label;
@@ -70,7 +71,7 @@ const app = Vue.createApp({
                     if (img == null || img == "") {
                         img = "/custom/no_image.png";
                     }
-                    this.carosel_2_info.push({
+                    this.carousel_2_info.push({
                         "img": img,
                         "title": response.results[i]["display_label"],
                         "creator": response.results[i]["ca_entities.preferred_labels.displayname"][0],
@@ -82,7 +83,7 @@ const app = Vue.createApp({
                 }
             }
 
-            this.carosel_2_info.shift();
+            this.carousel_2_info.shift();
         }
     },
 
