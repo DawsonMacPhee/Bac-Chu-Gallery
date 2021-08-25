@@ -112,6 +112,7 @@
 
 .slide-img-enter {
     position: absolute;
+    display: none;
     left: -100%;
     transform: translate(0, 0);
 }
@@ -129,6 +130,7 @@
 }
 .slide-img-leave-to {
     transform: translate(100%, 0);
+    display: none;
 }
 .slide-img-leave-active {
     transition: transform 2s;
