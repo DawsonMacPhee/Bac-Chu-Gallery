@@ -66,29 +66,19 @@ const app = Vue.createApp({
                     this.subtitle = response.results[i].display_label;
                     this.writeUp = response.results[i]["ca_objects.inscriptions"];
                 } else {
-                    if (carosel_2_info[0].title == "Loading...") {
-                        this.carosel_2_info[0] = {
-                            "img": response.results[i]["ca_object_representations.media.large"],
-                            "title": response.results[i]["display_label"],
-                            "creator": response.results[i]["ca_entities.preferred_labels.displayname"][0],
-                            "date": response.results[i]["ca_objects.displayCreationDate"],
-                            "medium": response.results[i]["ca_objects.displayMaterialsTech"],
-                            "idno": response.results[i]["idno"],
-                            "dimensions": response.results[i]["ca_objects.dimensionsPrint"]
-                        };
-                    } else {
-                        this.carosel_2_info.push({
-                            "img": response.results[i]["ca_object_representations.media.large"],
-                            "title": response.results[i]["display_label"],
-                            "creator": response.results[i]["ca_entities.preferred_labels.displayname"][0],
-                            "date": response.results[i]["ca_objects.displayCreationDate"],
-                            "medium": response.results[i]["ca_objects.displayMaterialsTech"],
-                            "idno": response.results[i]["idno"],
-                            "dimensions": response.results[i]["ca_objects.dimensionsPrint"]
-                        });
-                    }
+                    this.carosel_2_info.push({
+                        "img": response.results[i]["ca_object_representations.media.large"],
+                        "title": response.results[i]["display_label"],
+                        "creator": response.results[i]["ca_entities.preferred_labels.displayname"][0],
+                        "date": response.results[i]["ca_objects.displayCreationDate"],
+                        "medium": response.results[i]["ca_objects.displayMaterialsTech"],
+                        "idno": response.results[i]["idno"],
+                        "dimensions": response.results[i]["ca_objects.dimensionsPrint"]
+                    });
                 }
             }
+
+            this.carosel_2_info.shift();
         }
     },
 
