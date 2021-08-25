@@ -111,12 +111,10 @@
 }
 
 .slide-img-enter {
-    position: absolute;
     left: -100%;
     transform: translate(0, 0);
 }
 .slide-img-enter-to {
-    position: absolute;
     left: -100%;
     transform: translate(100%, 0);
 }
