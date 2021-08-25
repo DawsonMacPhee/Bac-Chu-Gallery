@@ -6,7 +6,7 @@ const app = Vue.createApp({
             carosel_1_page: 0,
             carosel_1_images: ["/custom/loading.gif"],
             carosel_2_page: 0,
-            carosel_2_images: ["/custom/loading.gif"],
+            carosel_2_info: [{"img":"/custom/loading.gif"}],
             title: "",
             date: "",
             introduction: "",
@@ -22,7 +22,8 @@ const app = Vue.createApp({
             return this.carosel_1_images[this.carosel_1_page] + "#" + new Date().getTime();
         },
         carousel_2() {
-            return {"img":this.carosel_2_images[this.carosel_2_page] + "#" + new Date().getTime()};
+            this.carosel_2_info[this.carosel_2_page].img = this.carosel_2_info[this.carosel_2_page].img + "#" + new Date().getTime();
+            return this.carosel_2_info[this.carosel_2_page];
         },
     },
 
@@ -65,7 +66,7 @@ const app = Vue.createApp({
                     this.subtitle = response.results[i].display_label;
                     this.writeUp = response.results[i]["ca_objects.inscriptions"];
                 } else {
-                    this.carosel_2_images.push(response.results[i]["ca_object_representations.media.large"]);
+                    this.carosel_2_info.push({"img":response.results[i]["ca_object_representations.media.large"]});
                 }
             }
         }
