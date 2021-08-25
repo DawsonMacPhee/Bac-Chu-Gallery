@@ -4,7 +4,7 @@ const app = Vue.createApp({
             refid: 10,
             exhibit_idno: "",
             carousel_1_page: 0,
-            carousel_1_images: ["/custom/loading.gif"],
+            carousel_1_images: ["/custom/loading.gif", "images/ModernPandemicDisplay1.jpeg", "images/ReynoldsBuilding2.jpeg", "images/ReynoldsBuilding1.jpeg"],
             carousel_2_page: 0,
             carousel_2_info: [{"img":"/custom/loading.gif", "title": "Loading...", "creator": "Loading...", "date": "Loading...", "medium": "Loading...", "idno": "Loading...", "dimensions": "Loading..."}],
             title: "",
