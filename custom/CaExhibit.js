@@ -22,7 +22,7 @@ const app = Vue.createApp({
             return this.carosel_1_images[this.carosel_1_page] + "#" + new Date().getTime();
         },
         carousel_2() {
-            this.carosel_2_info[this.carosel_2_page].img = this.carosel_2_info[this.carosel_2_page].img + "#" + new Date().getTime();
+            this.carosel_2_info[this.carosel_2_page]["img"] = this.carosel_2_info[this.carosel_2_page]["img"] + "#" + new Date().getTime();
             return this.carosel_2_info[this.carosel_2_page];
         },
     },
@@ -60,7 +60,7 @@ const app = Vue.createApp({
         },
         loadWorks(responseText) {
             var response = JSON.parse(responseText);
-            this.carosel_2_images = [];
+            this.carosel_2_info = [];
             for(var i = 0; i < response.results.length; i++) {
                 if (response.results[i].idno == "data." + this.exhibit_idno) {
                     this.subtitle = response.results[i].display_label;
