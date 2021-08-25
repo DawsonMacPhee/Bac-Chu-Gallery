@@ -22,7 +22,7 @@ const app = Vue.createApp({
             return this.carosel_1_images[this.carosel_1_page] + "#" + new Date().getTime();
         },
         carousel_2() {
-            //this.carosel_2_info[this.carosel_2_page]["img"] = this.carosel_2_info[this.carosel_2_page]["img"] + "#" + new Date().getTime();
+            this.carosel_2_info[this.carosel_2_page].img = this.carosel_2_info[this.carosel_2_page].img + "#" + new Date().getTime();
             return this.carosel_2_info[this.carosel_2_page];
         }
     },
@@ -66,8 +66,12 @@ const app = Vue.createApp({
                     this.subtitle = response.results[i].display_label;
                     this.writeUp = response.results[i]["ca_objects.inscriptions"];
                 } else {
+                    var img = response.results[i]["ca_object_representations.media.large"];
+                    if (img == null || img == "") {
+                        img = "/custom/no_image.png";
+                    }
                     this.carosel_2_info.push({
-                        "img": response.results[i]["ca_object_representations.media.large"],
+                        "img": img,
                         "title": response.results[i]["display_label"],
                         "creator": response.results[i]["ca_entities.preferred_labels.displayname"][0],
                         "date": response.results[i]["ca_objects.displayCreationDate"],
