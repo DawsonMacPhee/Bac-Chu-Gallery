@@ -110,16 +110,16 @@ const app = Vue.createApp({
         }
 
         window.setInterval(() => {
-            if ((this.carosel_1_page + 1) > (this.carosel_1_images.length - 1)) {
-                this.carosel_1_page = 0;
+            if ((this.carousel_1_page + 1) > (this.carousel_1_images.length - 1)) {
+                this.carousel_1_page = 0;
             } else {
-                this.carosel_1_page += 1;
+                this.carousel_1_page += 1;
             }
 
-            if ((this.carosel_2_page + 1) > (this.carosel_2_info.length - 1)) {
-                this.carosel_2_page = 0;
+            if ((this.carousel_2_page + 1) > (this.carousel_2_info.length - 1)) {
+                this.carousel_2_page = 0;
             } else {
-                this.carosel_2_page += 1;
+                this.carousel_2_page += 1;
             }
         }, 8000);
     }
