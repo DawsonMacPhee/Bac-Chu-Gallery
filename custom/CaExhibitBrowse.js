@@ -73,7 +73,7 @@ const app = Vue.createApp({
         loadBrowse(responseText) {
             var response = JSON.parse(responseText);
             for(var i = 0; i < response.results.length; i++) {
-                if (response.results[i]["idno"].includes("exhibition")) {
+                if (response.results[i]["idno"].includes("exhibition") && !response.results[i]["idno"].includes("display")) {
                     if (response.results[i]["ca_collections.status"] == "0") {
                         this.currentEx.push({
                             "card": exCard,
