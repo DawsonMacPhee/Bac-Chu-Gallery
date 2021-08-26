@@ -2,7 +2,7 @@ const exCard = {
     template:
     /*html*/
     `
-    <div class="ca-card-container">
+    <a class="ca-card-container" :href="cardLink">
         <div class="ca-card">
             <div class="ca-img-container">
                 <img class="ca-img" :src="eximg"/>
@@ -14,7 +14,7 @@ const exCard = {
                 <span>{{ exintro }}</span>
             </div>
         </div>
-    </div>
+    </a>
     `,
 
 
@@ -43,6 +43,18 @@ const exCard = {
         refid: {
             type: String,
             required: true
+        }
+    },
+
+
+
+    computed: {
+        cardLink() {
+            if (this.refid == "LOAD") {
+                return "";
+            } else {
+                return 'Exhibition.html?ref=' + this.refid;
+            }
         }
     }
 }

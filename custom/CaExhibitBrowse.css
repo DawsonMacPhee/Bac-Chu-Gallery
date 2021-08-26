@@ -19,6 +19,9 @@
     align-items: center;
     justify-content: center;
 }
+.ca-card-container:hover {
+    color: rgb(108, 136, 174);
+}
 .ca-card {
     width: 80%;
     display: flex;
