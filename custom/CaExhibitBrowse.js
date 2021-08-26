@@ -119,12 +119,14 @@ const app = Vue.createApp({
         loadThumbnails(responseText) {
             var response = JSON.parse(responseText);
             for(var i = 0; i < response.results.length; i++) {
-                var past = this.pastEx.find(x => response.results[i].idno.includes(x.idno));
-                var current = this.currentEx.find(x => response.results[i].idno.includes(x.idno));
-                if (past != null) {
-                   past.img = response.results[i]["ca_object_representations.media.original"];
-                } else if (current != null) {
-                    current.img = response.results[i]["ca_object_representations.media.original"];
+                if (!response.results[i]["idno"].includes("display")) {
+                    var past = this.pastEx.find(x => response.results[i].idno.includes(x.idno));
+                    var current = this.currentEx.find(x => response.results[i].idno.includes(x.idno));
+                    if (past != null) {
+                    past.img = response.results[i]["ca_object_representations.media.original"];
+                    } else if (current != null) {
+                        current.img = response.results[i]["ca_object_representations.media.original"];
+                    }
                 }
             }
         }
