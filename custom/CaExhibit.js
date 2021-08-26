@@ -4,7 +4,7 @@ const app = Vue.createApp({
             refid: 10,
             exhibit_idno: "",
             carousel_1_page: 0,
-            carousel_1_images: ["images/ModernPandemicDisplay1.jpeg", "images/ReynoldsBuilding2.jpeg", "images/ReynoldsBuilding1.jpeg"],
+            carousel_1_images: ["/custom/loading.gif"],
             carousel_2_page: 0,
             carousel_2_info: [{"img":"/custom/loading.gif", "title": "Loading...", "creator": "Loading...", "date": "Loading...", "medium": "Loading...", "idno": "Loading...", "dimensions": "Loading..."}],
             title: "",
@@ -19,7 +19,7 @@ const app = Vue.createApp({
 
     computed: {
         carousel_1() {
-            return this.carousel_1_images[this.carousel_1_page] + "#" + new Date().getTime();
+            return this.carousel_1_images[this.carousel_1_page];
         },
         carousel_2() {
             return this.carousel_2_info[this.carousel_2_page];
@@ -45,6 +45,7 @@ const app = Vue.createApp({
                         "ca_objects.displayMaterialsTech": true,
                         "ca_objects.inscriptions":true,
                         "ca_object_representations.media.large":{"returnURL": true},
+                        "ca_object_representations.media.original":{"returnURL": true},
                         "ca_entities.preferred_labels.displayname":{"returnAsArray":true}
                     }
                 }
@@ -63,7 +64,9 @@ const app = Vue.createApp({
             for(var i = 0; i < response.results.length; i++) {
                 if (response.results[i].idno == "data." + this.exhibit_idno) {
                     this.subtitle = response.results[i].display_label;
-                    this.writeUp = response.results[i]["ca_objects.inscriptions"];
+                    this.writeUp = response.results[i]["ca_objects.inscriptions"];SD
+                } else if (response.results[i].idno.includes("data." + this.exhibit_idno + ".display_")) {
+                    this.carousel_1_images.push(response.results[i]["ca_object_representations.media.original"]);
                 } else {
                     var img = response.results[i]["ca_object_representations.media.large"];
                     if (img == null || img == "") {
@@ -81,6 +84,7 @@ const app = Vue.createApp({
                 }
             }
 
+            this.carousel_1_images.shift();
             this.carousel_2_info.shift();
         }
     },
