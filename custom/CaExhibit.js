@@ -60,12 +60,11 @@ const app = Vue.createApp({
         },
         loadWorks(responseText) {
             var response = JSON.parse(responseText);
-            console.log(response);
             for(var i = 0; i < response.results.length; i++) {
-                if (response.results[i].idno == "data." + this.exhibit_idno) {
+                if (response.results[i].idno != null && response.results[i].idno == "data." + this.exhibit_idno) {
                     this.subtitle = response.results[i].display_label;
                     this.writeUp = response.results[i]["ca_objects.inscriptions"];
-                } else if (response.results[i].idno.includes("data." + this.exhibit_idno + ".display_")) {
+                } else if (response.results[i].idno != null && response.results[i].idno.includes("data." + this.exhibit_idno + ".display_")) {
                     this.carousel_1_images.push(response.results[i]["ca_object_representations.media.original"]);
                 } else {
                     var img = response.results[i]["ca_object_representations.media.large"];
