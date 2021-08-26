@@ -60,7 +60,7 @@ const app = Vue.createApp({
         },
         loadWorks(responseText) {
             var response = JSON.parse(responseText);
-            this.carousel_2_info = [];
+            console.log(response);
             for(var i = 0; i < response.results.length; i++) {
                 if (response.results[i].idno == "data." + this.exhibit_idno) {
                     this.subtitle = response.results[i].display_label;
