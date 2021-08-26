@@ -118,7 +118,7 @@
     max-height: 600px;
 }
 
-.slide-img-enter {
+.slide-img-enter-from {
     left: -100%;
     transform: translate(0, 0);
 }
@@ -130,7 +130,7 @@
     transition: transform 2s;
 }
 
-.slide-img-leave {
+.slide-img-leave-from {
     transform: translate(0, 0);
 }
 .slide-img-leave-to {
