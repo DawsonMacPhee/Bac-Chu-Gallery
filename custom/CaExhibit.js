@@ -102,7 +102,7 @@ const app = Vue.createApp({
             this.carousel_2_info.shift();
         },
         nextWork_1() {
-            console.log(this.trans_1);
+            var _this = this;
             if (!this.trans_1) {
                 this.trans_1 = true;
 
@@ -113,12 +113,12 @@ const app = Vue.createApp({
                 }
 
                 setTimeout(function () {
-                    this.trans_1 = false;
+                    _this.trans_1 = false;
                 }, 2000);
             }
         }, 
         nextWork_2() {
-            console.log(this.trans_2);
+            var _this = this;
             if (!this.trans_2) {
                 this.trans_2 = true;
 
@@ -129,7 +129,7 @@ const app = Vue.createApp({
                 }
 
                 setTimeout(function () {
-                    this.trans_2 =false;
+                    _this.trans_2 =false;
                 }, 2000);
             }
         }
