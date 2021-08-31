@@ -12,8 +12,8 @@ const app = Vue.createApp({
             introduction: "",
             subtitle: "",
             writeUp: "",
-            trans_1: 0,
-            trans_2: 0
+            trans_1: false,
+            trans_2: false
         }
     },
 
@@ -103,30 +103,32 @@ const app = Vue.createApp({
             this.carousel_2_info.shift();
         },
         nextWork_1() {
-            if (this.trans_1 == 0) {
+            if (!this.trans_1) {
+                this.trans_1 = true;
+
                 if ((this.carousel_1_page + 1) > (this.carousel_1_images.length - 1)) {
                     this.carousel_1_page = 0;
                 } else {
                     this.carousel_1_page += 1;
                 }
 
-                this.trans_1 += 1;
                 setTimeout(function () {
-                    this.trans_1 -= 1;
+                    this.trans_1 = false;
                 }, 2000);
             }
         }, 
         nextWork_2() {
-            if (this.trans_2 == 0) {
+            if (!this.trans_2) {
+                this.trans_2 = true;
+
                 if ((this.carousel_2_page + 1) > (this.carousel_2_info.length - 1)) {
                     this.carousel_2_page = 0;
                 } else {
                     this.carousel_2_page += 1;
                 }
 
-                this.trans_2 += 1;
                 setTimeout(function () {
-                    this.trans_2 -= 1;
+                    this.trans_2 =false;
                 }, 2000);
             }
         }
