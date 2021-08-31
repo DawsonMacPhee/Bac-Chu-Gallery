@@ -6,7 +6,7 @@ const app = Vue.createApp({
             carousel_1_page: 0,
             carousel_1_images: ["/custom/loading.gif"],
             carousel_2_page: 0,
-            carousel_2_info: [{"img":"/custom/loading.gif", "title": "Loading...", "creator": "Loading...", "date": "Loading...", "medium": "Loading...", "idno": "Loading...", "dimensions": "Loading..."}],
+            carousel_2_info: [{"img":"/custom/loading.gif", "title": "Loading...", "creator": "Loading...", "date": "Loading...", "medium": "Loading...", "idno": "Loading...", "dimensions": "Loading...", "desc": "Loading..."}],
             title: "",
             date: "",
             introduction: "",
@@ -41,9 +41,9 @@ const app = Vue.createApp({
                 {
                     "bundles": {
                         "ca_objects.displayCreationDate": true,
-                        "ca_objects.dimensionsPrint":true,
+                        "ca_objects.dimensionsPrint": true,
                         "ca_objects.displayMaterialsTech": true,
-                        "ca_objects.inscriptions":true,
+                        "ca_objects.inscriptions": {"returnAsArray":true},
                         "ca_object_representations.media.large":{"returnURL": true},
                         "ca_object_representations.media.original":{"returnURL": true},
                         "ca_entities.preferred_labels.displayname":{"returnAsArray":true}
@@ -60,10 +60,12 @@ const app = Vue.createApp({
         },
         loadWorks(responseText) {
             var response = JSON.parse(responseText);
+            var descriptions;
             for(var i = 0; i < response.results.length; i++) {
                 if (response.results[i].idno != null && response.results[i].idno == "data." + this.exhibit_idno) {
                     this.subtitle = response.results[i].display_label;
-                    this.writeUp = response.results[i]["ca_objects.inscriptions"];
+                    descriptions = response.results[i]["ca_objects.inscriptions"];
+                    this.writeUp = descriptions[0];
                 } else if (response.results[i].idno != null && response.results[i].idno.includes("data." + this.exhibit_idno + ".display_")) {
                     this.carousel_1_images.push(response.results[i]["ca_object_representations.media.original"]);
                 } else {
@@ -78,7 +80,8 @@ const app = Vue.createApp({
                         "date": response.results[i]["ca_objects.displayCreationDate"],
                         "medium": response.results[i]["ca_objects.displayMaterialsTech"],
                         "idno": response.results[i]["idno"],
-                        "dimensions": response.results[i]["ca_objects.dimensionsPrint"]
+                        "dimensions": response.results[i]["ca_objects.dimensionsPrint"],
+                        "desc": "Loading..."
                     });
                 }
             }
