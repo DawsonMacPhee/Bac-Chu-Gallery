@@ -90,7 +90,8 @@ const app = Vue.createApp({
                 const temp = descriptions[i].split("<");
                 for (var y = 0; y < this.carousel_2_info.length; y++) {
                     if (this.carousel_2_info[y].idno == temp[0]) {
-                        this.carousel_2_info[y].desc = "LOADED";
+                        let startInd = this.carousel_2_info[y].desc.indexOf("<");
+                        this.carousel_2_info[y].desc = this.carousel_2_info[y].desc.substring(startInd);
                         break;
                     }
                 }
