@@ -15,7 +15,8 @@ const app = Vue.createApp({
             trans_1: false,
             trans_2: false,
             trans_type_1: "slide-img",
-            trans_type_2: "slide-img"
+            trans_type_2: "slide-img",
+            timer: {}
         }
     },
 
@@ -103,7 +104,7 @@ const app = Vue.createApp({
             this.carousel_1_images.shift();
             this.carousel_2_info.shift();
         },
-        nextWork_1() {
+        nextWork_1(action) {
             var _this = this;
             if (!this.trans_1) {
                 this.trans_1 = true;
@@ -115,6 +116,14 @@ const app = Vue.createApp({
                 }
 
                 setTimeout(function () {
+                    if (action != "auto") {
+                        clearInterval(_this.timer);
+                        _this.timer = setInterval(() => {
+                            _this.nextWork_1("auto");
+                            _this.nextWork_2("auto");
+                        }, 20000);
+                    }
+
                     _this.trans_1 = false;
                 }, 2000);
             }
@@ -133,11 +142,18 @@ const app = Vue.createApp({
 
                 setTimeout(function () {
                     _this.trans_type_1 = "slide-img";
+
+                    clearInterval(_this.timer);
+                    _this.timer = setInterval(() => {
+                        _this.nextWork_1("auto");
+                        _this.nextWork_2("auto");
+                    }, 20000);
+
                     _this.trans_1 = false;
                 }, 2000);
             }
         },
-        nextWork_2() {
+        nextWork_2(action) {
             var _this = this;
             if (!this.trans_2) {
                 this.trans_2 = true;
@@ -149,6 +165,14 @@ const app = Vue.createApp({
                 }
 
                 setTimeout(function () {
+                    if (action != "auto") {
+                        clearInterval(_this.timer);
+                        _this.timer = setInterval(() => {
+                            _this.nextWork_1("auto");
+                            _this.nextWork_2("auto");
+                        }, 20000);
+                    }
+
                     _this.trans_2 =false;
                 }, 2000);
             }
@@ -167,6 +191,13 @@ const app = Vue.createApp({
 
                 setTimeout(function () {
                     _this.trans_type_2 = "slide-img";
+
+                    clearInterval(_this.timer);
+                    _this.timer = setInterval(() => {
+                        _this.nextWork_1("auto");
+                        _this.nextWork_2("auto");
+                    }, 20000);
+
                     _this.trans_2 = false;
                 }, 2000);
             }
@@ -195,9 +226,9 @@ const app = Vue.createApp({
             _this.loadInfo(this.responseText);
         }
 
-        window.setInterval(() => {
-            this.nextWork_1();
-            this.nextWork_2();
+        this.timer = setInterval(() => {
+            this.nextWork_1("auto");
+            this.nextWork_2("auto");
         }, 20000);
     }
 });
