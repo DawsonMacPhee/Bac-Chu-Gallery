@@ -121,7 +121,7 @@ const app = Vue.createApp({
                         _this.timer = setInterval(() => {
                             _this.nextWork_1("auto");
                             _this.nextWork_2("auto");
-                        }, 20000);
+                        }, 14000);
                     }
 
                     _this.trans_1 = false;
@@ -147,7 +147,7 @@ const app = Vue.createApp({
                     _this.timer = setInterval(() => {
                         _this.nextWork_1("auto");
                         _this.nextWork_2("auto");
-                    }, 20000);
+                    }, 14000);
 
                     _this.trans_1 = false;
                 }, 2000);
@@ -170,7 +170,7 @@ const app = Vue.createApp({
                         _this.timer = setInterval(() => {
                             _this.nextWork_1("auto");
                             _this.nextWork_2("auto");
-                        }, 20000);
+                        }, 14000);
                     }
 
                     _this.trans_2 =false;
@@ -196,7 +196,7 @@ const app = Vue.createApp({
                     _this.timer = setInterval(() => {
                         _this.nextWork_1("auto");
                         _this.nextWork_2("auto");
-                    }, 20000);
+                    }, 14000);
 
                     _this.trans_2 = false;
                 }, 2000);
@@ -229,7 +229,7 @@ const app = Vue.createApp({
         this.timer = setInterval(() => {
             this.nextWork_1("auto");
             this.nextWork_2("auto");
-        }, 20000);
+        }, 14000);
     }
 });
 
