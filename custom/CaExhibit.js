@@ -90,8 +90,10 @@ const app = Vue.createApp({
 
             for (var i = 0; i < descriptions.length; i++) {
                 const temp = descriptions[i].split("<");
+                console.log(temp[0]);
                 for (var y = 0; y < this.carousel_2_info.length; y++) {
                     if (this.carousel_2_info[y].idno == temp[0]) {
+                        console.log("HERE");
                         let startInd = this.carousel_2_info[y].desc.indexOf("<");
                         this.carousel_2_info[y].desc = this.carousel_2_info[y].desc.substring(startInd);
                         break;
@@ -103,6 +105,7 @@ const app = Vue.createApp({
             this.carousel_2_info.shift();
         },
         nextWork_1() {
+            console.log(this.trans_1);
             if (!this.trans_1) {
                 this.trans_1 = true;
 
@@ -118,6 +121,7 @@ const app = Vue.createApp({
             }
         }, 
         nextWork_2() {
+            console.log(this.trans_2);
             if (!this.trans_2) {
                 this.trans_2 = true;
 
