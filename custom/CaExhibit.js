@@ -198,7 +198,7 @@ const app = Vue.createApp({
         window.setInterval(() => {
             this.nextWork_1();
             this.nextWork_2();
-        }, 12000);
+        }, 16000);
     }
 });
 
