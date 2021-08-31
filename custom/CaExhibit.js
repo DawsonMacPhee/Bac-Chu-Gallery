@@ -81,8 +81,18 @@ const app = Vue.createApp({
                         "medium": response.results[i]["ca_objects.displayMaterialsTech"],
                         "idno": response.results[i]["idno"],
                         "dimensions": response.results[i]["ca_objects.dimensionsPrint"],
-                        "desc": "Loading..."
+                        "desc": ""
                     });
+                }
+            }
+
+            for (var i = 0; i < descriptions.length; i++) {
+                const temp = descriptions[i].split("<");
+                for (var y = 0; y < this.carousel_2_info.length; y++) {
+                    if (this.carousel_2_info[y].idno == temp[0]) {
+                        this.carousel_2_info[y].desc = "LOADED";
+                        break;
+                    }
                 }
             }
 
