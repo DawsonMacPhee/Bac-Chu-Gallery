@@ -99,6 +99,20 @@ const app = Vue.createApp({
 
             this.carousel_1_images.shift();
             this.carousel_2_info.shift();
+        },
+        nextWork_1() {
+            if ((this.carousel_1_page + 1) > (this.carousel_1_images.length - 1)) {
+                this.carousel_1_page = 0;
+            } else {
+                this.carousel_1_page += 1;
+            }
+        }, 
+        nextWork_2() {
+            if ((this.carousel_2_page + 1) > (this.carousel_2_info.length - 1)) {
+                this.carousel_2_page = 0;
+            } else {
+                this.carousel_2_page += 1;
+            }
         }
     },
 
@@ -125,17 +139,8 @@ const app = Vue.createApp({
         }
 
         window.setInterval(() => {
-            if ((this.carousel_1_page + 1) > (this.carousel_1_images.length - 1)) {
-                this.carousel_1_page = 0;
-            } else {
-                this.carousel_1_page += 1;
-            }
-
-            if ((this.carousel_2_page + 1) > (this.carousel_2_info.length - 1)) {
-                this.carousel_2_page = 0;
-            } else {
-                this.carousel_2_page += 1;
-            }
+            this.nextWork_1();
+            this.nextWork_2();
         }, 8000);
     }
 });
