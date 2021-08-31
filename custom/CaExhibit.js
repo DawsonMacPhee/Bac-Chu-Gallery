@@ -13,7 +13,9 @@ const app = Vue.createApp({
             subtitle: "",
             writeUp: "",
             trans_1: false,
-            trans_2: false
+            trans_2: false,
+            trans_type_1: "slide-img",
+            trans_type_2: "slide-img"
         }
     },
 
@@ -116,7 +118,25 @@ const app = Vue.createApp({
                     _this.trans_1 = false;
                 }, 2000);
             }
-        }, 
+        },
+        prevWork_1() {
+            var _this = this;
+            if (!this.trans_1) {
+                this.trans_1 = true;
+                this.trans_type_1 = "slide-img-rev";
+
+                if ((this.carousel_1_page - 1) < 0) {
+                    this.carousel_1_page = this.carousel_1_images.length - 1;
+                } else {
+                    this.carousel_1_page -= 1;
+                }
+
+                setTimeout(function () {
+                    _this.trans_type_1 = "slide-img";
+                    _this.trans_1 = false;
+                }, 2000);
+            }
+        },
         nextWork_2() {
             var _this = this;
             if (!this.trans_2) {
@@ -130,6 +150,24 @@ const app = Vue.createApp({
 
                 setTimeout(function () {
                     _this.trans_2 =false;
+                }, 2000);
+            }
+        },
+        prevWork_2() {
+            var _this = this;
+            if (!this.trans_2) {
+                this.trans_2 = true;
+                this.trans_type_2 = "slide-img-rev";
+
+                if ((this.carousel_2_page - 1) < 0) {
+                    this.carousel_2_page = this.carousel_2_images.length - 1;
+                } else {
+                    this.carousel_2_page -= 1;
+                }
+
+                setTimeout(function () {
+                    _this.trans_type_2 = "slide-img";
+                    _this.trans_2 = false;
                 }, 2000);
             }
         }

@@ -139,3 +139,25 @@
 .slide-img-leave-active {
     transition: transform 2s;
 }
+
+.slide-img-rev-enter-from {
+    right: -100%;
+    transform: translate(0, 0);
+}
+.slide-img-rev-enter-to {
+    right: -100%;
+    transform: translate(100%, 0);
+}
+.slide-img-rev-enter-active {
+    transition: transform 2s;
+}
+
+.slide-img-rev-leave-from {
+    transform: translate(0, 0);
+}
+.slide-img-rev-leave-to {
+    transform: translate(-100%, 0);
+}
+.slide-img-rev-leave-active {
+    transition: transform 2s;
+}
