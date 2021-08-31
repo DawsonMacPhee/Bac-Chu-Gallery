@@ -116,7 +116,9 @@ const app = Vue.createApp({
                 }
 
                 setTimeout(function () {
+                    console.log("HERE");
                     if (action != "auto") {
+                        console.log("RESET");
                         clearInterval(_this.timer);
                         _this.timer = setInterval(() => {
                             _this.nextWork_1("auto");
