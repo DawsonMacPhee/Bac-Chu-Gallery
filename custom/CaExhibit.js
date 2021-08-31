@@ -160,7 +160,7 @@ const app = Vue.createApp({
                 this.trans_type_2 = "slide-img-rev";
 
                 if ((this.carousel_2_page - 1) < 0) {
-                    this.carousel_2_page = this.carousel_2_images.length - 1;
+                    this.carousel_2_page = this.carousel_2_info.length - 1;
                 } else {
                     this.carousel_2_page -= 1;
                 }
