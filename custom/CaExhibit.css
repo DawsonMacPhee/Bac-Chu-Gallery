@@ -81,11 +81,12 @@
 #transition-container_2 {
     position: relative;
     width: 100%; 
-    /*min-height: 650px;*/
     display: block; 
     margin-bottom: 20px;
     border: 4px grey solid; 
     overflow-x: hidden;
+    height: auto;
+    min-height: 650px;
 }
 .workDiv-container {
     position: absolute;
