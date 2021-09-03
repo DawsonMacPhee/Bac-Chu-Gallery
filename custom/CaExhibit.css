@@ -86,7 +86,6 @@
     margin-bottom: 20px;
     border: 4px grey solid; 
     overflow-x: hidden;
-    overflow-y: auto;
 }
 .workDiv-container {
     position: absolute;
