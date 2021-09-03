@@ -71,3 +71,16 @@
 .ca-card-curator {
     margin-bottom: 20px;
 }
+
+@media (max-width:1009px){
+    .ca-card {
+        flex-direction: column;
+        width: 90%;
+    }
+    .ca-info {
+        width: 90%;
+    }
+    .ca-img-container {
+        width: 95%;
+    }
+}
