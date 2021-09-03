@@ -29,9 +29,6 @@
     flex-direction: row;
     align-items: flex-end;
 }
-.carousel {
-    width: 100%;
-}
 .carousel-image {
     position: absolute;
     width: 100%;
