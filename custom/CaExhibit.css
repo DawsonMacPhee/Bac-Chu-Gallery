@@ -118,46 +118,58 @@
 }
 
 .slide-img-enter-from {
+    position: absolute;
     left: -100%;
     transform: translate(0, 0);
 }
 .slide-img-enter-to {
+    position: absolute;
     left: -100%;
     transform: translate(100%, 0);
 }
 .slide-img-enter-active {
+    position: absolute;
     transition: transform 1s;
 }
 
 .slide-img-leave-from {
+    position: absolute;
     transform: translate(0, 0);
 }
 .slide-img-leave-to {
+    position: absolute;
     transform: translate(100%, 0);
 }
 .slide-img-leave-active {
+    position: absolute;
     transition: transform 1s;
 }
 
 .slide-img-rev-enter-from {
+    position: absolute;
     left: 100%;
     transform: translate(0, 0);
 }
 .slide-img-rev-enter-to {
+    position: absolute;
     left: 100%;
     transform: translate(-100%, 0);
 }
 .slide-img-rev-enter-active {
+    position: absolute;
     transition: transform 1s;
 }
 
 .slide-img-rev-leave-from {
+    position: absolute;
     transform: translate(0, 0);
 }
 .slide-img-rev-leave-to {
+    position: absolute;
     transform: translate(-100%, 0);
 }
 .slide-img-rev-leave-active {
+    position: absolute;
     transition: transform 1s;
 }
 
