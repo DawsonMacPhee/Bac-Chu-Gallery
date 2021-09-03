@@ -88,6 +88,15 @@
     border: 4px grey solid; 
     overflow: hidden;
 }
+.workDiv-container {
+    box-sizing: content-box;
+}
+.workDiv-container::before {
+    box-sizing: content-box;
+}
+.workDiv-container::after {
+    box-sizing: content-box;
+}
 .workDiv {
     width: 100%;
     height: 100%;
