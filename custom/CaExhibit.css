@@ -89,10 +89,10 @@
     overflow: hidden;
 }
 .workDiv-container:before {
-    content: none;
+    display: none;
 }
 .workDiv-container:after {
-    content: none;
+    display: none;
 }
 .workDiv {
     width: 100%;
