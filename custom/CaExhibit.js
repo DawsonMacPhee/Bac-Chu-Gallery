@@ -125,7 +125,7 @@ const app = Vue.createApp({
                     }
 
                     _this.trans_1 = false;
-                }, 500);
+                }, 1000);
             }
         },
         prevWork_1() {
@@ -150,7 +150,7 @@ const app = Vue.createApp({
                     }, 14000);
 
                     _this.trans_1 = false;
-                }, 500);
+                }, 1000);
             }
         },
         nextWork_2(action) {
@@ -174,7 +174,7 @@ const app = Vue.createApp({
                     }
 
                     _this.trans_2 =false;
-                }, 500);
+                }, 1000);
             }
         },
         prevWork_2() {
@@ -199,7 +199,7 @@ const app = Vue.createApp({
                     }, 14000);
 
                     _this.trans_2 = false;
-                }, 500);
+                }, 1000);
             }
         }
     },
