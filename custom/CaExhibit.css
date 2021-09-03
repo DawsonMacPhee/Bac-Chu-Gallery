@@ -1,4 +1,4 @@
-*, *:before, *:after {
+.workDiv-container, .workDiv-container:before, .workDiv-container:after {
     box-sizing: content-box;
 }
 #ca-exhibit-app {
