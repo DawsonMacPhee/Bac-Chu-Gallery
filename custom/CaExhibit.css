@@ -90,6 +90,9 @@
 .workDiv-container {
     position: absolute;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .workDiv {
     position: relative;
@@ -98,7 +101,6 @@
     flex-direction: row;
     text-align: left;
     align-items: center;
-    justify-content: center;
 }
 .imgDiv {
     display: flex;
