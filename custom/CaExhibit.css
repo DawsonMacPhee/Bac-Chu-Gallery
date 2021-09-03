@@ -1,5 +1,5 @@
-.workDiv-container, .workDiv-container:before, .workDiv-container:after {
-    box-sizing: content-box !important;
+*, *:before, *:after {
+    box-sizing: content-box;
 }
 #ca-exhibit-app {
     display: flex;
@@ -46,7 +46,7 @@
     position: absolute;
     left: 30px;
     z-index: 10000;
-    width: 70px;
+    width: 50px;
     cursor: pointer;
     fill: white;
     background-color: rgba(190,190,190, 0.6);
@@ -58,7 +58,7 @@
     position: absolute;
     right: 30px;
     z-index: 10000;
-    width: 70px;
+    width: 50px;
     cursor: pointer;
     fill: white;
     background-color: rgba(190,190,190, 0.6);
