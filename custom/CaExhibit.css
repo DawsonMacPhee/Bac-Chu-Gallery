@@ -1,3 +1,6 @@
+*, *:before, *:after {
+    box-sizing: content-box;
+}
 #ca-exhibit-app {
     display: flex;
     flex-direction: column;
@@ -87,12 +90,6 @@
     margin-bottom: 20px;
     border: 4px grey solid; 
     overflow: hidden;
-}
-.workDiv-container:before {
-    display: none !important;;
-}
-.workDiv-container:after {
-    display: none !important;;
 }
 .workDiv {
     width: 100%;
