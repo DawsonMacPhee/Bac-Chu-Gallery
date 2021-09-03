@@ -90,16 +90,15 @@
 .workDiv-container {
     position: absolute;
     width: 100%;
-    min-height: 650px;
 }
 .workDiv {
     position: relative;
     width: 100%;
-    min-height: 650px;
     display: flex;
     flex-direction: row;
     text-align: left;
     align-items: center;
+    justify-content: center;
 }
 .imgDiv {
     display: flex;
