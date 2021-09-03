@@ -91,10 +91,10 @@
 .workDiv-container {
     box-sizing: content-box;
 }
-.workDiv-container::before {
+.workDiv-container:before {
     box-sizing: content-box;
 }
-.workDiv-container::after {
+.workDiv-container:after {
     box-sizing: content-box;
 }
 .workDiv {
