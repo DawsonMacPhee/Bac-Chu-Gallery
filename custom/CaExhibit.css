@@ -164,3 +164,15 @@
 .slide-img-rev-leave-active {
     transition: transform 1s;
 }
+
+@media (max-width:1009px){
+    .workDiv {
+        flex-direction: column;
+    }
+    .infoDiv {
+        width: 90%;
+    }
+    .infoDiv {
+        width: 95%;
+    }
+}
