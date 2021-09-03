@@ -1,5 +1,5 @@
 .workDiv-container, .workDiv-container:before, .workDiv-container:after {
-    box-sizing: content-box;
+    box-sizing: content-box !important;
 }
 #ca-exhibit-app {
     display: flex;
