@@ -87,13 +87,9 @@
     margin-bottom: 20px;
     border: 4px grey solid; 
     overflow-x: hidden;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 .workDiv {
+    margin: auto;
     width: 100%;
     height: 100%;
     display: flex;
