@@ -45,6 +45,10 @@ const objectCard = {
         refid: {
             type: String,
             required: true
+        },
+        back: {
+            type: String,
+            required: true
         }
     },
 
@@ -55,7 +59,7 @@ const objectCard = {
             if (this.refid == "LOAD") {
                 return "";
             } else {
-                return 'View-Object.html?ref=' + this.refid;
+                return 'View-Object.html?ref=' + this.refid + '&back=' + encodeURI(this.back);
             }
         }
     }
@@ -75,7 +79,7 @@ const app = Vue.createApp({
             filteredObjects: [],
             textFilteredObjects: [],
             dateFilteredObjects: [],
-            displayedObjects: [{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."}],
+            displayedObjects: [{"card": objectCard, "refid": "LOAD", "back": "LOAD","id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "back": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "back": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "back": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "back": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "back": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "back": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "back": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "back": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "back": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "back": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "back": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."}],
             filters: [],
             pageNum: 0,
             pageOptionOne: 1,
@@ -148,6 +152,7 @@ const app = Vue.createApp({
 
                 this.displayedObjects = [];
                 for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                    this.filteredObjects[i].back = JSON.stringify({"page": this.pageNum, "filters": this.filters});
                     this.displayedObjects.push(this.filteredObjects[i]);
                 }
             }
@@ -192,6 +197,7 @@ const app = Vue.createApp({
 
                 this.displayedObjects = [];
                 for (var i = this.pageNum * 12; (i < this.textFilteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                    this.textFilteredObjects[i].back = JSON.stringify({"page": this.pageNum, "filters": this.filters});
                     this.displayedObjects.push(this.textFilteredObjects[i]);
                 }
             }
@@ -267,6 +273,7 @@ const app = Vue.createApp({
 
                 this.displayedObjects = [];
                 for (var i = this.pageNum * 12; (i < this.dateFilteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                    this.dateFilteredObjects[i].back = JSON.stringify({"page": this.pageNum, "filters": this.filters});
                     this.displayedObjects.push(this.dateFilteredObjects[i]);
                 }
             }
@@ -313,6 +320,7 @@ const app = Vue.createApp({
             this.pageNum -= 1;
             this.displayedObjects = [];
             for (var i = this.pageNum * 12; (i < objects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                objects[i].back = JSON.stringify({"page": this.pageNum, "filters": this.filters});
                 this.displayedObjects.push(objects[i]);
             }
         }, 
@@ -341,6 +349,7 @@ const app = Vue.createApp({
             this.pageNum += 1;
             this.displayedObjects = [];
             for (var i = this.pageNum * 12; (i < objects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                objects[i].back = JSON.stringify({"page": this.pageNum, "filters": this.filters});
                 this.displayedObjects.push(objects[i]);
             }
         },
@@ -372,6 +381,7 @@ const app = Vue.createApp({
             this.pageNum = newPageNum - 1;
             this.displayedObjects = [];
             for (var i = this.pageNum * 12; (i < objects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                objects[i].back = JSON.stringify({"page": this.pageNum, "filters": this.filters});
                 this.displayedObjects.push(objects[i]);
             }
         },
@@ -421,6 +431,7 @@ const app = Vue.createApp({
 
             this.displayedObjects = [];
             for (var i = this.pageNum * 12; (i < this.filteredObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                this.filteredObjects[i].back = JSON.stringify({"page": this.pageNum, "filters": this.filters});
                 this.displayedObjects.push(this.filteredObjects[i]);
             }
 
@@ -452,18 +463,21 @@ const app = Vue.createApp({
                 }
             }
 
-            var info = this.getParameterByName("info");
+            var infoStr = this.getParameterByName("info");
 
-            if (info == null) {
+            if (infoStr == null) {
                 this.displayedObjects = [];
                 for (var i = this.pageNum * 12; (i < this.allObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                    this.allObjects[i].back = JSON.stringify({"page": this.pageNum, "filters": this.filters});
                     this.displayedObjects.push(this.allObjects[i]);
                 }
 
                 this.filteredObjects = this.allObjects;
             } else {
-                //this.applyAllFilters();
-                //this.specificPage();
+                var info = JSON.parse(infoStr);
+                this.filters = info.filters;
+                this.applyAllFilters();
+                this.specificPage(info.page);
             }
         },
         getParameterByName(name, url = window.location.href) {
