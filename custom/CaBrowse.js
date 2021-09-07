@@ -463,6 +463,7 @@ const app = Vue.createApp({
                 this.filteredObjects = this.allObjects;
             } else {
                 var info = JSON.parse(decodeURI(infoStr));
+                console.log(info);
                 this.filters = info.filters;
                 this.applyAllFilters();
                 this.specificPage(info.page);
