@@ -466,6 +466,8 @@ const app = Vue.createApp({
                 console.log(info);
                 this.filters = info.filters;
                 this.applyAllFilters();
+                console.log(this.displayedObjects);
+                console.log(this.pageNum);
                 //this.specificPage(info.page);
             }
         },
