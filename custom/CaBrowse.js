@@ -56,11 +56,10 @@ const objectCard = {
 
     computed: {
         cardLink() {
-            console.log(this.back);
             if (this.refid == "LOAD") {
                 return "";
             } else {
-                return 'View-Object.html?ref=' + this.refid + '&back=' + encodeURI(this.back);
+                return 'View-Object.html?ref=' + this.refid + '&back=' + encodeURI(JSON.stringify({"page": this.$parent.pageNum, "filters": this.$parent.filters}));
             }
         }
     }
