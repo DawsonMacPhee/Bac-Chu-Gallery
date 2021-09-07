@@ -466,7 +466,7 @@ const app = Vue.createApp({
                 console.log(info);
                 this.filters = info.filters;
                 this.applyAllFilters();
-                this.specificPage(info.page);
+                //this.specificPage(info.page);
             }
         },
         getParameterByName(name, url = window.location.href) {
