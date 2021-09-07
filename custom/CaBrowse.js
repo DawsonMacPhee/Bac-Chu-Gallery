@@ -470,6 +470,7 @@ const app = Vue.createApp({
                 for (var i = this.pageNum * 12; (i < this.allObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
                     this.allObjects[i].back = JSON.stringify({"page": this.pageNum, "filters": this.filters});
                     this.displayedObjects.push(this.allObjects[i]);
+                    console.log(this.displayedObjects);
                 }
 
                 this.filteredObjects = this.allObjects;
