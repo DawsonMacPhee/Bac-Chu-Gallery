@@ -56,6 +56,7 @@ const objectCard = {
 
     computed: {
         cardLink() {
+            console.log(this.back);
             if (this.refid == "LOAD") {
                 return "";
             } else {
