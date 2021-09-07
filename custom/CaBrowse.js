@@ -376,11 +376,11 @@ const app = Vue.createApp({
             }
         },
         removeFilter(index) {
-            this.filteredObjects = this.allObjects;
             this.filters.splice(index, 1);
             this.applyAllFilters();
         },
         applyAllFilters() {
+            this.filteredObjects = this.allObjects;
             for(var i = 0; i < this.filters.length; i++) {
                 if (this.filters[i].type == "style") {
                     this.applyFilter("style", this.filters[i].value, false);
@@ -466,6 +466,8 @@ const app = Vue.createApp({
                 console.log(info);
                 this.filters = info.filters;
                 this.applyAllFilters();
+
+                console.log(this.filters);
                 console.log(this.displayedObjects);
                 console.log(this.pageNum);
                 //this.specificPage(info.page);
