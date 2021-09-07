@@ -85,13 +85,21 @@ const app = Vue.createApp({
             if (this.rights == null || this.rights == "") {
                 this.rights = "N/A";
             }
+        },
+        getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
     },
 
 
 
     mounted: async function() {
-        var ref = window.location.search.substring(window.location.search.indexOf('ref=') + 4);
+        var ref = this.getParameterByName("ref");
         var _this = this;
         var data = JSON.stringify(
             {

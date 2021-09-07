@@ -377,8 +377,10 @@ const app = Vue.createApp({
         },
         removeFilter(index) {
             this.filteredObjects = this.allObjects;
-
             this.filters.splice(index, 1);
+            this.applyAllFilters();
+        },
+        applyAllFilters() {
             for(var i = 0; i < this.filters.length; i++) {
                 if (this.filters[i].type == "style") {
                     this.applyFilter("style", this.filters[i].value, false);
@@ -450,12 +452,27 @@ const app = Vue.createApp({
                 }
             }
 
-            this.displayedObjects = [];
-            for (var i = this.pageNum * 12; (i < this.allObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
-                this.displayedObjects.push(this.allObjects[i]);
-            }
+            var info = this.getParameterByName("info");
 
-            this.filteredObjects = this.allObjects;
+            if (info == null) {
+                this.displayedObjects = [];
+                for (var i = this.pageNum * 12; (i < this.allObjects.length) && (i < (this.pageNum * 12) + 12); i++) {
+                    this.displayedObjects.push(this.allObjects[i]);
+                }
+
+                this.filteredObjects = this.allObjects;
+            } else {
+                //this.applyAllFilters();
+                //this.specificPage();
+            }
+        },
+        getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
     },
 
