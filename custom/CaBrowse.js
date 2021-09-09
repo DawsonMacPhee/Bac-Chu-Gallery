@@ -55,7 +55,7 @@ const objectCard = {
             if (this.refid == "LOAD") {
                 return "";
             } else {
-                return 'View-Object.html?ref=' + this.refid + '&back=' + encodeURI(JSON.stringify({"page": this.$parent.pageNum, "filters": this.$parent.filters}));
+                return 'View-Object.html?ref=' + this.refid + '&back=' + encodeURI(JSON.stringify({"page": this.$parent.pageNum + 1, "filters": this.$parent.filters}));
             }
         }
     }
