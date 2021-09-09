@@ -319,7 +319,7 @@ const app = Vue.createApp({
             } else {
                 objects = this.textFilteredObjects;
             }
-            console.log("HERE1");
+
             if (((newPageNum - 1) * 12) >= (objects.length)) {
                 return;
             } else if (newPageNum == 1) {
@@ -333,7 +333,7 @@ const app = Vue.createApp({
                 this.pageOptionTwo = newPageNum;
                 this.pageOptionThree = newPageNum + 1;
             }
-            console.log("HERE2");
+
             this.pageNum = newPageNum - 1;
             this.displayedObjects = [];
             for (var i = this.pageNum * 12; (i < objects.length) && (i < (this.pageNum * 12) + 12); i++) {
