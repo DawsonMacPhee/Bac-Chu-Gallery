@@ -112,19 +112,6 @@ const app = Vue.createApp({
             this.filteredObjects = this.filteredObjects.filter(filterCompare);
 
             if (update) {
-                var bgColor;
-                var bdColor;
-                if (filterType == "style") {
-                    bgColor = "rgb(255, 138, 138)";
-                    bdColor = "rgb(176, 65, 65)";
-                } else if (filterType == "nationality") {
-                    bgColor = "rgb(112, 215, 255)";
-                    bdColor = "rgb(40, 123, 156)";
-                } else if (filterType == "medium") {
-                    bgColor = "rgb(205, 135, 255)";
-                    bdColor = "rgb(104, 31, 156)";
-                }
-
                 this.search = "";
                 this.date = "";
                 this.style = "";
@@ -133,9 +120,7 @@ const app = Vue.createApp({
 
                 this.filters.push({
                     type: filterType,
-                    value: filterValue,
-                    bgColor: bgColor,
-                    bdColor: bdColor
+                    value: filterValue
                 });
                 this.filterTitle = true;
 
@@ -203,27 +188,9 @@ const app = Vue.createApp({
             this.filteredObjects = this.textFilteredObjects;
 
             if (update) {
-                var bgColor;
-                var bdColor;
-                if (searchOption == "creator") {
-                    bgColor = "rgb(102, 217, 138)";
-                    bdColor = "rgb(28, 128, 59)";
-                } else if (searchOption == "title") {
-                    bgColor = "rgb(69, 131, 255)";
-                    bdColor = "rgb(0, 51, 153)";
-                } else if (searchOption == "idNumber") {
-                    bgColor = "rgb(255, 174, 69)";
-                    bdColor = "rgb(166, 95, 3)";
-                } else if (searchOption == "subjectTerm") {
-                    bgColor = "rgb(245, 223, 83)";
-                    bdColor = "rgb(171, 148, 3)";
-                }
-
                 this.filters.push({
                     type: searchOption,
-                    value: search,
-                    bgColor: bgColor,
-                    bdColor: bdColor
+                    value: search
                 });
                 this.filterTitle = true;
                 this.search = "";
@@ -280,9 +247,7 @@ const app = Vue.createApp({
             if (update) {
                 this.filters.push({
                     type: dateSearch,
-                    value: date,
-                    bgColor: "rgb(255, 110, 194)",
-                    bdColor: "rgb(171, 38, 115)"
+                    value: date
                 });
                 this.filterTitle = true;
                 this.date = "";
@@ -477,6 +442,38 @@ const app = Vue.createApp({
             if (!results) return null;
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        },
+        filterStyle(filter) {
+            var bgColor;
+            var bdColor;
+
+            if (filter.type == "style") {
+                bgColor = "rgb(255, 138, 138)";
+                bdColor = "rgb(176, 65, 65)";
+            } else if (filter.type == "nationality") {
+                bgColor = "rgb(112, 215, 255)";
+                bdColor = "rgb(40, 123, 156)";
+            } else if (filter.type == "medium") {
+                bgColor = "rgb(205, 135, 255)";
+                bdColor = "rgb(104, 31, 156)";
+            } else if (filter.type == "creator") {
+                bgColor = "rgb(102, 217, 138)";
+                bdColor = "rgb(28, 128, 59)";
+            } else if (filter.type == "title") {
+                bgColor = "rgb(69, 131, 255)";
+                bdColor = "rgb(0, 51, 153)";
+            } else if (filter.type == "idNumber") {
+                bgColor = "rgb(255, 174, 69)";
+                bdColor = "rgb(166, 95, 3)";
+            } else if (filter.type == "subjectTerm") {
+                bgColor = "rgb(245, 223, 83)";
+                bdColor = "rgb(171, 148, 3)";
+            } else if (filter.type == "On" || filter.type == "Before" || filter.type == "After") {
+                bgColor = "rgb(255, 110, 194)";
+                bdColor = "rgb(171, 38, 115)";
+            }
+
+            return {"backgroundColor": bgColor, "borderColor": bdColor};
         }
     },
 

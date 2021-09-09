@@ -101,8 +101,9 @@
               <br v-if="filterTitle">
               <h5 v-if="filterTitle">Filters</h5>
               <div id="filter-cards" v-if="filterTitle">
-                <div class="filterCard" v-for="(filter, index) in filters" :style="{backgroundColor: filter.bgColor, borderColor: filter.bdColor}">
-                  {{ filter.value }} <span class="filterCard-close" v-on:click="removeFilter(index)">X</span>
+                <div class="filterCard" v-for="(filter, index) in filters" :style="filterStyle(filter)">
+                  <span>{{ filter.value }}</span>
+                  <span class="filterCard-close" v-on:click="removeFilter(index)">X</span>
                 </div>
               </div>
               <br>
