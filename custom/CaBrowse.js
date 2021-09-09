@@ -432,9 +432,7 @@ const app = Vue.createApp({
                 var info = JSON.parse(decodeURI(infoStr));
                 this.filters = info.filters;
                 this.applyAllFilters();
-
-                console.log(this.filters);
-                //this.specificPage(info.page);
+                this.specificPage(info.page);
             }
         },
         getParameterByName(name, url = window.location.href) {
