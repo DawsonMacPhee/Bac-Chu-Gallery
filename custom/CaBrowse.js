@@ -391,6 +391,8 @@ const app = Vue.createApp({
 
             if (this.filters.length == 0) {
                 this.filterTitle = false;
+            } else {
+                this.filterTitle = true;
             }
         },
         loadBrowse(responseText) {
