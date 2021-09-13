@@ -2,7 +2,7 @@ const objectCard = {
     template:
     /*html*/
     `
-    <a class="objectCard" :href="cardLink">
+    <a class="objectCard" v-on:click="openInfo()">
         <div class="objectImage">
             <img class="objectCard-image" :src="objectimage">
         </div>
@@ -49,13 +49,14 @@ const objectCard = {
     },
 
 
-
-    computed: {
-        cardLink() {
+    methods: {
+        openInfo() {
             if (this.refid == "LOAD") {
-                return "";
+                return;
             } else {
-                return 'View-Object.html?ref=' + this.refid + '&back=' + encodeURI(JSON.stringify({"page": this.$parent.pageNum + 1, "filters": this.$parent.filters}));
+                this.$parent.confirmTextFilter(this.$parent.search, this.$parent.searchOption, true);
+                this.$parent.confirmDateFilter(this.$parent.date, this.$parent.dateSearch, true);
+                window.open('View-Object.html?ref=' + this.refid + '&back=' + encodeURI(JSON.stringify({"page": this.$parent.pageNum + 1, "filters": this.$parent.filters})), '_self');
             }
         }
     }
