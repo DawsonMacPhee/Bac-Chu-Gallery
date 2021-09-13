@@ -11,7 +11,8 @@ const app = Vue.createApp({
             dimensions: "Loading...",
             creditLine: "Loading...",
             rights: "Loading...",
-            display: true
+            display: true,
+            back: ""
         }
     },
 
@@ -100,6 +101,7 @@ const app = Vue.createApp({
 
     mounted: async function() {
         var ref = this.getParameterByName("ref");
+        this.back = this.getParameterByName("back");
         var _this = this;
         var data = JSON.stringify(
             {

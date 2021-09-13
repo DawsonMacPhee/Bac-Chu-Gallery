@@ -3,6 +3,7 @@
     width: 90%;
 }
 #ca-view-app {
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: 1%;
