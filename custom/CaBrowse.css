@@ -165,6 +165,7 @@ input[type=number] {
     border: none;
     border-radius: 10px;
     margin: 2px;
+    cursor: pointer;
 }
 .dropdown {
     font-size: 18px;

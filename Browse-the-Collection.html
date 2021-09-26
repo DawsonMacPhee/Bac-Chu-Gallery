@@ -29,7 +29,7 @@
     <meta property="og:type" content="website">
 
     <!--These are custom imports-->
-    <script src="https://unpkg.com/vue@next"></script>
+    <script src="/vue.global.prod.js"></script>
     <link rel="stylesheet" href="custom/CaBrowse.css" type="text/css"/>
   </head>
   <body class="u-body"><header class="u-align-center-xs u-border-1 u-border-grey-25 u-clearfix u-header u-white u-header" id="sec-41ff"><div class="u-clearfix u-sheet u-sheet-1">
@@ -232,7 +232,7 @@
               <br>
             </div>
           <div id="ca-browse-objects">
-              <component v-for="(object, index) in displayedObjects" :key="index" :is="object.card" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator" :objectdate="object.date" :objectmedium="object.medium" :objectid="object.id" :refid="object.refid"/>
+              <object-card v-for="(object, index) in displayedObjects" :key="index" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator" :objectdate="object.date" :objectmedium="object.medium" :objectid="object.id" :refid="object.refid"/>
           </div>
         </div>
         </div>

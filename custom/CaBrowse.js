@@ -1,67 +1,3 @@
-const objectCard = {
-    template:
-    /*html*/
-    `
-    <a class="objectCard" v-on:click="openInfo()">
-        <div class="objectImage">
-            <img class="objectCard-image" :src="objectimage">
-        </div>
-        <div class="objectInfo">
-            <span class="objectCard-creator"> {{ objectcreator[0] }} </span>
-            <span class="objectCard-title"><em> {{ objectname }} </em></span>
-            <span class="objectCard-extraInfo">{{ objectdate }}</span>
-            <span class="objectCard-extraInfo">{{ objectmedium }}</span>
-            <span class="objectCard-extraInfo">{{ objectid }}</span>
-        </div>
-    </a>
-    `,
-
-    
-    props: {
-        objectname: {
-            type: String,
-            required: true
-        },
-        objectimage: {
-            type: String,
-            required: true
-        },
-        objectcreator: {
-            type: Array,
-            required: true
-        },
-        objectdate: {
-            type: String,
-            required: true
-        },
-        objectmedium: {
-            type: String,
-            required: true
-        },
-        objectid: {
-            type: String,
-            required: true
-        },
-        refid: {
-            type: String,
-            required: true
-        }
-    },
-
-
-    methods: {
-        openInfo() {
-            if (this.refid == "LOAD") {
-                return;
-            } else {
-                this.$parent.confirmTextFilter(this.$parent.search, this.$parent.searchOption, true);
-                this.$parent.confirmDateFilter(this.$parent.date, this.$parent.dateSearch, true);
-                window.open('View-Object.html?ref=' + this.refid + '&back=' + encodeURI(JSON.stringify({"page": this.$parent.pageNum + 1, "filters": this.$parent.filters})), '_self');
-            }
-        }
-    }
-}
-
 const app = Vue.createApp({
     data() {
         return {
@@ -76,7 +12,7 @@ const app = Vue.createApp({
             filteredObjects: [],
             textFilteredObjects: [],
             dateFilteredObjects: [],
-            displayedObjects: [{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"card": objectCard, "refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."}],
+            displayedObjects: [{"refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."},{"refid": "LOAD", "id": "Loading...", "title": "Loading...", "image": "/custom/loading.gif", "creator": ["Loading..."], "date": "Loading...", "medium": "Loading..."}],
             filters: [],
             pageNum: 0,
             pageOptionOne: 1,
@@ -405,7 +341,6 @@ const app = Vue.createApp({
                         image = "/custom/no_image.png";
                     }
                     this.allObjects.push({
-                        "card": objectCard,
                         "id": response.results[i]["idno"],
                         "title": response.results[i]["display_label"], 
                         "image": image, 
@@ -505,6 +440,70 @@ const app = Vue.createApp({
         xhr.send(null);
         xhr.onload = function() {
             _this.loadBrowse(this.responseText);
+        }
+    }
+});
+
+app.component('object-card', {
+    template:
+    /*html*/
+    `
+    <a class="objectCard" v-on:click="openInfo()">
+        <div class="objectImage">
+            <img class="objectCard-image" :src="objectimage">
+        </div>
+        <div class="objectInfo">
+            <span class="objectCard-creator"> {{ objectcreator[0] }} </span>
+            <span class="objectCard-title"><em> {{ objectname }} </em></span>
+            <span class="objectCard-extraInfo">{{ objectdate }}</span>
+            <span class="objectCard-extraInfo">{{ objectmedium }}</span>
+            <span class="objectCard-extraInfo">{{ objectid }}</span>
+        </div>
+    </a>
+    `,
+
+    
+    props: {
+        objectname: {
+            type: String,
+            required: true
+        },
+        objectimage: {
+            type: String,
+            required: true
+        },
+        objectcreator: {
+            type: Array,
+            required: true
+        },
+        objectdate: {
+            type: String,
+            required: true
+        },
+        objectmedium: {
+            type: String,
+            required: true
+        },
+        objectid: {
+            type: String,
+            required: true
+        },
+        refid: {
+            type: String,
+            required: true
+        }
+    },
+
+
+    methods: {
+        openInfo() {
+            if (this.refid == "LOAD") {
+                return;
+            } else {
+                this.$parent.confirmTextFilter(this.$parent.search, this.$parent.searchOption, true);
+                this.$parent.confirmDateFilter(this.$parent.date, this.$parent.dateSearch, true);
+                window.open('View-Object.html?ref=' + this.refid + '&back=' + encodeURI(JSON.stringify({"page": this.$parent.pageNum + 1, "filters": this.$parent.filters})), '_self');
+            }
         }
     }
 });
