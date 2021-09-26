@@ -1,64 +1,3 @@
-const exCard = {
-    template:
-    /*html*/
-    `
-    <a class="ca-card-container" :href="cardLink">
-        <div class="ca-card">
-            <div class="ca-img-container">
-                <img class="ca-img" :src="eximg"/>
-            </div>
-            <div class="ca-info">
-                <span class="ca-card-title"><em>{{ extitle }}</em></span>
-                <span class="ca-card-date">{{ exdate }}</span>
-                <span class="ca-card-curator">{{ excurator }}</span>
-                <span>{{ exintro }}</span>
-            </div>
-        </div>
-    </a>
-    `,
-
-
-
-    props: {
-        extitle: {
-            type: String,
-            required: true
-        },
-        exdate: {
-            type: String,
-            required: true
-        },
-        eximg: {
-            type: String,
-            required: true
-        },
-        excurator: {
-            type: String,
-            required: true
-        },
-        exintro: {
-            type: String,
-            required: true
-        },
-        refid: {
-            type: String,
-            required: true
-        }
-    },
-
-
-
-    computed: {
-        cardLink() {
-            if (this.refid == "LOAD") {
-                return "";
-            } else {
-                return 'Exhibition.html?ref=' + this.refid;
-            }
-        }
-    }
-}
-
 const app = Vue.createApp({
     data() {
         return {
@@ -76,7 +15,6 @@ const app = Vue.createApp({
                 if (response.results[i]["idno"].includes("exhibition") && !response.results[i]["idno"].includes("display")) {
                     if (response.results[i]["ca_collections.status"] == "0") {
                         this.currentEx.push({
-                            "card": exCard,
                             "title": response.results[i]["display_label"],
                             "desc": response.results[i]["ca_collections.description"].substring(0, response.results[i]["ca_collections.description"].length - 1),
                             "curator": response.results[i]["ca_collections.nonpreferred_labels"][1],
@@ -87,7 +25,6 @@ const app = Vue.createApp({
                         });
                     } else if (response.results[i]["ca_collections.status"] == "4") {
                         this.pastEx.push({
-                            "card": exCard,
                             "title": response.results[i]["display_label"],
                             "desc": response.results[i]["ca_collections.description"].substring(0, response.results[i]["ca_collections.description"].length - 1),
                             "curator": response.results[i]["ca_collections.nonpreferred_labels"][1],
@@ -155,6 +92,67 @@ const app = Vue.createApp({
         xhr.send(null);
         xhr.onload = function() {
             _this.loadBrowse(this.responseText);
+        }
+    }
+});
+
+app.component('exhibit-card', {
+    template:
+    /*html*/
+    `
+    <a class="ca-card-container" :href="cardLink">
+        <div class="ca-card">
+            <div class="ca-img-container">
+                <img class="ca-img" :src="eximg"/>
+            </div>
+            <div class="ca-info">
+                <span class="ca-card-title"><em>{{ extitle }}</em></span>
+                <span class="ca-card-date">{{ exdate }}</span>
+                <span class="ca-card-curator">{{ excurator }}</span>
+                <span>{{ exintro }}</span>
+            </div>
+        </div>
+    </a>
+    `,
+
+
+
+    props: {
+        extitle: {
+            type: String,
+            required: true
+        },
+        exdate: {
+            type: String,
+            required: true
+        },
+        eximg: {
+            type: String,
+            required: true
+        },
+        excurator: {
+            type: String,
+            required: true
+        },
+        exintro: {
+            type: String,
+            required: true
+        },
+        refid: {
+            type: String,
+            required: true
+        }
+    },
+
+
+
+    computed: {
+        cardLink() {
+            if (this.refid == "LOAD") {
+                return "";
+            } else {
+                return 'Exhibition.html?ref=' + this.refid;
+            }
         }
     }
 });

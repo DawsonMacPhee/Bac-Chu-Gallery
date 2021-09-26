@@ -28,7 +28,7 @@
     <meta property="og:type" content="website">
 
     <!--These are custom imports-->
-    <script src="https://unpkg.com/vue@next"></script>
+    <script src="/vue.global.prod.js"></script>
     <link rel="stylesheet" href="custom/CaExhibitBrowse.css" type="text/css"/>
   </head>
   <body class="u-body"><header class="u-align-center-xs u-border-1 u-border-grey-25 u-clearfix u-header u-white u-header" id="sec-41ff"><div class="u-clearfix u-sheet u-sheet-1">
@@ -86,12 +86,12 @@
         <div id="ca-exhibit-browse-app">
             <div>
                 <h2 style="font-weight: 700;">Current Exhibitions</h2>
-                <component v-for="(curr, index) in currentEx" :key="index" :is="curr.card" :extitle="curr.title" :exdate="curr.date" :eximg="curr.img" :excurator="curr.curator" :exintro="curr.desc" :refid="curr.refid"/>
+                <exhibit-card v-for="(curr, index) in currentEx" :key="index" :extitle="curr.title" :exdate="curr.date" :eximg="curr.img" :excurator="curr.curator" :exintro="curr.desc" :refid="curr.refid"/>
             </div>
 
             <div>
                 <h2 style="font-weight: 700;">Past Exhibitions</h2>
-                <component v-for="(past, index) in pastEx" :key="index" :is="past.card" :extitle="past.title" :exdate="past.date" :eximg="past.img" :excurator="past.curator" :exintro="past.desc" :refid="past.refid"/>
+                <exhibit-card v-for="(past, index) in pastEx" :key="index" :extitle="past.title" :exdate="past.date" :eximg="past.img" :excurator="past.curator" :exintro="past.desc" :refid="past.refid"/>
             </div>
         </div>
     </div>
