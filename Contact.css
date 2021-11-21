@@ -3,15 +3,23 @@
 }
 
 .u-section-1 .u-text-1 {
+  font-size: 3rem;
   font-weight: 700;
   margin: 81px 12px 0 485px;
 }
 
+.u-section-1 .u-image-1 {
+  width: 362px;
+  height: 299px;
+  object-position: 0% 50%;
+  margin: -60px auto 0 81px;
+}
+
 .u-section-1 .u-text-2 {
+  font-size: 1.11111rem;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1.11111rem;
-  margin: 29px 12px 0 485px;
+  margin: -210px 12px 0 485px;
 }
 
 .u-section-1 .u-text-3 {
@@ -20,7 +28,7 @@
 }
 
 .u-section-1 .u-text-4 {
-  margin: -101px 240px 0 856px;
+  margin: -102px 242px 0 854px;
 }
 
 .u-section-1 .u-btn-1 {
@@ -29,28 +37,23 @@
   padding: 0;
 }
 
-.u-section-1 .u-image-1 {
-  width: 362px;
-  height: 299px;
-  object-position: 0% 50%;
-  margin: -226px auto 0 81px;
-}
-
 .u-section-1 .u-text-5 {
-  text-transform: uppercase;
   font-size: 1.11111rem;
-  margin: 31px 12px 0 485px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 106px 12px 0 485px;
 }
 
 .u-section-1 .u-text-6 {
-  text-transform: uppercase;
   font-size: 1.11111rem;
-  margin: -23px 416px 0 81px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: -22px 416px 0 81px;
 }
 
 .u-section-1 .u-text-7 {
   font-size: 0.888889rem;
-  margin: 12px 821px 0 81px;
+  margin: 11px 821px 0 81px;
 }
 
 .u-section-1 .u-text-8 {
@@ -61,6 +64,7 @@
 .u-section-1 .u-text-9 {
   text-transform: uppercase;
   font-size: 1.11111rem;
+  font-weight: 700;
   margin: 29px 12px 0 485px;
 }
 
@@ -80,7 +84,7 @@
   min-height: 16px;
   width: 131px;
   min-width: 68px;
-  margin: 42px auto 51px;
+  margin: 42px auto 55px;
 }
 
 .u-section-1 .u-icon-1 {
@@ -108,9 +112,14 @@
     margin-left: 366px;
   }
 
+  .u-section-1 .u-image-1 {
+    margin-top: 103px;
+    margin-left: 0;
+  }
+
   .u-section-1 .u-text-2 {
     width: auto;
-    margin-top: 28px;
+    margin-top: -374px;
     margin-right: 15px;
     margin-left: 366px;
   }
@@ -127,14 +136,9 @@
     margin-left: 736px;
   }
 
-  .u-section-1 .u-image-1 {
-    margin-top: -151px;
-    margin-left: 0;
-  }
-
   .u-section-1 .u-text-5 {
     width: auto;
-    margin-top: 28px;
+    margin-top: 176px;
     margin-right: 120px;
     margin-left: 366px;
   }
@@ -175,6 +179,7 @@
 
   .u-section-1 .u-social-icons-1 {
     width: 132px;
+    margin-bottom: 51px;
   }
 }
 
@@ -189,8 +194,14 @@
     margin-left: 0;
   }
 
+  .u-section-1 .u-image-1 {
+    margin-top: 461px;
+    margin-right: 40px;
+    margin-left: auto;
+  }
+
   .u-section-1 .u-text-2 {
-    margin-top: 26px;
+    margin-top: -734px;
     margin-right: 77px;
     margin-left: 0;
   }
@@ -206,14 +217,8 @@
     margin-left: 372px;
   }
 
-  .u-section-1 .u-image-1 {
-    margin-top: 209px;
-    margin-right: 40px;
-    margin-left: auto;
-  }
-
   .u-section-1 .u-text-5 {
-    margin-top: -74px;
+    margin-top: 434px;
     margin-right: 77px;
     margin-left: 0;
   }
@@ -267,7 +272,15 @@
     margin-right: 0;
   }
 
+  .u-section-1 .u-image-1 {
+    width: 289px;
+    height: 227px;
+    margin-top: 279px;
+    margin-right: 0;
+  }
+
   .u-section-1 .u-text-2 {
+    margin-top: -480px;
     margin-right: 0;
   }
 
@@ -281,15 +294,8 @@
     margin-left: 369px;
   }
 
-  .u-section-1 .u-image-1 {
-    width: 289px;
-    height: 227px;
-    margin-top: 97px;
-    margin-right: 0;
-  }
-
   .u-section-1 .u-text-5 {
-    margin-top: 98px;
+    margin-top: 422px;
     margin-right: 86px;
   }
 
@@ -319,6 +325,7 @@
 
   .u-section-1 .u-social-icons-1 {
     width: 132px;
+    margin-bottom: 60px;
   }
 }
 
@@ -327,19 +334,23 @@
     min-height: 1730px;
   }
 
+  .u-section-1 .u-image-1 {
+    margin-top: 1330px;
+    margin-right: auto;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-top: -1531px;
+  }
+
   .u-section-1 .u-text-4 {
     margin-top: -128px;
     margin-right: 256px;
     margin-left: 40px;
   }
 
-  .u-section-1 .u-image-1 {
-    margin-top: 1097px;
-    margin-right: auto;
-  }
-
   .u-section-1 .u-text-5 {
-    margin-top: -925px;
+    margin-top: 399px;
     margin-right: 0;
   }
 
@@ -360,7 +371,7 @@
   .u-section-1 .u-text-10 {
     margin-right: 72px;
   }
-}.u-section-2 {
+} .u-section-2 {
   background-image: url("images/DSC_0053.jpg");
   background-position: 50% 50%;
 }
@@ -412,7 +423,7 @@
 }
 
 @media (max-width: 1199px) {
-  .u-section-2 {
+   .u-section-2 {
     background-size: auto 220%;
   }
 

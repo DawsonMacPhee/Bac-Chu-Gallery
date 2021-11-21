@@ -9,6 +9,7 @@
 }
 
 .u-section-1 .u-text-2 {
+  font-size: 3rem;
   font-weight: 700;
   margin: 36px auto 0 79px;
 }
@@ -74,7 +75,7 @@
     margin-left: 10px;
     margin-right: 10px;
   }
-}.u-section-2 {
+} .u-section-2 {
   background-image: url("images/DSC_0112.jpg");
   background-position: 50% 50%;
 }
@@ -90,7 +91,7 @@
 }
 
 @media (max-width: 575px) {
-  .u-section-2 {
+   .u-section-2 {
     background-position: 12.18% 50%;
   }
 }

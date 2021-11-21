@@ -1,4 +1,4 @@
-.u-section-1 {
+ .u-section-1 {
   background-image: none;
 }
 
@@ -140,7 +140,7 @@
   .u-section-1 .u-btn-1 {
     margin-left: 0;
   }
-}.u-section-2 {
+} .u-section-2 {
   background-image: url("images/IMG_53401.JPG");
   background-position: 50% 50%;
 }
@@ -211,7 +211,7 @@
 }
 
 @media (max-width: 767px) {
-  .u-section-2 {
+   .u-section-2 {
     background-size: 130%;
   }
 
@@ -416,7 +416,7 @@
     width: 340px;
     height: 223px;
   }
-}.u-section-4 {
+} .u-section-4 {
   background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("images/FullHouse_B_Chu.jpg");
   background-position: 50% 50%;
   min-height: 820px;
@@ -477,7 +477,7 @@
 }
 
 @media (max-width: 1199px) {
-  .u-section-4 {
+   .u-section-4 {
     min-height: 687px;
   }
 
@@ -504,7 +504,7 @@
 }
 
 @media (max-width: 991px) {
-  .u-section-4 {
+   .u-section-4 {
     min-height: 888px;
   }
 
@@ -542,7 +542,7 @@
 }
 
 @media (max-width: 767px) {
-  .u-section-4 {
+   .u-section-4 {
     min-height: 1329px;
   }
 
@@ -572,7 +572,7 @@
 }
 
 @media (max-width: 575px) {
-  .u-section-4 {
+   .u-section-4 {
     min-height: 613px;
   }
 
@@ -602,7 +602,7 @@
   }
 }.u-section-5 .u-sheet-1 {
   min-height: 129px;
-}.u-section-6 {
+} .u-section-6 {
   background-image: linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("images/photoop.jpeg");
   background-position: 50% 50%;
 }

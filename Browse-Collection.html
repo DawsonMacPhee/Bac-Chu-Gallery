@@ -29,7 +29,7 @@
 
     <!--These are custom imports-->
     <script src="/vue.global.prod.js"></script>
-    <link rel="stylesheet" href="custom/CaView.css" type="text/css"/>
+    <link rel="stylesheet" href="custom/CaBrowse.css" type="text/css"/>
   </head>
   <body class="u-body"><header class="u-align-center-xs u-border-1 u-border-grey-25 u-clearfix u-header u-white u-header" id="sec-41ff"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="1131" data-image-height="1600">
@@ -74,43 +74,168 @@
       </div></header> 
     
     <!--This is the beginning of custom code block-->
-    <div id="ca-view-container">
-        <div id="ca-view-app">
-            <a :href="'Browse-the-Collection.html?info=' + encodeURI(back)"><img src="/custom/back_button.png" style="position:absolute; right: 20px; top: 20px; width: 50px; height: 50px;"/></a>
-            <h3 id="ca-title">{{ title }}</h3>
-            <div id="ca-view" v-if="display">
-                <div id="ca-view-image-container">
-                    <img :src="image" id="ca-view-image">
+    <div id="ca-browse-container">
+        <div id="ca-browse-app">
+            <div id="ca-browse-sidebar">
+                <br>
+                <input id="ca-browse-sidebar-searchbar" v-on:keyup.enter="confirmTextFilter(search, searchOption, true)" v-on:keyup="applyTextFilter(search, searchOption, true)" v-model="search" placeholder="Search (press enter)">
+                <div class="ca-browse-label">
+                    <input type="radio" id="creator" value="creator" v-on:click="applyTextFilter(search, 'creator', true)" v-model="searchOption">
+                    <label for="creator">Creator</label>
                 </div>
-                <div id="ca-view-info">
-                    <h5 class="ca-subtitle">Accession Number</h5>
-                    <span>{{ idno }}</span>
-                    <h5 class="ca-subtitle">Edition Number</h5>
-                    <span>{{ edition }}</span>
-                    <h5 class="ca-subtitle">Title</h5>
-                    <span>{{ title }}</span>
-                    <h5 class="ca-subtitle">Artist(s)</h5>
-                    <span>{{ artists }}</span>
-                    <h5 class="ca-subtitle">Object Creation Date</h5>
-                    <span>{{ date }}</span>
-                    <h5 class="ca-subtitle">Medium</h5>
-                    <span>{{ medium }}</span>
-                    <h5 class="ca-subtitle">Dimensions</h5>
-                    <span>{{ dimensions }}</span>
-                    <h5 class="ca-subtitle">Credit Line</h5>
-                    <span>{{ creditLine }}</span>
-                    <h5 class="ca-subtitle">Rights</h5>
-                    <span>{{ rights }}</span>
+                <div class="ca-browse-label">
+                    <input type="radio" id="title" value="title" v-on:click="applyTextFilter(search, 'title', true)" v-model="searchOption">
+                    <label for="title">Title</label>
                 </div>
-            </div>
-            <div id="ca-view" v-if="!display">
-                <img :src="image" id="ca-view-image-fail">
+                <div class="ca-browse-label">
+                    <input type="radio" id="idNumber" value="idNumber" v-on:click="applyTextFilter(search, 'idNumber', true)" v-model="searchOption">
+                    <label for="idNumber">ID Number</label>
+                </div>
+                <div class="ca-browse-label">
+                    <input type="radio" id="subjectTerm" value="subjectTerm" v-on:click="applyTextFilter(search, 'subjectTerm', true)" v-model="searchOption">
+                    <label for="subjectTerm">Subject Term</label>
+                </div>
+                <br v-if="filterTitle">
+                <h5 v-if="filterTitle">Filters</h5>
+                <div id="filter-cards" v-if="filterTitle">
+                    <div class="filterCard" v-for="(filter, index) in filters" :style="filterStyle(filter)">
+                    <span>{{ filter.value }}</span>
+                    <span class="filterCard-close" v-on:click="removeFilter(index)">X</span>
+                    </div>
+                </div>
+                <br>
+                <h5>Date</h5>
+                <div id="ca-browse-dates">
+                    <select class="dropdown" @change="applyDateFilter(date, dateSearch, true)" v-model="dateSearch">
+                        <option>On</option>
+                        <option>Before</option>
+                        <option>After</option>
+                    </select>
+                    <input type="number" id="ca-browse-sidebar-datebar" v-on:keyup.enter="confirmDateFilter(date, dateSearch, true)" v-on:keyup="applyDateFilter(date, dateSearch, true)" v-model="date" placeholder="Enter Date (press enter)">
+                </div>
+                <br>
+                <h5>Style</h5>
+                <select class="dropdown" @change="applyFilter('style', style, true)" v-model="style">
+                    <option disabled value="">Select Filter Option</option>
+                    <option>Abstract Expressionism</option>
+                    <option>Abstractionism</option>
+                    <option>Chromatic Abstraction</option>
+                    <option>Conceptualism</option>
+                    <option>Dadaism</option>
+                    <option>Fauvism</option>
+                    <option>Formalism</option>
+                    <option>German Expressionism</option>
+                    <option>Impressionism</option>
+                    <option>Marxism</option>
+                    <option>Pure Line Engraving</option>
+                    <option>Realism</option>
+                    <option>Surrealism</option>
+                </select>
+                <br>
+                <h5>Nationality/Culture</h5>
+                <select class="dropdown" @change="applyFilter('nationality', nationality, true)" v-model="nationality">
+                    <option disabled value="">Select Filter Option</option>
+                    <option>American</option>
+                    <option>Belgian</option>
+                    <option>British</option>
+                    <option>Canadian</option>
+                    <option>Canadian Inuit</option>
+                    <option>Chinese</option>
+                    <option>Crotian</option>
+                    <option>Czech</option>
+                    <option>Danish</option>
+                    <option>Dutch</option>
+                    <option>English</option>
+                    <option>Estonian</option>
+                    <option>French</option>
+                    <option>German</option>
+                    <option>Hungarian</option>
+                    <option>Indian</option>
+                    <option>Japanese</option>
+                    <option>Lithuanian</option>
+                    <option>Manx</option>
+                    <option>Mexican</option>
+                    <option>Russian</option>
+                    <option>Scottish</option>
+                    <option>Spanish</option>
+                    <option>Swiss</option>
+                </select>
+                <br>
+                <h5>Medium</h5>
+                <select class="dropdown" @change="applyFilter('medium', medium, true)" v-model="medium">
+                    <option disabled value="">Select Filter Option</option>
+                    <option>Acrylic on paper</option>
+                    <option>Air brushed</option>
+                    <option>Aquatint</option>
+                    <option>C-Print</option>
+                    <option>Charcoal on paper</option>
+                    <option>Collograph</option>
+                    <option>Colour photograph</option>
+                    <option>Digital photograph</option>
+                    <option>Digital print</option>
+                    <option>Drypoint</option>
+                    <option>Dye resist</option>
+                    <option>Embossed print</option>
+                    <option>Engraving</option>
+                    <option>Etching</option>
+                    <option>Etching and steal</option>
+                    <option>Glossy print</option>
+                    <option>Gouache on paper</option>
+                    <option>Graphite on paper</option>
+                    <option>Hand-coloured engraving</option>
+                    <option>Ink drawing</option>
+                    <option>Ink on paper</option>
+                    <option>Ink on rice paper</option>
+                    <option>Intaglio</option>
+                    <option>Letterpress text</option>
+                    <option>Linocut</option>
+                    <option>Lithograph</option>
+                    <option>Lithograph on handmade paper</option>
+                    <option>Lithograph with embossing</option>
+                    <option>Lithograph with hand colouring</option>
+                    <option>Mezzotint</option>
+                    <option>Mixed media</option>
+                    <option>Monoprint</option>
+                    <option>Offset lithograph</option>
+                    <option>Pastels</option>
+                    <option>Pencil drawing</option>
+                    <option>Pencil drawing and transfer crayon</option>
+                    <option>Pencil on paper</option>
+                    <option>Photogram</option>
+                    <option>Photo-lithograph</option>
+                    <option>Relief print</option>
+                    <option>Screenprint</option>
+                    <option>Screenprint on plastic</option>
+                    <option>Serigraph</option>
+                    <option>Serigraph with embossing</option>
+                    <option>Silkscreen</option>
+                    <option>Silkscreen with embossing</option>
+                    <option>Watercolour</option>
+                    <option>Watercolour and graphite</option>
+                    <option>Wood engraving</option>
+                    <option>Woodcut</option>
+                    <option>Woodcut on handmade paper</option>
+                </select>
+                <br>
+                <hr>
+                <div id="ca-browse-pages">
+                    <input type="button" class="pageButton" value="<" v-on:click="backPage">
+                    <input type="button" class="pageButton" :value="pageOptionOne" :style="{backgroundColor: pageOptionOneColor}" v-on:click="specificPage(pageOptionOne)">
+                    <input type="button" class="pageButton" :value="pageOptionTwo" :style="{backgroundColor: pageOptionTwoColor}" v-on:click="specificPage(pageOptionTwo)">
+                    <input type="button" class="pageButton" :value="pageOptionThree" :style="{backgroundColor: pageOptionThreeColor}" v-on:click="specificPage(pageOptionThree)">
+                    <input type="button" class="pageButton" value=">" v-on:click="forwardPage">
+                </div>
+                <hr>
+                <br>
+                </div>
+            <div id="ca-browse-objects">
+                <object-card v-for="(object, index) in displayedObjects" :key="index" :objectname="object.title" :objectimage="object.image" :objectcreator="object.creator" :objectdate="object.date" :objectmedium="object.medium" :objectid="object.id" :refid="object.refid"/>
             </div>
         </div>
     </div>
-    <script src="./custom/CaView.js"></script>
-      <!--This is the end of custom code block-->
-
+    <script src="./custom/CaBrowse.js"></script>
+    <!--This is the end of custom code block-->
+    
     <footer class="u-black u-clearfix u-footer" id="sec-4b22"><div class="u-clearfix u-sheet u-sheet-1">
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
           <div class="menu-collapse u-custom-font u-font-montserrat" style="font-size: 1.11111rem;">
