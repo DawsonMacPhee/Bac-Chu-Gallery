@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="font-size: 18px;">
+<html style="font-size: 18px;" lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -76,11 +76,11 @@
     <!--This is the beginning of custom code block-->
     <div id="ca-view-container">
         <div id="ca-view-app">
-            <a :href="'Browse-Collection.html?info=' + encodeURI(back)"><img src="/custom/back_button.png" style="position:absolute; right: 20px; top: 20px; width: 50px; height: 50px;"/></a>
+            <a title="Return to Browse" :href="'Browse-Collection.html?info=' + encodeURI(back)"><img title="Back Button" src="/custom/back_button.png" style="position:absolute; right: 20px; top: 20px; width: 50px; height: 50px;"/></a>
             <h3 id="ca-title">{{ title }}</h3>
             <div id="ca-view" v-if="display">
                 <div id="ca-view-image-container">
-                    <img :src="image" id="ca-view-image">
+                    <img :title="title" :src="image" id="ca-view-image">
                 </div>
                 <div id="ca-view-info">
                     <h5 class="ca-subtitle">Accession Number</h5>
