@@ -450,7 +450,7 @@ app.component('object-card', {
     `
     <a class="objectCard" v-on:click="openInfo()">
         <div class="objectImage">
-            <img class="objectCard-image" :src="objectimage">
+            <img class="objectCard-image" :title="objectname" :src="objectimage">
         </div>
         <div class="objectInfo">
             <span class="objectCard-creator"> {{ objectcreator[0] }} </span>
