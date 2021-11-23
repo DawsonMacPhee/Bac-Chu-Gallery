@@ -103,7 +103,7 @@ app.component('exhibit-card', {
     <a class="ca-card-container" :href="cardLink">
         <div class="ca-card">
             <div class="ca-img-container">
-                <img class="ca-img" :src="eximg"/>
+                <img :title="extitle" class="ca-img" :src="eximg"/>
             </div>
             <div class="ca-info">
                 <span class="ca-card-title"><em>{{ extitle }}</em></span>
