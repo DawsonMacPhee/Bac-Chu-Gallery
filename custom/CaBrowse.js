@@ -448,7 +448,7 @@ app.component('object-card', {
     template:
     /*html*/
     `
-    <a class="objectCard" v-on:click="openInfo()">
+    <a class="objectCard" tabindex="0" v-on:click="openInfo()">
         <div class="objectImage">
             <img class="objectCard-image" :title="objectname" :src="objectimage">
         </div>
