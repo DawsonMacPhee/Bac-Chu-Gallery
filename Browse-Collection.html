@@ -80,19 +80,19 @@
                 <br>
                 <input id="ca-browse-sidebar-searchbar" v-on:keyup.enter="confirmTextFilter(search, searchOption, true)" v-on:keyup="applyTextFilter(search, searchOption, true)" v-model="search" placeholder="Search (press enter)">
                 <div class="ca-browse-label">
-                    <input type="radio" id="creator" value="creator" v-on:click="applyTextFilter(search, 'creator', true)" v-model="searchOption">
+                    <input type="radio" id="creator" value="creator" v-on:click="applyTextFilter(search, 'creator', true)" v-on:keyup.enter="applyTextFilter(search, 'creator', true)" v-model="searchOption">
                     <label for="creator">Creator</label>
                 </div>
                 <div class="ca-browse-label">
-                    <input type="radio" id="title" value="title" v-on:click="applyTextFilter(search, 'title', true)" v-model="searchOption">
+                    <input type="radio" id="title" value="title" v-on:click="applyTextFilter(search, 'title', true)" v-on:keyup.enter="applyTextFilter(search, 'title', true)" v-model="searchOption">
                     <label for="title">Title</label>
                 </div>
                 <div class="ca-browse-label">
-                    <input type="radio" id="idNumber" value="idNumber" v-on:click="applyTextFilter(search, 'idNumber', true)" v-model="searchOption">
+                    <input type="radio" id="idNumber" value="idNumber" v-on:click="applyTextFilter(search, 'idNumber', true)" v-on:keyup.enter="applyTextFilter(search, 'idNumber', true)" v-model="searchOption">
                     <label for="idNumber">ID Number</label>
                 </div>
                 <div class="ca-browse-label">
-                    <input type="radio" id="subjectTerm" value="subjectTerm" v-on:click="applyTextFilter(search, 'subjectTerm', true)" v-model="searchOption">
+                    <input type="radio" id="subjectTerm" value="subjectTerm" v-on:click="applyTextFilter(search, 'subjectTerm', true)" v-on:keyup.enter="applyTextFilter(search, 'subjectTerm', true)" v-model="searchOption">
                     <label for="subjectTerm">Subject Term</label>
                 </div>
                 <br v-if="filterTitle">
@@ -100,7 +100,7 @@
                 <div id="filter-cards" v-if="filterTitle">
                     <div class="filterCard" v-for="(filter, index) in filters" :style="filterStyle(filter)">
                     <span>{{ filter.value }}</span>
-                    <span class="filterCard-close" v-on:click="removeFilter(index)">X</span>
+                    <span class="filterCard-close" v-on:click="removeFilter(index)" v-on:keyup.enter="removeFilter(index)">X</span>
                     </div>
                 </div>
                 <br>
@@ -219,11 +219,11 @@
                 <br>
                 <hr>
                 <div id="ca-browse-pages">
-                    <input type="button" class="pageButton" value="<" v-on:click="backPage">
-                    <input type="button" class="pageButton" :value="pageOptionOne" :style="{backgroundColor: pageOptionOneColor}" v-on:click="specificPage(pageOptionOne)">
-                    <input type="button" class="pageButton" :value="pageOptionTwo" :style="{backgroundColor: pageOptionTwoColor}" v-on:click="specificPage(pageOptionTwo)">
-                    <input type="button" class="pageButton" :value="pageOptionThree" :style="{backgroundColor: pageOptionThreeColor}" v-on:click="specificPage(pageOptionThree)">
-                    <input type="button" class="pageButton" value=">" v-on:click="forwardPage">
+                    <input type="button" class="pageButton" value="<" v-on:click="backPage" v-on:keyup.enter="backPage">
+                    <input type="button" class="pageButton" :value="pageOptionOne" :style="{backgroundColor: pageOptionOneColor}" v-on:click="specificPage(pageOptionOne)" v-on:keyup.enter="specificPage(pageOptionOne)">
+                    <input type="button" class="pageButton" :value="pageOptionTwo" :style="{backgroundColor: pageOptionTwoColor}" v-on:click="specificPage(pageOptionTwo)" v-on:keyup.enter="specificPage(pageOptionTwo)">
+                    <input type="button" class="pageButton" :value="pageOptionThree" :style="{backgroundColor: pageOptionThreeColor}" v-on:click="specificPage(pageOptionThree)" v-on:keyup.enter="specificPage(pageOptionThree)">
+                    <input type="button" class="pageButton" value=">" v-on:click="forwardPage" v-on:keyup.enter="forwardPage">
                 </div>
                 <hr>
                 <br>
