@@ -1,4 +1,6 @@
 <?php
+require 'vendor/autoload.php';
+use \Mailjet\Resources;
 
 class FormProcessor
 {
@@ -197,11 +199,32 @@ class FormProcessor
         $sendIpAddress = isset($form['sendIpAddress']) ? $form['sendIpAddress'] : true;
         $message = $this->_getEmailBody($subject, $form['email_message'], $form['fields'], $sendIpAddress);
 
-        $sent = @mail($to, $subject, $message, $headers);
+        $mj = new \Mailjet\Client('XXX','XXX',true,['version' => 'v3.1']);
+        $body = [
+            'Messages' => [
+            [
+                'From' => [
+                'Email' => "bchugallery.mail@gmail.com",
+                'Name' => "Admin"
+                ],
+                'To' => [
+                [
+                    'Email' => $to,
+                    'Name' => "Admin"
+                ]
+                ],
+                'Subject' => $subject,
+                'TextPart' => $message,
+                'CustomID' => "FormSubmission"
+            ]
+            ]
+        ];
+        $response = $mj->post(Resources::$Email, ['body' => $body]);
+        $response->success() && var_dump($response->getData());
 
-        if(!$sent) {
-            die($this->_getErrorResponse($this->_messages['failed_to_send_email']));
-        }
+        //if(!$sent) {
+            //die($this->_getErrorResponse($this->_messages['failed_to_send_email']));
+        //}
 
         $success_data = array(
             'redirect' => $form['success_redirect']
