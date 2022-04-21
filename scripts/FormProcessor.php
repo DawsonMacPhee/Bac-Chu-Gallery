@@ -221,15 +221,6 @@ class FormProcessor
         ];
         $response = $mj->post(Resources::$Email, ['body' => $body]);
         $response->success() && var_dump($response->getData());
-
-        //if(!$sent) {
-            //die($this->_getErrorResponse($this->_messages['failed_to_send_email']));
-        //}
-
-        $success_data = array(
-            'redirect' => $form['success_redirect']
-        );
-        echo $this->_getFormResponse(true, $success_data);
     }
 
     private function _getEmailHeaders($formEmail) {
