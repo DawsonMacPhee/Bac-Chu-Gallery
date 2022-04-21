@@ -1,5 +1,5 @@
 <?php
-require_once('/mailjet-apiv3-php-1.5.5/src/Mailjet/Client.php');
+require_once('../mailjet-apiv3-php-1.5.5/src/Mailjet/Client.php');
 
 class FormProcessor
 {
