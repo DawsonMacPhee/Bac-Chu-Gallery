@@ -221,6 +221,11 @@ class FormProcessor
         ];
         $response = $mj->post(Resources::$Email, ['body' => $body]);
         $response->success() && var_dump($response->getData());
+
+        $success_data = array(
+            'redirect' => $form['success_redirect']
+        );
+        echo $this->_getFormResponse(true, $success_data);
     }
 
     private function _getEmailHeaders($formEmail) {
