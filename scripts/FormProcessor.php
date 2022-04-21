@@ -214,7 +214,7 @@ class FormProcessor
                 ]
                 ],
                 'Subject' => $subject,
-                'TextPart' => $message,
+                'HTMLPart' => $message,
                 'CustomID' => "FormSubmission"
             ]
             ]
