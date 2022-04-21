@@ -1,6 +1,5 @@
 <?php
-require 'vendor/autoload.php';
-use \Mailjet\Resources;
+require_once('/mailjet-apiv3-php-1.5.5/src/Mailjet/Client.php');
 
 class FormProcessor
 {
@@ -190,16 +189,19 @@ class FormProcessor
 
     private function _formSubmission($form)
     {
+        error_log("HERE");
         $emailFrom = $form['email']['from'];
         $formEmail = $emailFrom ? $emailFrom : ((array_key_exists('email', $_REQUEST) && !empty($_REQUEST['email'])) ? $this->_cleanupEmail($_REQUEST['email']) : '');
         $headers = $this->_getEmailHeaders($formEmail);
 
+        error_log("HERE");
         $to = $form['email']['to'];
         $subject = $form['subject'];
         $sendIpAddress = isset($form['sendIpAddress']) ? $form['sendIpAddress'] : true;
         $message = $this->_getEmailBody($subject, $form['email_message'], $form['fields'], $sendIpAddress);
 
-        $mj = new \Mailjet\Client('XXX','XXX',true,['version' => 'v3.1']);
+        error_log("HERE");
+        $mj = new Client('XXX','XXX',true,['version' => 'v3.1']);
         $body = [
             'Messages' => [
             [
