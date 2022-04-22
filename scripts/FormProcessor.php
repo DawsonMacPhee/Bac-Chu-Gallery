@@ -222,14 +222,10 @@ class FormProcessor
         $response = $mj->post(Resources::$Email, ['body' => $body]);
         $response->success() && var_dump($response->getData());
 
-        error_log("Sending Completion Message");
-
         $success_data = array(
             'redirect' => $form['success_redirect']
         );
         echo $this->_getFormResponse(true, $success_data);
-
-        error_log("Completion Message Sent");
     }
 
     private function _getEmailHeaders($formEmail) {
@@ -338,7 +334,6 @@ STYLES;
 
     private function _getFormResponse($success, $data)
     {
-        error_log("Form Response");
         header('Content-Type: application/json');
         $status = array_merge(array('success' => $success), $data);
         return json_encode($status);
