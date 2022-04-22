@@ -226,6 +226,8 @@ class FormProcessor
             'redirect' => $form['success_redirect']
         );
         echo $this->_getFormResponse(true, $success_data);
+        error_log("Sent Info");
+        echo "Success";
     }
 
     private function _getEmailHeaders($formEmail) {
