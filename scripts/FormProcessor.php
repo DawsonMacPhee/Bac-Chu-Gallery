@@ -222,10 +222,14 @@ class FormProcessor
         $response = $mj->post(Resources::$Email, ['body' => $body]);
         $response->success() && var_dump($response->getData());
 
+        error_log("Sending Completion Message");
+
         $success_data = array(
             'redirect' => $form['success_redirect']
         );
         echo $this->_getFormResponse(true, $success_data);
+
+        error_log("Completion Message Sent");
     }
 
     private function _getEmailHeaders($formEmail) {
