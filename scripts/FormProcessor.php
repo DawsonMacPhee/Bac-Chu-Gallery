@@ -338,6 +338,7 @@ STYLES;
 
     private function _getFormResponse($success, $data)
     {
+        error_log("Form Response");
         header('Content-Type: application/json');
         $status = array_merge(array('success' => $success), $data);
         return json_encode($status);
