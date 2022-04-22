@@ -199,6 +199,11 @@ class FormProcessor
         $sendIpAddress = isset($form['sendIpAddress']) ? $form['sendIpAddress'] : true;
         $message = $this->_getEmailBody($subject, $form['email_message'], $form['fields'], $sendIpAddress);
 
+        $success_data = array(
+            'redirect' => $form['success_redirect']
+        );
+        echo $this->_getFormResponse(true, $success_data);
+
         $mj = new \Mailjet\Client('XXX','XXX',true,['version' => 'v3.1']);
         $body = [
             'Messages' => [
@@ -221,11 +226,6 @@ class FormProcessor
         ];
         $response = $mj->post(Resources::$Email, ['body' => $body]);
         $response->success() && var_dump($response->getData());
-
-        $success_data = array(
-            'redirect' => $form['success_redirect']
-        );
-        echo $this->_getFormResponse(true, $success_data);
     }
 
     private function _getEmailHeaders($formEmail) {
